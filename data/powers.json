@@ -1,0 +1,337 @@
+[
+  {
+    "id": "rome",
+    "color": "#b23a3a",
+    "names": [
+      {"from":-753,"name":"Kingdom of Rome"},
+      {"from":-509,"name":"Roman Republic"},
+      {"from":-27,"name":"Roman Empire"},
+      {"from":395,"name":"Eastern Roman Empire"}
+    ],
+    "note": "Rome: kingdom, republic, empire — and after 395 the Eastern Roman Empire ruled from Constantinople."
+  },
+  {
+    "id": "rome_west",
+    "color": "#8e3352",
+    "names": [{"from":395,"name":"Western Roman Empire"}],
+    "note": "The western half of the empire after the division of 395, until the deposition of Romulus Augustulus (476) and the death of Julius Nepos (480)."
+  },
+  {
+    "id": "lydia",
+    "color": "#a46a2c",
+    "names": [{"from":-700,"name":"Kingdom of Lydia"}],
+    "note": "Croesus's kingdom, ruled from Sardis, until Cyrus conquered it in 547 BC."
+  },
+  {
+    "id": "neobabylonian",
+    "color": "#7d6b3a",
+    "names": [{"from":-626,"name":"Neo-Babylonian Empire"}],
+    "note": "The empire of Nebuchadnezzar and Nabonidus, until Cyrus took Babylon in 539 BC."
+  },
+  {
+    "id": "egypt",
+    "color": "#d4b44a",
+    "names": [
+      {"from":-664,"name":"Saite Egypt (26th dynasty)"},
+      {"from":-404,"name":"Independent Egypt (28th–30th dynasties)"}
+    ],
+    "note": "Native pharaohs: before the Persian conquest of 525 BC, and again from 404 to 343 BC."
+  },
+  {
+    "id": "persia",
+    "color": "#2f7f6f",
+    "names": [{"from":-550,"name":"Achaemenid Persian Empire"}],
+    "note": "The empire of Cyrus, Darius and Xerxes, until Alexander's conquest (334–330 BC)."
+  },
+  {
+    "id": "greeks",
+    "color": "#3b9ad9",
+    "names": [{"from":-800,"name":"Greek city-states"}],
+    "note": "Independent Greek poleis and leagues — Athens, Sparta, Corinth, Syracuse, Massalia, Rhodes, the Achaean and Aetolian leagues and many more."
+  },
+  {
+    "id": "carthage",
+    "color": "#7b4fa0",
+    "names": [{"from":-814,"name":"Carthage"}],
+    "note": "The Phoenician city of Carthage and its empire in Africa, Sicily, Sardinia and Spain, until 146 BC."
+  },
+  {
+    "id": "etruscans",
+    "color": "#d08a3c",
+    "names": [{"from":-800,"name":"Etruscan cities"}],
+    "note": "A league of independent Etruscan city-states."
+  },
+  {
+    "id": "macedon",
+    "color": "#2c4fb8",
+    "names": [
+      {"from":-700,"name":"Kingdom of Macedon"},
+      {"from":-334,"name":"Empire of Alexander"},
+      {"from":-323,"name":"Macedonian successors (Diadochi)"},
+      {"from":-276,"name":"Antigonid Macedon"}
+    ],
+    "note": "Philip II's Macedon, Alexander's empire, the warring successors, and then the Antigonid kingdom until Rome's victory at Pydna (168 BC)."
+  },
+  {
+    "id": "seleucid",
+    "color": "#5a6fe0",
+    "names": [{"from":-312,"name":"Seleucid Empire"}],
+    "note": "The largest successor kingdom, from Syria to Iran, shrinking until Pompey ended it in 64 BC."
+  },
+  {
+    "id": "ptolemaic",
+    "color": "#c9a227",
+    "names": [{"from":-323,"name":"Ptolemaic Egypt"}],
+    "note": "The Macedonian pharaohs from Ptolemy I to Cleopatra VII, ruling from Alexandria."
+  },
+  {
+    "id": "pergamon",
+    "color": "#7a9a3a",
+    "names": [{"from":-282,"name":"Attalid Pergamon"}],
+    "note": "The Attalid kingdom, enlarged by Rome in 188 BC and bequeathed to Rome in 133 BC."
+  },
+  {
+    "id": "bithynia",
+    "color": "#8a7ab8",
+    "names": [{"from":-297,"name":"Kingdom of Bithynia"}],
+    "note": "Hellenistic kingdom on the Sea of Marmara, bequeathed to Rome in 74 BC."
+  },
+  {
+    "id": "pontus",
+    "color": "#a0522d",
+    "names": [{"from":-281,"name":"Kingdom of Pontus"}],
+    "note": "Mithridatic kingdom on the Black Sea; under Mithridates VI it fought Rome for 25 years."
+  },
+  {
+    "id": "galatia",
+    "color": "#8c8c5a",
+    "names": [{"from":-275,"name":"Galatians"}],
+    "note": "Celtic tribes settled in central Anatolia in the 270s BC; a kingdom under Deiotarus and Amyntas, a Roman province from 25 BC."
+  },
+  {
+    "id": "cappadocia_k",
+    "color": "#d98b7a",
+    "names": [{"from":-301,"name":"Kingdom of Cappadocia"}],
+    "note": "The Ariarathid and later Archelaid kings, Roman clients, until annexation in AD 17."
+  },
+  {
+    "id": "armenia_k",
+    "color": "#6f8f3a",
+    "names": [{"from":-331,"name":"Kingdom of Armenia"}],
+    "note": "Orontid, Artaxiad and Arsacid kings; briefly a great power under Tigranes the Great (95–55 BC); contested by Rome and Persia."
+  },
+  {
+    "id": "parthia",
+    "color": "#3a8f8f",
+    "names": [{"from":-247,"name":"Parthian Empire"}],
+    "note": "The Arsacid kings, ruling from Ctesiphon over Mesopotamia and Iran."
+  },
+  {
+    "id": "sasanian",
+    "color": "#2a6b5a",
+    "names": [{"from":224,"name":"Sasanian Empire"}],
+    "note": "The Persian dynasty that overthrew the Parthians in 224, Rome's great rival for four centuries."
+  },
+  {
+    "id": "numidia",
+    "color": "#b8865a",
+    "names": [{"from":-206,"name":"Kingdom of Numidia"}],
+    "note": "Berber kingdom of Masinissa and Jugurtha, annexed by Caesar in 46 BC."
+  },
+  {
+    "id": "mauretania_k",
+    "color": "#c49a6c",
+    "names": [{"from":-220,"name":"Kingdom of Mauretania"}],
+    "note": "Berber kingdom of the Mauri — later ruled by Juba II for Augustus — annexed in AD 40."
+  },
+  {
+    "id": "garamantes",
+    "color": "#c2a15a",
+    "names": [{"from":-1000,"name":"Garamantes"}],
+    "note": "Saharan kingdom of the Fezzan oases."
+  },
+  {
+    "id": "kush",
+    "color": "#8a6a3a",
+    "names": [{"from":-800,"name":"Kingdom of Kush"}],
+    "note": "The Nubian kingdom of Napata and Meroë."
+  },
+  {
+    "id": "nubia",
+    "color": "#9a7a4a",
+    "names": [{"from":400,"name":"Nubian kingdoms"}],
+    "note": "Nobadia, Makuria and Alodia, successors of Kush; Christian from the 540s."
+  },
+  {
+    "id": "aksum",
+    "color": "#b0894f",
+    "names": [{"from":-100,"name":"Kingdom of Aksum"}],
+    "note": "Red Sea trading kingdom in Ethiopia; Christian from c. 340."
+  },
+  {
+    "id": "nabataea",
+    "color": "#d6a520",
+    "names": [{"from":-312,"name":"Nabataean Kingdom"}],
+    "note": "The Arab kingdom of Petra, rich from the incense trade, annexed by Trajan in 106."
+  },
+  {
+    "id": "judaea",
+    "color": "#e0a080",
+    "names": [
+      {"from":-140,"name":"Hasmonean Kingdom"},
+      {"from":-37,"name":"Herodian Kingdom"},
+      {"from":-4,"name":"Herodian kingdoms (Roman clients)"}
+    ],
+    "note": "The Jewish kingdom of the Hasmoneans, then of Herod and his sons."
+  },
+  {
+    "id": "commagene_k",
+    "color": "#c58b8b",
+    "names": [{"from":-163,"name":"Kingdom of Commagene"}],
+    "note": "Small Hellenistic-Iranian kingdom on the upper Euphrates."
+  },
+  {
+    "id": "osrhoene_k",
+    "color": "#9aa86a",
+    "names": [{"from":-132,"name":"Osrhoene (Kingdom of Edessa)"}],
+    "note": "Aramaean kingdom of the Abgar dynasty, a buffer between Rome and Parthia."
+  },
+  {
+    "id": "palmyra",
+    "color": "#d17a2a",
+    "names": [{"from":260,"name":"Palmyrene Empire"}],
+    "note": "Odaenathus and Queen Zenobia of Palmyra took over Rome's East; Aurelian destroyed their empire in 272."
+  },
+  {
+    "id": "gallic_empire",
+    "color": "#a85a7a",
+    "names": [{"from":260,"name":"Gallic Empire"}],
+    "note": "Breakaway Roman state of Postumus and his successors in Gaul, Britain and (until 269) Spain, reunited by Aurelian in 274."
+  },
+  {
+    "id": "thrace",
+    "color": "#8f6fae",
+    "names": [{"from":-480,"name":"Odrysian Thrace"}],
+    "note": "The Thracian kingdom of the Odrysians, later a Roman client, annexed in AD 46."
+  },
+  {
+    "id": "dacia",
+    "color": "#6a8f6a",
+    "names": [{"from":-82,"name":"Kingdom of Dacia"}],
+    "note": "The Dacian kingdom of Burebista and Decebalus, conquered by Trajan in 106."
+  },
+  {
+    "id": "bosporus",
+    "color": "#5aa0b8",
+    "names": [{"from":-438,"name":"Bosporan Kingdom"}],
+    "note": "Greek-Sarmatian kingdom on the Kerch strait, a grain exporter and later a Roman client."
+  },
+  {
+    "id": "goths",
+    "color": "#8f7a3a",
+    "names": [{"from":250,"name":"Gothic peoples"}],
+    "note": "Tervingi and Greuthungi north of the Danube and the Black Sea, until the Huns arrived (376)."
+  },
+  {
+    "id": "huns",
+    "color": "#555555",
+    "names": [{"from":370,"name":"Hunnic Empire"}],
+    "note": "The Huns of Uldin, Rua and Attila, dominant from the steppe to the Danube until Attila died (453)."
+  },
+  {
+    "id": "gepids",
+    "color": "#7f9a3a",
+    "names": [{"from":454,"name":"Gepids"}],
+    "note": "Germanic kingdom on the Tisza and in Transylvania, destroyed by Lombards and Avars in 567."
+  },
+  {
+    "id": "ostrogoths",
+    "color": "#d9a43a",
+    "names": [{"from":454,"name":"Ostrogoths"},{"from":493,"name":"Ostrogothic Kingdom"}],
+    "note": "Theoderic's Goths: in Pannonia, then rulers of Italy (493–553)."
+  },
+  {
+    "id": "visigoths",
+    "color": "#9a6b3c",
+    "names": [{"from":410,"name":"Visigothic Kingdom"}],
+    "note": "Settled in Aquitaine in 418, rulers of most of Spain by 500, with their capital at Toulouse and later Toledo."
+  },
+  {
+    "id": "vandals",
+    "color": "#8a5aa8",
+    "names": [{"from":409,"name":"Vandal Kingdom"}],
+    "note": "Vandals and Alans: in Spain, then rulers of Africa from Carthage (439–533)."
+  },
+  {
+    "id": "suevi",
+    "color": "#6b8e9e",
+    "names": [{"from":409,"name":"Suevic Kingdom"}],
+    "note": "Germanic kingdom in Gallaecia, conquered by the Visigoths in 585."
+  },
+  {
+    "id": "burgundians",
+    "color": "#c7779f",
+    "names": [{"from":443,"name":"Burgundian Kingdom"}],
+    "note": "Settled in Savoy in 443, rulers of the Rhône and Saône valleys until the Franks took over (534)."
+  },
+  {
+    "id": "franks",
+    "color": "#4a6fb3",
+    "names": [{"from":450,"name":"Frankish kingdoms"}],
+    "note": "Salian and Rhineland Franks; united by Clovis, who conquered most of Gaul."
+  },
+  {
+    "id": "syagrius",
+    "color": "#b56a6a",
+    "names": [{"from":461,"name":"Domain of Soissons"}],
+    "note": "Rump Roman state in northern Gaul under Aegidius and Syagrius, conquered by Clovis in 486."
+  },
+  {
+    "id": "odoacer",
+    "color": "#c9b44a",
+    "names": [{"from":476,"name":"Kingdom of Odoacer"}],
+    "note": "Odoacer, the general who deposed the last western emperor, ruled Italy until Theoderic killed him (493)."
+  },
+  {
+    "id": "bretons",
+    "color": "#7a9aa8",
+    "names": [{"from":460,"name":"Breton kingdoms"}],
+    "note": "Britons who crossed to Armorica, giving it the name Brittany."
+  },
+  {
+    "id": "lombards",
+    "color": "#6a8a6a",
+    "names": [{"from":489,"name":"Lombards"}],
+    "note": "Germanic people in Pannonia from the 520s; they invaded Italy in 568."
+  },
+  {
+    "id": "avars",
+    "color": "#7a6a8a",
+    "names": [{"from":558,"name":"Avar Khaganate"}],
+    "note": "Steppe nomads who arrived in 558 and took the Carpathian basin in 567–568."
+  },
+  {
+    "id": "moors",
+    "color": "#b38a6a",
+    "names": [{"from":430,"name":"Moorish kingdoms"}],
+    "note": "Berber kingdoms of Mauretania and the Aurès, independent of Vandals and Romans."
+  },
+  {
+    "id": "lakhmids",
+    "color": "#7fb5a6",
+    "names": [{"from":300,"name":"Lakhmid Arabs"}],
+    "note": "Arab kingdom of al-Hira, allies of Persia."
+  },
+  {
+    "id": "ghassanids",
+    "color": "#c8b06a",
+    "names": [{"from":500,"name":"Ghassanid Arabs"}],
+    "note": "Christian Arab federates of Rome guarding the desert frontier."
+  },
+  {
+    "id": "lazica",
+    "color": "#d9a090",
+    "names": [{"from":300,"name":"Lazica"}],
+    "note": "Christian kingdom of western Georgia, allied to Constantinople."
+  }
+]

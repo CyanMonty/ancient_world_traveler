@@ -1,0 +1,1872 @@
+[
+  {
+    "id": "gallaecia",
+    "name": "Gallaecia",
+    "seeds": [[-8.1,42.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-19,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":411,"power":"suevi"},
+      {"from":585,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "lusitania",
+    "name": "Lusitania",
+    "seeds": [[-8,39.6],[-6.6,38.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-138,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":439,"power":"suevi"},
+      {"from":469,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "baetica",
+    "name": "Baetica (Turdetania)",
+    "seeds": [[-5.3,37.4],[-6.2,36.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-500,"power":"carthage"},
+      {"from":-206,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":411,"power":"vandals"},
+      {"from":429,"power":"rome_west"},
+      {"from":441,"power":"suevi"},
+      {"from":456,"power":"rome_west"},
+      {"from":472,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "carthaginensis",
+    "name": "South-east Spain",
+    "seeds": [[-0.9,38.2],[-0.4,39.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-237,"power":"carthage"},
+      {"from":-209,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":472,"power":"visigoths"},
+      {"from":552,"power":"rome"}
+    ]
+  },
+  {
+    "id": "meseta",
+    "name": "Central Spain (Celtiberia)",
+    "seeds": [[-3.9,40.1],[-2.6,41.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-133,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":472,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "cantabria",
+    "name": "Cantabria & the Basque country",
+    "seeds": [[-4.6,43.1],[-2,42.95]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-19,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":409,"power":null},
+      {"from":574,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "tarraconensis",
+    "name": "North-east Spain (Ebro & Catalonia)",
+    "seeds": [[0.9,41.4],[-0.9,41.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-218,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":269,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":472,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "balearics",
+    "name": "Balearic Islands",
+    "seeds": [[2.9,39.6],[1.4,38.95]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-500,"power":"carthage"},
+      {"from":-123,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":455,"power":"vandals"},
+      {"from":534,"power":"rome"}
+    ]
+  },
+  {
+    "id": "narbonensis",
+    "name": "Narbonensis (Languedoc)",
+    "seeds": [[3.1,43.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-121,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":462,"power":"visigoths"}
+    ]
+  },
+  {
+    "id": "provence",
+    "name": "Provence",
+    "seeds": [[5.7,43.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":-121,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"visigoths"},
+      {"from":508,"power":"ostrogoths"},
+      {"from":536,"power":"franks"}
+    ]
+  },
+  {
+    "id": "aquitania_s",
+    "name": "Aquitania (Garonne)",
+    "seeds": [[0.4,44],[-0.6,44.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-56,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":418,"power":"visigoths"},
+      {"from":507,"power":"franks"}
+    ]
+  },
+  {
+    "id": "aquitania_n",
+    "name": "Poitou & Auvergne",
+    "seeds": [[0.4,46.4],[2.9,45.6],[0.9,47.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-51,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":475,"power":"visigoths"},
+      {"from":507,"power":"franks"}
+    ]
+  },
+  {
+    "id": "lugdunensis",
+    "name": "Lyonnais & Burgundy",
+    "seeds": [[4.8,46.1],[5.4,47.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-51,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":457,"power":"burgundians"},
+      {"from":534,"power":"franks"}
+    ]
+  },
+  {
+    "id": "alps_west",
+    "name": "Western Alps (Savoy & Valais)",
+    "seeds": [[6.6,45.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-15,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":443,"power":"burgundians"},
+      {"from":534,"power":"franks"}
+    ]
+  },
+  {
+    "id": "armorica",
+    "name": "Armorica (Brittany)",
+    "seeds": [[-3,48.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-56,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":460,"power":"bretons"}
+    ]
+  },
+  {
+    "id": "gallia_n",
+    "name": "Paris basin",
+    "seeds": [[2.3,48.5],[0.4,48]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-51,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":461,"power":"syagrius"},
+      {"from":486,"power":"franks"}
+    ]
+  },
+  {
+    "id": "belgica",
+    "name": "Belgica",
+    "seeds": [[3.4,50],[4.8,49.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-51,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":457,"power":"franks"}
+    ]
+  },
+  {
+    "id": "treveri",
+    "name": "Moselle (Treveri)",
+    "seeds": [[6.6,49.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-51,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":475,"power":"franks"}
+    ]
+  },
+  {
+    "id": "germania_inf",
+    "name": "Lower Rhine",
+    "seeds": [[6.2,51.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-51,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":455,"power":"franks"}
+    ]
+  },
+  {
+    "id": "germania",
+    "name": "Germania",
+    "seeds": [[9,51],[8.4,52.6]],
+    "owners": [{"from":-3000,"power":null},{"from":480,"power":"franks"}]
+  },
+  {
+    "id": "thuringia",
+    "name": "Thuringia",
+    "seeds": [[11.5,51],[12.5,52.5]],
+    "owners": [{"from":-3000,"power":null},{"from":531,"power":"franks"}]
+  },
+  {
+    "id": "alamannia",
+    "name": "Agri Decumates (Alamannia)",
+    "seeds": [[9,48.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":74,"power":"rome"},
+      {"from":260,"power":null},
+      {"from":506,"power":"franks"}
+    ]
+  },
+  {
+    "id": "raetia",
+    "name": "Raetia",
+    "seeds": [[11,47.8],[9.6,47]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-15,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":537,"power":"franks"}
+    ]
+  },
+  {
+    "id": "britannia_s",
+    "name": "Southern Britain",
+    "seeds": [[-0.6,51.6],[-2.6,51.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":43,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":410,"power":null}
+    ]
+  },
+  {
+    "id": "britannia_n",
+    "name": "Northern Britain",
+    "seeds": [[-1.6,54.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":71,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":410,"power":null}
+    ]
+  },
+  {
+    "id": "wales",
+    "name": "Wales",
+    "seeds": [[-3.8,52.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":78,"power":"rome"},
+      {"from":260,"power":"gallic_empire"},
+      {"from":274,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":410,"power":null}
+    ]
+  },
+  {"id":"caledonia","name":"Caledonia","seeds":[[-4,56.4]],"owners":[{"from":-3000,"power":null}]},
+  {"id":"hibernia","name":"Hibernia","seeds":[[-8,53.3]],"owners":[{"from":-3000,"power":null}]},
+  {
+    "id": "liguria",
+    "name": "Liguria",
+    "seeds": [[8.8,44.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-180,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":553,"power":"rome"}
+    ]
+  },
+  {
+    "id": "cisalpina",
+    "name": "Cisalpine Gaul (western Po plain)",
+    "seeds": [[8.9,45.4],[10.2,45.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-191,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":553,"power":"rome"},
+      {"from":569,"power":"lombards"}
+    ]
+  },
+  {
+    "id": "venetia",
+    "name": "Venetia",
+    "seeds": [[12.1,45.5],[13.3,45.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-181,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":553,"power":"rome"},
+      {"from":568,"power":"lombards"}
+    ]
+  },
+  {
+    "id": "aemilia",
+    "name": "Aemilia (Bologna & Ravenna)",
+    "seeds": [[11.4,44.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"etruscans"},
+      {"from":-350,"power":null},
+      {"from":-191,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":540,"power":"rome"}
+    ]
+  },
+  {
+    "id": "etruria",
+    "name": "Etruria",
+    "seeds": [[11.3,43.3],[11.8,42.6],[12.2,42.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-800,"power":"etruscans"},
+      {"from":-280,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":540,"power":"rome"},
+      {"from":574,"power":"lombards"}
+    ]
+  },
+  {
+    "id": "umbria",
+    "name": "Umbria & Picenum",
+    "seeds": [[13,43.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-268,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":540,"power":"rome"},
+      {"from":576,"power":"lombards"}
+    ]
+  },
+  {
+    "id": "latium",
+    "name": "Latium",
+    "seeds": [[12.7,41.8]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-753,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":536,"power":"rome"}
+    ]
+  },
+  {
+    "id": "campania",
+    "name": "Campania",
+    "seeds": [[14.2,40.85]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":-326,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":536,"power":"rome"}
+    ]
+  },
+  {
+    "id": "samnium",
+    "name": "Samnium",
+    "seeds": [[14.8,41.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-290,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":536,"power":"rome"},
+      {"from":571,"power":"lombards"}
+    ]
+  },
+  {
+    "id": "lucania",
+    "name": "Lucania",
+    "seeds": [[15.6,40.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":-272,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":536,"power":"rome"}
+    ]
+  },
+  {
+    "id": "apulia",
+    "name": "Apulia & Calabria",
+    "seeds": [[16.6,41],[17.6,40.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":-272,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":536,"power":"rome"}
+    ]
+  },
+  {
+    "id": "bruttium",
+    "name": "Bruttium",
+    "seeds": [[16.3,39.1],[15.9,38.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":-272,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":535,"power":"rome"}
+    ]
+  },
+  {
+    "id": "sicily_w",
+    "name": "Western Sicily",
+    "seeds": [[12.6,37.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"carthage"},
+      {"from":-241,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":468,"power":"vandals"},
+      {"from":477,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":535,"power":"rome"}
+    ]
+  },
+  {
+    "id": "sicily_e",
+    "name": "Eastern Sicily",
+    "seeds": [[14.8,37.3],[13.9,37.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-700,"power":"greeks"},
+      {"from":-211,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":468,"power":"vandals"},
+      {"from":477,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":535,"power":"rome"}
+    ]
+  },
+  {
+    "id": "sardinia",
+    "name": "Sardinia",
+    "seeds": [[9,40]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-540,"power":"carthage"},
+      {"from":-238,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":455,"power":"vandals"},
+      {"from":534,"power":"rome"}
+    ]
+  },
+  {
+    "id": "corsica",
+    "name": "Corsica",
+    "seeds": [[9.1,42.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-540,"power":"etruscans"},
+      {"from":-280,"power":"carthage"},
+      {"from":-238,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":455,"power":"vandals"},
+      {"from":534,"power":"rome"}
+    ]
+  },
+  {
+    "id": "malta",
+    "name": "Malta",
+    "seeds": [[14.4,35.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"carthage"},
+      {"from":-218,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":455,"power":"vandals"},
+      {"from":494,"power":"ostrogoths"},
+      {"from":535,"power":"rome"}
+    ]
+  },
+  {
+    "id": "tingitana",
+    "name": "Tingitana (northern Morocco)",
+    "seeds": [[-5.7,35.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-220,"power":"mauretania_k"},
+      {"from":40,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":430,"power":"moors"}
+    ]
+  },
+  {
+    "id": "mauretania_w",
+    "name": "Atlas & southern Morocco",
+    "seeds": [[-6.6,32.5],[-8.5,30.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-100,"power":"mauretania_k"},
+      {"from":40,"power":null},
+      {"from":430,"power":"moors"}
+    ]
+  },
+  {
+    "id": "mauretania_c",
+    "name": "Mauretania Caesariensis",
+    "seeds": [[1.8,36.2],[-0.4,35.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-220,"power":"numidia"},
+      {"from":-105,"power":"mauretania_k"},
+      {"from":40,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":442,"power":"vandals"},
+      {"from":480,"power":"moors"},
+      {"from":534,"power":"rome"}
+    ]
+  },
+  {
+    "id": "numidia_w",
+    "name": "Western Numidia (Sitifis)",
+    "seeds": [[5.3,36.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-206,"power":"numidia"},
+      {"from":-46,"power":"mauretania_k"},
+      {"from":40,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":442,"power":"vandals"},
+      {"from":480,"power":"moors"},
+      {"from":539,"power":"rome"}
+    ]
+  },
+  {
+    "id": "numidia_e",
+    "name": "Numidia (Cirta & Hippo)",
+    "seeds": [[7.2,36.4],[6.6,36.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-206,"power":"numidia"},
+      {"from":-46,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":435,"power":"vandals"},
+      {"from":533,"power":"rome"}
+    ]
+  },
+  {
+    "id": "africa",
+    "name": "Africa (Carthage)",
+    "seeds": [[9.8,36.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-700,"power":"carthage"},
+      {"from":-146,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":439,"power":"vandals"},
+      {"from":533,"power":"rome"}
+    ]
+  },
+  {
+    "id": "byzacena",
+    "name": "Byzacena",
+    "seeds": [[10.4,35.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"carthage"},
+      {"from":-150,"power":"numidia"},
+      {"from":-46,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":439,"power":"vandals"},
+      {"from":533,"power":"rome"}
+    ]
+  },
+  {
+    "id": "aures",
+    "name": "Aurès & the Numidian interior",
+    "seeds": [[6.5,34.9],[3,34.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-206,"power":"numidia"},
+      {"from":100,"power":"rome"},
+      {"from":430,"power":null},
+      {"from":480,"power":"moors"}
+    ]
+  },
+  {
+    "id": "tripolitania",
+    "name": "Tripolitania",
+    "seeds": [[13.4,32.3],[11.5,32.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"carthage"},
+      {"from":-160,"power":"numidia"},
+      {"from":-46,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":455,"power":"vandals"},
+      {"from":533,"power":"rome"}
+    ]
+  },
+  {
+    "id": "syrtica",
+    "name": "Coast of the Great Syrtis",
+    "seeds": [[17.3,30.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-500,"power":"carthage"},
+      {"from":-160,"power":"numidia"},
+      {"from":-46,"power":"rome"},
+      {"from":455,"power":"vandals"},
+      {"from":533,"power":"rome"}
+    ]
+  },
+  {
+    "id": "cyrenaica",
+    "name": "Cyrenaica",
+    "seeds": [[21.8,32.5],[20.2,32.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-631,"power":"greeks"},
+      {"from":-525,"power":"persia"},
+      {"from":-470,"power":"greeks"},
+      {"from":-322,"power":"ptolemaic"},
+      {"from":-96,"power":"rome"}
+    ]
+  },
+  {
+    "id": "marmarica",
+    "name": "Marmarica",
+    "seeds": [[25,31.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-525,"power":"persia"},
+      {"from":-470,"power":null},
+      {"from":-300,"power":"ptolemaic"},
+      {"from":-30,"power":"rome"}
+    ]
+  },
+  {
+    "id": "siwa_oasis",
+    "name": "Oasis of Ammon",
+    "seeds": [[25.5,29.2]],
+    "owners": [{"from":-3000,"power":null},{"from":-300,"power":"ptolemaic"},{"from":-30,"power":"rome"}]
+  },
+  {
+    "id": "fezzan",
+    "name": "Fezzan",
+    "seeds": [[13,26.5]],
+    "owners": [{"from":-3000,"power":null},{"from":-1000,"power":"garamantes"}]
+  },
+  {
+    "id": "sahara_w",
+    "name": "Western Sahara",
+    "seeds": [[0,28],[5,26],[-6,27]],
+    "owners": [{"from":-3000,"power":null}]
+  },
+  {"id":"sahara_e","name":"Libyan desert","seeds":[[20,25],[24,27]],"owners":[{"from":-3000,"power":null}]},
+  {
+    "id": "delta",
+    "name": "Nile Delta",
+    "seeds": [[31,30.8],[30,31],[32.2,30.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-664,"power":"egypt"},
+      {"from":-525,"power":"persia"},
+      {"from":-404,"power":"egypt"},
+      {"from":-343,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-323,"power":"ptolemaic"},
+      {"from":-30,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "middle_egypt",
+    "name": "Middle Egypt",
+    "seeds": [[30.8,28.5],[31.2,29.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-664,"power":"egypt"},
+      {"from":-525,"power":"persia"},
+      {"from":-404,"power":"egypt"},
+      {"from":-343,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-323,"power":"ptolemaic"},
+      {"from":-30,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "upper_egypt",
+    "name": "Upper Egypt (Thebaid)",
+    "seeds": [[32.6,25.8],[32.2,27],[32.9,24.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-664,"power":"egypt"},
+      {"from":-525,"power":"persia"},
+      {"from":-404,"power":"egypt"},
+      {"from":-343,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-323,"power":"ptolemaic"},
+      {"from":-30,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "eastern_desert",
+    "name": "Eastern Desert",
+    "seeds": [[34,26.5],[33.5,28.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-664,"power":"egypt"},
+      {"from":-525,"power":"persia"},
+      {"from":-404,"power":"egypt"},
+      {"from":-343,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-323,"power":"ptolemaic"},
+      {"from":-30,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "sinai",
+    "name": "Sinai",
+    "seeds": [[33.9,29.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-525,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-100,"power":"nabataea"},
+      {"from":106,"power":"rome"}
+    ]
+  },
+  {
+    "id": "lower_nubia",
+    "name": "Lower Nubia",
+    "seeds": [[32,22.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-800,"power":"kush"},
+      {"from":-275,"power":"ptolemaic"},
+      {"from":-205,"power":"kush"},
+      {"from":-186,"power":"ptolemaic"},
+      {"from":-30,"power":"rome"},
+      {"from":298,"power":null},
+      {"from":450,"power":"nubia"}
+    ]
+  },
+  {
+    "id": "kush",
+    "name": "Kush (Napata & Meroë)",
+    "seeds": [[33,18.5],[31,19.8],[32.5,16]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-800,"power":"kush"},
+      {"from":350,"power":null},
+      {"from":450,"power":"nubia"}
+    ]
+  },
+  {
+    "id": "ethiopia",
+    "name": "Ethiopian highlands",
+    "seeds": [[38.7,14.8],[37.5,15.5]],
+    "owners": [{"from":-3000,"power":null},{"from":-100,"power":"aksum"}]
+  },
+  {
+    "id": "philistia",
+    "name": "Philistia (Gaza coast)",
+    "seeds": [[34.5,31.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-96,"power":"judaea"},
+      {"from":-63,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "judaea",
+    "name": "Judaea",
+    "seeds": [[35.2,31.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-140,"power":"judaea"},
+      {"from":6,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "samaria",
+    "name": "Samaria & the Sharon coast",
+    "seeds": [[35.1,32.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-107,"power":"judaea"},
+      {"from":6,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "galilee",
+    "name": "Galilee",
+    "seeds": [[35.45,32.85]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-104,"power":"judaea"},
+      {"from":44,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "phoenicia",
+    "name": "Phoenicia",
+    "seeds": [[35.4,33.5],[35.9,34.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-83,"power":"armenia_k"},
+      {"from":-64,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "coele_syria",
+    "name": "Damascus & the Beqaa",
+    "seeds": [[36.4,33.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-85,"power":"nabataea"},
+      {"from":-72,"power":"armenia_k"},
+      {"from":-64,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "transjordan",
+    "name": "Transjordan & the Decapolis",
+    "seeds": [[36,32.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-332,"power":"macedon"},
+      {"from":-301,"power":"ptolemaic"},
+      {"from":-200,"power":"seleucid"},
+      {"from":-63,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "nabataea",
+    "name": "Edom & Nabataea",
+    "seeds": [[35.6,30.3],[35.1,30.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-312,"power":"nabataea"},
+      {"from":106,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "hejaz",
+    "name": "Northern Hejaz",
+    "seeds": [[37.5,27.5],[36.5,28.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-100,"power":"nabataea"},
+      {"from":106,"power":"rome"},
+      {"from":300,"power":null}
+    ]
+  },
+  {
+    "id": "syrian_desert",
+    "name": "Syrian desert",
+    "seeds": [[38.6,32.6],[40.3,31.6]],
+    "owners": [{"from":-3000,"power":null},{"from":502,"power":"ghassanids"}]
+  },
+  {
+    "id": "palmyrene",
+    "name": "Palmyrene",
+    "seeds": [[38.3,34.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":17,"power":"rome"},
+      {"from":260,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "arabia_n",
+    "name": "North Arabian desert",
+    "seeds": [[42.5,29.5],[45.5,28.5]],
+    "owners": [{"from":-3000,"power":null},{"from":300,"power":"lakhmids"}]
+  },
+  {
+    "id": "arabia_e",
+    "name": "Eastern Arabia",
+    "seeds": [[49.5,26.5]],
+    "owners": [{"from":-3000,"power":null},{"from":240,"power":"sasanian"}]
+  },
+  {
+    "id": "syria",
+    "name": "Northern Syria (Antioch)",
+    "seeds": [[36.4,36.1],[36.9,35.3],[37.6,36.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-301,"power":"seleucid"},
+      {"from":-83,"power":"armenia_k"},
+      {"from":-64,"power":"rome"},
+      {"from":270,"power":"palmyra"},
+      {"from":272,"power":"rome"}
+    ]
+  },
+  {
+    "id": "commagene",
+    "name": "Commagene",
+    "seeds": [[38.3,37.8]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-301,"power":"seleucid"},
+      {"from":-163,"power":"commagene_k"},
+      {"from":17,"power":"rome"},
+      {"from":38,"power":"commagene_k"},
+      {"from":72,"power":"rome"}
+    ]
+  },
+  {
+    "id": "osrhoene",
+    "name": "Osrhoene",
+    "seeds": [[38.9,36.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-132,"power":"osrhoene_k"},
+      {"from":214,"power":"rome"}
+    ]
+  },
+  {
+    "id": "tur_abdin",
+    "name": "Upper Mesopotamia (Amida & Dara)",
+    "seeds": [[40.3,37.6],[39.9,36.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-140,"power":"parthia"},
+      {"from":-80,"power":"armenia_k"},
+      {"from":-69,"power":"parthia"},
+      {"from":198,"power":"rome"}
+    ]
+  },
+  {
+    "id": "mesopotamia_n",
+    "name": "Nisibis & the Khabur",
+    "seeds": [[41.9,36.9],[42.1,36.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-140,"power":"parthia"},
+      {"from":-80,"power":"armenia_k"},
+      {"from":-69,"power":"parthia"},
+      {"from":198,"power":"rome"},
+      {"from":363,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "euphrates",
+    "name": "Middle Euphrates (Dura)",
+    "seeds": [[41,34.6],[40.2,35.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-113,"power":"parthia"},
+      {"from":165,"power":"rome"},
+      {"from":256,"power":"sasanian"},
+      {"from":298,"power":"rome"}
+    ]
+  },
+  {
+    "id": "assyria",
+    "name": "Assyria & Adiabene",
+    "seeds": [[43.6,36.3],[44.3,35.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-141,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "babylonia",
+    "name": "Babylonia",
+    "seeds": [[44.4,32.6],[45.6,31.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-141,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "characene",
+    "name": "Characene (Mesene)",
+    "seeds": [[47.3,30.8]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-605,"power":"neobabylonian"},
+      {"from":-539,"power":"persia"},
+      {"from":-331,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-127,"power":"parthia"},
+      {"from":222,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "media",
+    "name": "Media",
+    "seeds": [[48.2,34.6],[47,35.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-330,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-148,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "atropatene",
+    "name": "Atropatene",
+    "seeds": [[47.2,37.8]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-330,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-148,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "susiana",
+    "name": "Susiana (Elam)",
+    "seeds": [[48.6,31.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-330,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-140,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "persis",
+    "name": "Persis",
+    "seeds": [[52.6,29.8],[51,30.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-330,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-140,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "iran_east",
+    "name": "Eastern Iran",
+    "seeds": [[56,33],[57,36.5],[58,30]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-330,"power":"macedon"},
+      {"from":-312,"power":"seleucid"},
+      {"from":-238,"power":"parthia"},
+      {"from":224,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "troad",
+    "name": "Troad & Mysia",
+    "seeds": [[27,39.8],[28,40.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"lydia"},
+      {"from":-547,"power":"persia"},
+      {"from":-334,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"pergamon"},
+      {"from":-133,"power":"rome"},
+      {"from":-88,"power":"pontus"},
+      {"from":-85,"power":"rome"}
+    ]
+  },
+  {
+    "id": "ionia",
+    "name": "Ionia",
+    "seeds": [[26.9,38.4],[27.1,37.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"lydia"},
+      {"from":-545,"power":"persia"},
+      {"from":-479,"power":"greeks"},
+      {"from":-387,"power":"persia"},
+      {"from":-334,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"pergamon"},
+      {"from":-133,"power":"rome"},
+      {"from":-88,"power":"pontus"},
+      {"from":-85,"power":"rome"}
+    ]
+  },
+  {
+    "id": "lydia",
+    "name": "Lydia",
+    "seeds": [[28.3,38.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-700,"power":"lydia"},
+      {"from":-547,"power":"persia"},
+      {"from":-334,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"pergamon"},
+      {"from":-133,"power":"rome"},
+      {"from":-88,"power":"pontus"},
+      {"from":-85,"power":"rome"}
+    ]
+  },
+  {
+    "id": "caria",
+    "name": "Caria",
+    "seeds": [[28,37.3],[27.6,37.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-545,"power":"persia"},
+      {"from":-334,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"greeks"},
+      {"from":-129,"power":"rome"}
+    ]
+  },
+  {
+    "id": "lycia",
+    "name": "Lycia",
+    "seeds": [[29.8,36.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-545,"power":"persia"},
+      {"from":-334,"power":"macedon"},
+      {"from":-295,"power":"ptolemaic"},
+      {"from":-197,"power":"seleucid"},
+      {"from":-188,"power":"greeks"},
+      {"from":43,"power":"rome"}
+    ]
+  },
+  {
+    "id": "pamphylia",
+    "name": "Pamphylia & Pisidia",
+    "seeds": [[30.8,37.3],[31.6,36.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-545,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"pergamon"},
+      {"from":-102,"power":"rome"}
+    ]
+  },
+  {
+    "id": "phrygia",
+    "name": "Phrygia",
+    "seeds": [[30.6,39],[29.5,38.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"lydia"},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"pergamon"},
+      {"from":-116,"power":"rome"},
+      {"from":-88,"power":"pontus"},
+      {"from":-85,"power":"rome"}
+    ]
+  },
+  {
+    "id": "bithynia",
+    "name": "Bithynia",
+    "seeds": [[30,40.5],[31.5,40.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"lydia"},
+      {"from":-547,"power":"persia"},
+      {"from":-334,"power":"macedon"},
+      {"from":-297,"power":"bithynia"},
+      {"from":-74,"power":"rome"}
+    ]
+  },
+  {
+    "id": "paphlagonia",
+    "name": "Paphlagonia",
+    "seeds": [[33.6,41.4],[34.5,41]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"lydia"},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-320,"power":null},
+      {"from":-183,"power":"pontus"},
+      {"from":-63,"power":"rome"}
+    ]
+  },
+  {
+    "id": "pontus",
+    "name": "Pontus",
+    "seeds": [[36.5,40.6],[38.5,40.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-281,"power":"pontus"},
+      {"from":-63,"power":"rome"}
+    ]
+  },
+  {
+    "id": "galatia",
+    "name": "Galatia",
+    "seeds": [[32.9,39.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"lydia"},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-275,"power":"galatia"},
+      {"from":-25,"power":"rome"}
+    ]
+  },
+  {
+    "id": "lycaonia",
+    "name": "Lycaonia",
+    "seeds": [[33,37.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-281,"power":"seleucid"},
+      {"from":-188,"power":"pergamon"},
+      {"from":-129,"power":"cappadocia_k"},
+      {"from":-36,"power":"galatia"},
+      {"from":-25,"power":"rome"}
+    ]
+  },
+  {
+    "id": "cilicia",
+    "name": "Cilicia",
+    "seeds": [[35,37],[34,36.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-301,"power":"seleucid"},
+      {"from":-83,"power":"armenia_k"},
+      {"from":-64,"power":"rome"}
+    ]
+  },
+  {
+    "id": "cappadocia",
+    "name": "Cappadocia",
+    "seeds": [[35.6,38.6],[34.5,38.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-547,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-301,"power":"cappadocia_k"},
+      {"from":17,"power":"rome"}
+    ]
+  },
+  {
+    "id": "armenia_minor",
+    "name": "Lesser Armenia",
+    "seeds": [[38.4,39.8]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-547,"power":"persia"},
+      {"from":-331,"power":"armenia_k"},
+      {"from":-115,"power":"pontus"},
+      {"from":-63,"power":"rome"}
+    ]
+  },
+  {
+    "id": "cyprus",
+    "name": "Cyprus",
+    "seeds": [[33.3,35.1],[32.6,34.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-570,"power":"egypt"},
+      {"from":-545,"power":"persia"},
+      {"from":-333,"power":"macedon"},
+      {"from":-294,"power":"ptolemaic"},
+      {"from":-58,"power":"rome"}
+    ]
+  },
+  {
+    "id": "rhodes",
+    "name": "Rhodes & the Dodecanese",
+    "seeds": [[28,36.3],[27.2,36.8]],
+    "owners": [{"from":-3000,"power":null},{"from":-800,"power":"greeks"},{"from":44,"power":"rome"}]
+  },
+  {
+    "id": "crete",
+    "name": "Crete",
+    "seeds": [[24.9,35.2],[23.8,35.4],[26,35.1]],
+    "owners": [{"from":-3000,"power":null},{"from":-800,"power":"greeks"},{"from":-67,"power":"rome"}]
+  },
+  {
+    "id": "attica",
+    "name": "Attica & Euboea",
+    "seeds": [[23.6,38.1],[24,38.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-800,"power":"greeks"},
+      {"from":-322,"power":"macedon"},
+      {"from":-229,"power":"greeks"},
+      {"from":-146,"power":"rome"}
+    ]
+  },
+  {
+    "id": "central_greece",
+    "name": "Central Greece (Boeotia & Phocis)",
+    "seeds": [[22.8,38.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-800,"power":"greeks"},
+      {"from":-338,"power":"macedon"},
+      {"from":-229,"power":"greeks"},
+      {"from":-146,"power":"rome"}
+    ]
+  },
+  {
+    "id": "peloponnese",
+    "name": "Peloponnese",
+    "seeds": [[22.2,37.5],[21.6,37.8],[22.9,37.6]],
+    "owners": [{"from":-3000,"power":null},{"from":-800,"power":"greeks"},{"from":-146,"power":"rome"}]
+  },
+  {
+    "id": "cyclades",
+    "name": "Cyclades",
+    "seeds": [[25.2,37.1]],
+    "owners": [{"from":-3000,"power":null},{"from":-800,"power":"greeks"},{"from":-146,"power":"rome"}]
+  },
+  {
+    "id": "epirus",
+    "name": "Epirus & Aetolia",
+    "seeds": [[20.9,39.4],[21.5,38.6]],
+    "owners": [{"from":-3000,"power":null},{"from":-800,"power":"greeks"},{"from":-167,"power":"rome"}]
+  },
+  {
+    "id": "thessaly",
+    "name": "Thessaly",
+    "seeds": [[22.3,39.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-800,"power":"greeks"},
+      {"from":-352,"power":"macedon"},
+      {"from":-197,"power":"rome"}
+    ]
+  },
+  {
+    "id": "macedonia",
+    "name": "Macedonia",
+    "seeds": [[22.5,40.8],[21.6,41]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-700,"power":"macedon"},
+      {"from":-510,"power":"persia"},
+      {"from":-479,"power":"macedon"},
+      {"from":-168,"power":"rome"}
+    ]
+  },
+  {
+    "id": "thrace_coast",
+    "name": "Aegean Thrace",
+    "seeds": [[24.8,41],[26.2,40.9]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-513,"power":"persia"},
+      {"from":-479,"power":null},
+      {"from":-356,"power":"macedon"},
+      {"from":-168,"power":"rome"}
+    ]
+  },
+  {
+    "id": "thrace",
+    "name": "Thrace",
+    "seeds": [[25.4,42.1],[27,41.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-513,"power":"persia"},
+      {"from":-479,"power":"thrace"},
+      {"from":-340,"power":"macedon"},
+      {"from":-280,"power":"thrace"},
+      {"from":46,"power":"rome"}
+    ]
+  },
+  {
+    "id": "moesia_inf",
+    "name": "Lower Moesia",
+    "seeds": [[25.5,43.4],[27.5,43.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-513,"power":"persia"},
+      {"from":-479,"power":"thrace"},
+      {"from":-300,"power":null},
+      {"from":15,"power":"rome"}
+    ]
+  },
+  {
+    "id": "propontis",
+    "name": "European shore of the Propontis",
+    "seeds": [[28.4,41.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-660,"power":"greeks"},
+      {"from":-513,"power":"persia"},
+      {"from":-478,"power":"greeks"},
+      {"from":46,"power":"rome"}
+    ]
+  },
+  {
+    "id": "scythia_minor",
+    "name": "Scythia Minor (Dobruja)",
+    "seeds": [[28.4,44.4]],
+    "owners": [{"from":-3000,"power":null},{"from":-600,"power":"greeks"},{"from":15,"power":"rome"}]
+  },
+  {
+    "id": "dacia_med",
+    "name": "Upper Strymon (Serdica)",
+    "seeds": [[23.3,42.6]],
+    "owners": [{"from":-3000,"power":null},{"from":-479,"power":"thrace"},{"from":46,"power":"rome"}]
+  },
+  {
+    "id": "moesia_sup",
+    "name": "Upper Moesia",
+    "seeds": [[21.6,43.9],[20.6,44.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":6,"power":"rome"},
+      {"from":441,"power":"huns"},
+      {"from":454,"power":"rome"}
+    ]
+  },
+  {
+    "id": "dardania",
+    "name": "Dardania",
+    "seeds": [[21.2,42.6]],
+    "owners": [{"from":-3000,"power":null},{"from":6,"power":"rome"}]
+  },
+  {
+    "id": "illyria",
+    "name": "Southern Illyria",
+    "seeds": [[19.9,41.1],[19.6,42]],
+    "owners": [{"from":-3000,"power":null},{"from":-229,"power":"rome"}]
+  },
+  {
+    "id": "dalmatia",
+    "name": "Dalmatia",
+    "seeds": [[16.9,43.8],[18.4,43.2],[17.3,44.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-33,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":481,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":535,"power":"rome"}
+    ]
+  },
+  {
+    "id": "istria",
+    "name": "Istria & Liburnia",
+    "seeds": [[14,45.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-177,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":539,"power":"rome"}
+    ]
+  },
+  {
+    "id": "savia",
+    "name": "Savia (Siscia)",
+    "seeds": [[16.4,45.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-35,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":537,"power":"rome"}
+    ]
+  },
+  {
+    "id": "noricum",
+    "name": "Noricum",
+    "seeds": [[14.3,47.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-16,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":476,"power":"odoacer"},
+      {"from":493,"power":"ostrogoths"},
+      {"from":546,"power":"lombards"}
+    ]
+  },
+  {
+    "id": "pannonia_w",
+    "name": "Western Pannonia",
+    "seeds": [[16.5,46.4],[16.7,47.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-9,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":433,"power":"huns"},
+      {"from":456,"power":"ostrogoths"},
+      {"from":473,"power":null},
+      {"from":526,"power":"lombards"},
+      {"from":568,"power":"avars"}
+    ]
+  },
+  {
+    "id": "pannonia_e",
+    "name": "Eastern Pannonia (Aquincum)",
+    "seeds": [[18.6,46.5],[18.9,47.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":9,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":433,"power":"huns"},
+      {"from":456,"power":"ostrogoths"},
+      {"from":473,"power":"gepids"},
+      {"from":546,"power":"lombards"},
+      {"from":568,"power":"avars"}
+    ]
+  },
+  {
+    "id": "sirmium",
+    "name": "Pannonia Secunda (Sirmium)",
+    "seeds": [[19.5,45.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-9,"power":"rome"},
+      {"from":395,"power":"rome_west"},
+      {"from":441,"power":"huns"},
+      {"from":456,"power":"ostrogoths"},
+      {"from":473,"power":"gepids"},
+      {"from":504,"power":"ostrogoths"},
+      {"from":536,"power":"gepids"},
+      {"from":567,"power":"rome"},
+      {"from":582,"power":"avars"}
+    ]
+  },
+  {
+    "id": "tisza",
+    "name": "Tisza plain",
+    "seeds": [[20.4,46.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":420,"power":"huns"},
+      {"from":454,"power":"gepids"},
+      {"from":567,"power":"avars"}
+    ]
+  },
+  {
+    "id": "dacia",
+    "name": "Dacia",
+    "seeds": [[23.8,46],[23.5,45],[25.5,45.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-82,"power":"dacia"},
+      {"from":-44,"power":null},
+      {"from":85,"power":"dacia"},
+      {"from":106,"power":"rome"},
+      {"from":271,"power":"goths"},
+      {"from":376,"power":"huns"},
+      {"from":454,"power":"gepids"},
+      {"from":567,"power":"avars"}
+    ]
+  },
+  {
+    "id": "getae",
+    "name": "Lands of the Getae (Moldavia)",
+    "seeds": [[28.5,46.6],[27,47.3]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":250,"power":"goths"},
+      {"from":376,"power":"huns"},
+      {"from":454,"power":null}
+    ]
+  },
+  {
+    "id": "olbia",
+    "name": "Lower Bug & Dnieper (Olbia)",
+    "seeds": [[31.8,46.7]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":250,"power":"goths"},
+      {"from":376,"power":"huns"},
+      {"from":454,"power":null}
+    ]
+  },
+  {
+    "id": "scythia",
+    "name": "Pontic steppe (Scythia)",
+    "seeds": [[33.5,47.6],[37,47.8],[30.5,48.5]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":270,"power":"goths"},
+      {"from":376,"power":"huns"},
+      {"from":454,"power":null}
+    ]
+  },
+  {
+    "id": "crimea_n",
+    "name": "Crimean steppe",
+    "seeds": [[34,45.8]],
+    "owners": [{"from":-3000,"power":null},{"from":376,"power":"huns"},{"from":454,"power":null}]
+  },
+  {
+    "id": "taurica",
+    "name": "Southern Crimea (Chersonesus)",
+    "seeds": [[33.8,44.7]],
+    "owners": [{"from":-3000,"power":null},{"from":-422,"power":"greeks"},{"from":50,"power":"rome"}]
+  },
+  {
+    "id": "bosporus",
+    "name": "Cimmerian Bosporus (Kerch)",
+    "seeds": [[36.3,45.2],[37.4,45.1]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-600,"power":"greeks"},
+      {"from":-438,"power":"bosporus"},
+      {"from":-108,"power":"pontus"},
+      {"from":-63,"power":"bosporus"},
+      {"from":528,"power":"rome"}
+    ]
+  },
+  {
+    "id": "maeotis",
+    "name": "Lake Maeotis (Tanais)",
+    "seeds": [[39.6,47]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-250,"power":"bosporus"},
+      {"from":240,"power":null},
+      {"from":376,"power":"huns"},
+      {"from":454,"power":null}
+    ]
+  },
+  {"id":"n_caucasus","name":"North Caucasus","seeds":[[41,44.6],[44,45]],"owners":[{"from":-3000,"power":null}]},
+  {
+    "id": "colchis",
+    "name": "Colchis (Lazica)",
+    "seeds": [[42,42.2]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-110,"power":"pontus"},
+      {"from":-63,"power":"rome"},
+      {"from":300,"power":"lazica"},
+      {"from":541,"power":"sasanian"},
+      {"from":551,"power":"rome"}
+    ]
+  },
+  {
+    "id": "iberia_c",
+    "name": "Caucasian Iberia",
+    "seeds": [[44.6,41.8]],
+    "owners": [{"from":-3000,"power":null},{"from":363,"power":"sasanian"}]
+  },
+  {
+    "id": "albania_c",
+    "name": "Caucasian Albania",
+    "seeds": [[47.2,40.8]],
+    "owners": [{"from":-3000,"power":null},{"from":252,"power":"sasanian"}]
+  },
+  {
+    "id": "armenia",
+    "name": "Armenia",
+    "seeds": [[43.7,39.9],[42.2,39.4]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-331,"power":"armenia_k"},
+      {"from":428,"power":"sasanian"}
+    ]
+  },
+  {
+    "id": "armenia_w",
+    "name": "Western Armenia (Sophene)",
+    "seeds": [[40.6,38.8],[40.8,39.6]],
+    "owners": [
+      {"from":-3000,"power":null},
+      {"from":-550,"power":"persia"},
+      {"from":-331,"power":"armenia_k"},
+      {"from":387,"power":"rome"}
+    ]
+  }
+]

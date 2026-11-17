@@ -8,17 +8,16 @@ A **year slider** runs from 550 BC to 600 CE. Places and routes have validity ra
 
 - **Places** have *eras*: from-year, to-year, name, importance and note (`city.eras`). Gaps and renamings are allowed. Popups show a place's name history.
 - **Routes** have *spans* (`route.spans`) and are usable while a span covers the year and both of their places exist.
-- **Borders** are hand-drawn snapshots, each shown only within the window it is roughly right for:
+- **Borders change year by year.** The map is divided into about 150 regions (Latium, Cappadocia, Upper Egypt, Dacia, Aquitania…). Each region has a dated ownership timeline, and borders are drawn wherever neighbouring regions have different owners. Drag the slider and you can watch:
+  - Persia fall to Alexander (334–330 BC) and his empire split into the Seleucid and Ptolemaic kingdoms.
+  - Rome absorb the Mediterranean.
+  - Zenobia and the Gallic Empire break away (260–274).
+  - The Huns, Goths, Vandals and Franks carve up the West.
+  - Justinian win parts of it back.
 
-| Snapshot | Shown for | Setting |
-| --- | --- | --- |
-| 500 BC | 550–335 BC | Achaemenid Persia, the Greek and Phoenician cities, early Rome, Carthage |
-| 1 CE | 30 BC – 40 CE | The Roman Empire under Augustus, Parthia, Nabataea, Kush |
-| 300 CE | 285–330 CE | Diocletian's Tetrarchy, from Hadrian's Wall to beyond the Tigris; Sasanian Persia |
-| 500 CE | 476–507 CE | Ostrogothic Italy, Vandal Africa, Visigoths and Franks, the Eastern Roman Empire |
-| 565 CE | 554–568 CE | Justinian's reconquests: only the Eastern Romans remain |
+  The changes panel lists border changes ("Seleucid Empire: Northern Syria, Cilicia…"), hovering over a region says who held it and since when, and route weights use the year's borders. 53 powers have names that change over time: Roman Republic → Roman Empire → Eastern Roman Empire.
 
-Between windows the map shows no borders and says so, and the border-based weights switch off. The five snapshots are also quick-jump buttons.
+The five old periods are still quick-jump buttons and keep their descriptions.
 
 **Where the dates come from:** the data was first written as entries for those five anchor years. Each entry was stretched to cover the years up to halfway to its neighbours, and then replaced with real dates wherever they are known: foundings, destructions, renamings and road construction. Known dates are flagged `exactFrom`/`exactTo` in the JSON; the rest are estimates and show as "c." in the app. The test suite sweeps every 5 years to check that no place is ever cut off from the network.
 
@@ -96,9 +95,12 @@ data/edges.json       routes (edges): id, from, to, mode, name, desc, sources, v
 data/waypoints.json   named points used to draw edges
 data/zones.json       climate & terrain zones used by the edge-weight effects
 data/narratives.json  descriptions of the five mapped periods
+data/powers.json      political powers: id, colour, names over time, note
+data/regions.json     regions: name, seed points, ownership timeline [{from, power}] (power null = no state)
 data/config.json      timeline range, traveller speeds, winding factors
 
 tools/build-data.js   validates data/*.json and writes js/data/bundle.js   (npm run build:data)
+tools/build-regions.js  Voronoi cells around region seeds, merged per region, plus shared borders between neighbours
 js/data/bundle.js     generated — loaded by the app, so index.html works straight from disk
 js/timeline.js        year formatting and dated events derived from eras and spans
 js/router.js          weighted graph per year, edge profiling, Dijkstra + alternatives (no DOM)
@@ -117,7 +119,8 @@ Years are integers (negative = BC). `exactFrom`/`exactTo` mark known dates; othe
 2. Add an edge to `data/edges.json` with `from`, `to`, `mode`, `name`, `desc`, `sources`, `via` waypoints and `spans`.
    - Use `via` waypoints so sea lanes go around land.
    - Set `downwind` (sea) or `downstream` (river) when direction matters.
-3. Run `npm run build:data`, then `npm test`. The tests check the data, that the bundle is up to date, and that no place is cut off from the network in any year.
+3. To change who ruled where, edit a region's `owners` in `data/regions.json`. To reshape a region, add or move its `seeds`: every point belongs to the region of its nearest seed.
+4. Run `npm run build:data`, then `npm test`. The tests check the data, that the bundle is up to date, and that no place is cut off from the network in any year.
 
 ## Caveats
 
@@ -125,5 +128,5 @@ Years are integers (negative = BC). `exactFrom`/`exactTo` mark known dates; othe
 - Routes are drawn schematically.
 - The coastlines are modern. Ancient Miletus and Ephesus were on the sea, and the Nile delta and the Po delta were different.
 - Dates not flagged as exact in `data/` are estimates, and place notes describe their anchor year (popups say so when you are far from it).
-- Political labels and territory borders are approximate and drawn by hand. Ancient frontiers were often zones rather than lines, and control of deserts and mountains was loose. The open sea is treated as nobody's.
+- Borders are schematic. Regions are Voronoi cells around hand-placed seed points, so their edges are straight lines rather than rivers and mountain crests. Ownership changes are dated to the main conquests and treaties; short-lived occupations and contested zones are simplified. Ancient frontiers were often zones rather than lines. The open sea is treated as nobody's.
 - For serious work, see Stanford's [ORBIS](https://orbis.stanford.edu/) model and the Barrington Atlas.

@@ -380,3 +380,5 @@ path.appear { animation: appear-pulse 1.4s ease-out 2; }
 }
 
 .note-when { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); }
+
+.region-label.stateless span { color: rgba(110, 90, 60, 0.45); font-size: 11px; letter-spacing: 0.2em; }

@@ -13,7 +13,7 @@
   const FAR_FUTURE = 3000;
 
   const anchors = AWT.periods.map((p) => ({ id: p.id, year: p.year }));
-  const windows = Object.fromEntries(AWT.periods.map((p) => [p.id, p.bordersMapped]));
+  const windows = Object.fromEntries(AWT.periods.map((p) => [p.id, p.descriptionNear]));
 
   function fmtYear(y) {
     if (y <= FAR_PAST) return 'antiquity';
@@ -51,10 +51,29 @@
       if (s.roadDateTo) events.push({ year: s.to, kind: 'route-close', text: r.name, route: r.id });
     }
   }
+  // border changes: regions changing hands, grouped by year and new owner
+  if (AWT.regions && AWT.powers) {
+    const powerName = (id, y) => {
+      const p = AWT.powers.find((x) => x.id === id);
+      let n = p.names[0].name;
+      for (const x of p.names) if (x.from <= y) n = x.name;
+      return n;
+    };
+    const groups = new Map();
+    for (const reg of AWT.regions.list) {
+      reg.owners.forEach((o, i) => {
+        if (i === 0 || o.from <= FAR_PAST) return;
+        const k = `${o.from}|${o.power}`;
+        if (!groups.has(k)) groups.set(k, { year: o.from, power: o.power, regions: [] });
+        groups.get(k).regions.push(reg.name);
+      });
+    }
+    for (const g of groups.values()) {
+      const where = g.regions.length > 3 ? `${g.regions.slice(0, 3).join(', ')} and ${g.regions.length - 3} more` : g.regions.join(', ');
+      events.push({ year: g.year, kind: 'border', text: g.power ? `${powerName(g.power, g.year)}: ${where}` : `No state: ${where}` });
+    }
+  }
   events.sort((x, y) => x.year - y.year);
-
-  // region labels for the mapped periods (used until year-by-year borders replace them)
-  AWT.regionLabels = Object.fromEntries(AWT.periods.map((p) => [p.id, p.regionLabels || []]));
 
   AWT.timeline = {
     anchors,

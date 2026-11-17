@@ -27,10 +27,13 @@
     };
   }
 
-  // Edge geometry never changes, and edge profiles only change with the territory snapshot,
-  // so both are cached across Network instances (the year slider rebuilds the network often).
+  // Edge geometry and zone profiles never change; realm profiles change only when some region
+  // changes hands (an "ownership epoch"). All are cached across Network instances, because the
+  // year slider rebuilds the network often.
   const GEOM_CACHE = new Map();
-  const PROFILE_CACHE = new Map();
+  const ZONE_CACHE = new Map();
+  const REALM_CACHE = new Map();
+  const EPOCHS = new Map(); // ownership signature → small id
 
   /** Route as it was known in `year`: dated overrides (e.g. a later name) applied. */
   function routeInYear(route, year) {
@@ -39,6 +42,23 @@
     return Object.assign({}, route, fields, { overrides: undefined });
   }
   const inSpan = (year) => (s) => year >= s.from && year <= s.to;
+
+  /** Owner of a region in `year` from its ownership timeline [{from, power}] (sorted). */
+  function ownerInYear(owners, year) {
+    let p = null;
+    for (const o of owners) {
+      if (o.from > year) break;
+      p = o.power;
+    }
+    return p;
+  }
+
+  /** A power as it was known in `year` (its name changes over time). */
+  function powerInYear(power, year) {
+    let name = power.names[0].name;
+    for (const n of power.names) if (n.from <= year) name = n.name;
+    return { id: power.id, name, color: power.color, note: power.note };
+  }
 
   /** Full drawn path of a route as [lat, lng] points, from `from` to `to`. */
   function routePath(route, cityById, waypoints) {
@@ -126,75 +146,102 @@
         route.span = r.spans.find(inSpan(this.year));
         this.routes.push(route);
       }
-      // borders only where a hand-drawn snapshot is valid for this year
-      this.snapshot = tl.snapshotForYear(this.year);
-      this.territories = (this.snapshot && data.territories && data.territories[this.snapshot]) || [];
+      // ---- who rules where: every region's owner in this year (data/regions.json)
+      this.snapshot = tl.snapshotForYear(this.year); // only for the period narratives now
+      const R = data.regions;
+      this.regionOwners = R ? R.list.map((reg) => ownerInYear(reg.owners, this.year)) : [];
+      const powersById = Object.fromEntries((data.powers || []).map((p) => [p.id, p]));
+      const present = [...new Set(this.regionOwners.filter(Boolean))];
+      this.territories = present.map((id) => powerInYear(powersById[id], this.year));
       this.territoryById = Object.fromEntries(this.territories.map((t) => [t.id, t]));
+      const sig = this.regionOwners.join(',');
+      if (!EPOCHS.has(sig)) EPOCHS.set(sig, EPOCHS.size);
+      this.epoch = EPOCHS.get(sig);
       for (const c of Object.values(this.cities)) {
         const t = this.territoryAt(c.lat, c.lng);
         c.owner = t ? t.id : null;
       }
       for (const r of this.routes) {
-        const key = `${r.id}|${this.snapshot || 'none'}`;
-        let prof = PROFILE_CACHE.get(key);
-        if (!prof) {
-          this.profileEdge(r);
-          prof = { profile: r.profile, realmKm: r.realmKm, realmChanges: r.realmChanges };
-          PROFILE_CACHE.set(key, prof);
-        }
-        Object.assign(r, prof);
+        let zones = ZONE_CACHE.get(r.id);
+        if (!zones) ZONE_CACHE.set(r.id, (zones = this.profileZones(r)));
+        r.profile = zones;
+        const key = `${r.id}|${this.epoch}`;
+        let realms = REALM_CACHE.get(key);
+        if (!realms) REALM_CACHE.set(key, (realms = this.profileRealms(r)));
+        Object.assign(r, realms);
       }
     }
 
-    /** The power controlling a point in this period, or null (independent peoples / sea). */
+    /** Index of the region a point falls in: the region of its nearest seed (a Voronoi lookup). */
+    regionAt(lat, lng) {
+      const seeds = this.data.regions ? this.data.regions.seeds : [];
+      let best = -1;
+      let bd = Infinity;
+      for (const [x, y, ri] of seeds) {
+        const d = (x - lng) * (x - lng) + (y - lat) * (y - lat);
+        if (d < bd) (bd = d), (best = ri);
+      }
+      return best;
+    }
+
+    /** The power controlling a point in this year, or null (independent peoples / no state). */
     territoryAt(lat, lng) {
-      for (const t of this.territories) if (inMultiPolygon(lng, lat, t.geometry)) return t;
-      return null;
+      const ri = this.regionAt(lat, lng);
+      const id = ri >= 0 ? this.regionOwners[ri] : null;
+      return id ? this.territoryById[id] : null;
     }
 
     /**
-     * Measures an edge against the climate zones and realms, so effects can weight it:
-     *   profile.km[kind]   km through each zone kind (mountain-high, mountain, desert, floodplain)
-     *   profile.names[kind] names of the zones crossed, for explanations
-     *   realmKm[id]        km through each realm
-     *   realmChanges       number of borders crossed along the edge
-     * Sea edges cross no land zones; their realm share is split between the two ports.
+     * Measures an edge against the climate zones, so effects can weight it:
+     *   km[kind]    km through each zone kind (mountain-high, mountain, desert, floodplain)
+     *   names[kind] names of the zones crossed, for explanations
+     * Sea edges cross no land zones.
      */
-    profileEdge(r) {
-      const STEP = 10;
+    profileZones(r) {
       const zones = this.data.zones || [];
       const km = {};
       const names = { 'mountain-high': [], mountain: [], desert: [], floodplain: [] };
+      if (r.mode === 'sea') return { km, names, total: r.distanceKm };
+      const pts = samplePath(r.path, 10);
+      const segKm = r.distanceKm / Math.max(1, pts.length);
+      for (const [lat, lng] of pts) {
+        const seen = new Set();
+        for (const z of zones) {
+          if (seen.has(z.kind) || !inRing(lng, lat, z.ring)) continue;
+          seen.add(z.kind);
+          km[z.kind] = (km[z.kind] || 0) + segKm;
+          if (!names[z.kind].includes(z.name)) names[z.kind].push(z.name);
+        }
+      }
+      // a stretch in high mountains is not also counted as ordinary hill country
+      if (km['mountain-high'] && km.mountain) km.mountain = Math.max(0, km.mountain - km['mountain-high']);
+      return { km, names, total: segKm * pts.length };
+    }
+
+    /**
+     * Measures an edge against the realms of this year:
+     *   realmKm[id]   km through each realm ('_none' = no state)
+     *   realmChanges  number of borders crossed along the edge
+     * A sea edge's realm share is split between its two ports.
+     */
+    profileRealms(r) {
       const realmKm = {};
-      let total = 0;
       if (r.mode === 'sea') {
-        total = r.distanceKm;
         for (const id of [this.cities[r.from].owner, this.cities[r.to].owner]) {
           const k = id || '_none';
           realmKm[k] = (realmKm[k] || 0) + r.distanceKm / 2;
         }
       } else {
-        const pts = samplePath(r.path, STEP);
+        const pts = samplePath(r.path, 10);
         const segKm = r.distanceKm / Math.max(1, pts.length);
         for (const [lat, lng] of pts) {
-          total += segKm;
           const t = this.territoryAt(lat, lng);
           const k = t ? t.id : '_none';
           realmKm[k] = (realmKm[k] || 0) + segKm;
-          const seen = new Set();
-          for (const z of zones) {
-            if (seen.has(z.kind) || !inRing(lng, lat, z.ring)) continue;
-            seen.add(z.kind);
-            km[z.kind] = (km[z.kind] || 0) + segKm;
-            if (!names[z.kind].includes(z.name)) names[z.kind].push(z.name);
-          }
         }
-        // a stretch in high mountains is not also counted as ordinary hill country
-        if (km['mountain-high'] && km.mountain) km.mountain = Math.max(0, km.mountain - km['mountain-high']);
       }
-      r.profile = { km, names, total };
-      r.realmKm = realmKm;
-      r.realmChanges = this.territories.length ? this.legTerritories(r.path, r.mode, r.from, r.to).length - 1 : 0;
+      const realmChanges = this.territories.length ? this.legTerritories(r.path, r.mode, r.from, r.to).length - 1 : 0;
+      return { realmKm, realmChanges };
     }
 
     /**
@@ -378,5 +425,5 @@
     }
   }
 
-  AWT.Router = { Network, haversine, cityInYear, routeInYear, inMultiPolygon, inRing };
+  AWT.Router = { Network, haversine, cityInYear, routeInYear, ownerInYear, powerInYear, inMultiPolygon, inRing };
 })(typeof window !== 'undefined' ? window : globalThis);

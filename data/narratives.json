@@ -5,22 +5,7 @@
     "title": "The Persian Empire & the Greek world",
     "summary": "Darius I rules the Achaemenid Empire from the Aegean to the Indus, linked by the Royal Road. Greek and Phoenician city-states have colonised the Mediterranean and Black Sea coasts, Carthage dominates the western seas, and Rome is a young republic (traditionally founded 509 BC). The Ionian Revolt against Persia is about to break out (499 BC).",
     "year": -500,
-    "bordersMapped": [-550,-335],
-    "regionLabels": [
-      {"text":"Achaemenid Persian Empire","lat":36.2,"lng":42,"size":"lg"},
-      {"text":"Hellas","lat":38.9,"lng":22},
-      {"text":"Magna Graecia","lat":39.4,"lng":16.4},
-      {"text":"Etruria","lat":43,"lng":11.6},
-      {"text":"Carthaginian sphere","lat":34.6,"lng":8},
-      {"text":"Egypt (Persian satrapy)","lat":27.5,"lng":31},
-      {"text":"Scythians","lat":47.6,"lng":34},
-      {"text":"Iberians & Celts","lat":40,"lng":-4},
-      {"text":"Celts","lat":46.8,"lng":3},
-      {"text":"Thrace","lat":42.2,"lng":25.2},
-      {"text":"Libyan peoples","lat":29.5,"lng":18},
-      {"text":"Kush","lat":19.5,"lng":32},
-      {"text":"Illyrians","lat":43.6,"lng":18.4}
-    ]
+    "descriptionNear": [-550,-335]
   },
   {
     "id": "0ce",
@@ -28,24 +13,7 @@
     "title": "The Roman Empire under Augustus",
     "summary": "Around the turn of the era (there is no year zero — 1 BC is followed by AD 1) Augustus rules a Mediterranean that is, for the first time, under a single power. Roman roads and the grain fleets tie the provinces to Rome; Parthia rules Mesopotamia and Iran, and Nabataean caravans bring incense from Arabia to Gaza.",
     "year": 1,
-    "bordersMapped": [-30,40],
-    "regionLabels": [
-      {"text":"Roman Empire","lat":44.3,"lng":19.5,"size":"lg"},
-      {"text":"Parthian Empire","lat":34.8,"lng":46,"size":"lg"},
-      {"text":"Egypt (Roman province)","lat":27.5,"lng":31},
-      {"text":"Nabataean Kingdom","lat":29.6,"lng":36.8},
-      {"text":"Judaea","lat":31.2,"lng":35.3},
-      {"text":"Mauretania (client kingdom)","lat":34.3,"lng":-2.5},
-      {"text":"Bosporan Kingdom","lat":45.6,"lng":37.6},
-      {"text":"Gallia","lat":46.6,"lng":2.5},
-      {"text":"Hispania","lat":40,"lng":-4},
-      {"text":"Germania","lat":50.5,"lng":10},
-      {"text":"Garamantes","lat":27.6,"lng":14.5},
-      {"text":"Kingdom of Kush","lat":19.5,"lng":32},
-      {"text":"Armenia","lat":40.6,"lng":42.6},
-      {"text":"Pannonia (being conquered)","lat":46.4,"lng":17.6},
-      {"text":"Dacians","lat":46,"lng":24.5}
-    ]
+    "descriptionNear": [-30,40]
   },
   {
     "id": "300ce",
@@ -53,17 +21,7 @@
     "title": "The Tetrarchy of Diocletian",
     "summary": "After the 3rd-century crisis, Diocletian has split power among four emperors, each ruling from a frontier capital: Nicomedia, Mediolanum, Sirmium and Thessalonica, and Augusta Treverorum. The frontiers hold again from Hadrian's Wall to the Euphrates, and the Peace of Nisibis (299) has pushed Rome beyond the Tigris. Christianity is spreading fast; the Great Persecution will begin in 303, and Constantine will found Constantinople in 330.",
     "year": 300,
-    "bordersMapped": [285,330],
-    "regionLabels": [
-      {"text":"Caledonians & Picts","lat":56.8,"lng":-4},
-      {"text":"Franks","lat":52.3,"lng":7.5},
-      {"text":"Alamanni","lat":48.9,"lng":9.6},
-      {"text":"Goths","lat":47.3,"lng":30},
-      {"text":"Sarmatians","lat":46.6,"lng":20.6},
-      {"text":"Moors","lat":33.5,"lng":-2},
-      {"text":"Blemmyes & Nobatae","lat":22.7,"lng":33.3},
-      {"text":"Arab tribes","lat":29,"lng":40}
-    ]
+    "descriptionNear": [285,330]
   },
   {
     "id": "500ad",
@@ -71,23 +29,7 @@
     "title": "Successor kingdoms & the Eastern Roman Empire",
     "summary": "The western empire has given way to Germanic kingdoms: Theoderic the Ostrogoth rules Italy from Ravenna, the Vandals hold Carthage, the Visigoths Toulouse and Spain. Emperor Anastasius I governs the East from Constantinople, fed by the Egyptian grain fleet, while the Sasanian Persians rule from Ctesiphon. Pilgrims travel the roads to Jerusalem.",
     "year": 500,
-    "bordersMapped": [476,507],
-    "regionLabels": [
-      {"text":"Eastern Roman Empire","lat":39.2,"lng":33,"size":"lg"},
-      {"text":"Sasanian Empire","lat":34.6,"lng":46.5,"size":"lg"},
-      {"text":"Ostrogothic Kingdom","lat":43.4,"lng":12.6},
-      {"text":"Visigothic Kingdom","lat":41,"lng":-3.5},
-      {"text":"Vandal Kingdom","lat":34.9,"lng":8.8},
-      {"text":"Burgundians","lat":46.4,"lng":5.4},
-      {"text":"Franks (Clovis)","lat":48.8,"lng":2.5},
-      {"text":"Moorish kingdoms","lat":33.8,"lng":-3.5},
-      {"text":"Ghassanids","lat":32.3,"lng":37.5},
-      {"text":"Lakhmids","lat":31.3,"lng":43.6},
-      {"text":"Gepids","lat":46.6,"lng":21},
-      {"text":"Persarmenia","lat":39.6,"lng":45.4},
-      {"text":"Lazica","lat":42.6,"lng":42.6},
-      {"text":"Nubian kingdoms","lat":20,"lng":32}
-    ]
+    "descriptionNear": [476,507]
   },
   {
     "id": "565ce",
@@ -95,15 +37,6 @@
     "title": "The age of Justinian — only the Eastern Romans remain",
     "summary": "The western empire is long gone, but Justinian (died 14 November 565) has won back Africa from the Vandals (533–534), Italy from the Ostrogoths (535–554) and a strip of southern Spain, making the Mediterranean briefly a Roman lake again. Hagia Sophia (537) crowns Constantinople, though plague (541) has ravaged the empire. Frankish kings rule Gaul, the Visigoths rule Spain from Toledo, and Khosrow I rules Persia. The Lombards wait in Pannonia; they will invade Italy in 568.",
     "year": 565,
-    "bordersMapped": [554,568],
-    "regionLabels": [
-      {"text":"Anglo-Saxons & Britons","lat":52.6,"lng":-1.5},
-      {"text":"Bretons","lat":48.1,"lng":-3},
-      {"text":"Avars","lat":46.3,"lng":29},
-      {"text":"Slavs","lat":47,"lng":26.5},
-      {"text":"Basques & Cantabrians","lat":43.1,"lng":-3.6},
-      {"text":"Arab tribes","lat":28.5,"lng":40},
-      {"text":"Saxons","lat":53,"lng":10}
-    ]
+    "descriptionNear": [554,568]
   }
 ]

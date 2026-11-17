@@ -91,7 +91,6 @@
   L.control.scale({ imperial: false, position: 'bottomright' }).addTo(map);
 
   const territoryLayer = L.layerGroup().addTo(map);
-  let territoryShapes = {};
   let showTerritories = true;
   const regionLayer = L.layerGroup().addTo(map);
   const networkLayer = L.layerGroup().addTo(map);
@@ -207,16 +206,45 @@
   }
 
   // ------------------------------------------------------------------ drawing
+  /** Labels: each power near the middle of its lands, and faint names for stateless regions. */
   function drawRegions() {
     regionLayer.clearLayers();
-    for (const r of (state.snapshot && AWT.regionLabels[state.snapshot]) || []) {
-      L.marker([r.lat, r.lng], {
-        pane: 'regions',
-        interactive: false,
-        keyboard: false,
-        icon: L.divIcon({ className: 'region-label' + (r.size === 'lg' ? ' lg' : ''), html: `<span>${esc(r.text)}</span>`, iconSize: [0, 0] }),
-      }).addTo(regionLayer);
+    const R = AWT.regions;
+    const owners = state.network.regionOwners;
+    const groups = {};
+    const stateless = [];
+    R.list.forEach((reg, i) => {
+      const o = owners[i];
+      if (!o) stateless.push(reg);
+      else (groups[o] = groups[o] || []).push(reg);
+    });
+    placed = [];
+    const ordered = Object.entries(groups).sort((a, b) => b[1].reduce((x, r) => x + r.area, 0) - a[1].reduce((x, r) => x + r.area, 0));
+    for (const [id, regs] of ordered) {
+      const area = regs.reduce((a, r) => a + r.area, 0);
+      if (area < 60000) continue; // small powers: see the tooltip
+      // area-weighted centre, snapped to the nearest of the power's own regions so it sits on its land
+      const c = regs.reduce((acc, r) => [acc[0] + r.label[0] * r.area, acc[1] + r.label[1] * r.area], [0, 0]).map((v) => v / area);
+      const anchor = regs.reduce((best, r) => {
+        const d = (r.label[0] - c[0]) ** 2 + (r.label[1] - c[1]) ** 2;
+        return !best || d < best.d ? { d, r } : best;
+      }, null).r;
+      addLabel(anchor.label, state.network.territoryById[id].name, area > 1500000 ? 'lg' : '');
     }
+    // faint names for big stateless lands, where they do not collide with other labels
+    for (const reg of stateless.sort((a, b) => b.area - a.area)) if (reg.area > 400000) addLabel(reg.label, reg.name.replace(/ \(.*\)$/, ''), 'stateless');
+  }
+  let placed = [];
+  function addLabel(latlng, text, cls) {
+    // crude collision check in degrees: skip a label too close to one already placed
+    if (placed.some(([la, ln]) => Math.abs(la - latlng[0]) < 1.6 && Math.abs(ln - latlng[1]) < 5)) return;
+    placed.push(latlng);
+    L.marker(latlng, {
+      pane: 'regions',
+      interactive: false,
+      keyboard: false,
+      icon: L.divIcon({ className: `region-label ${cls}`, html: `<span>${esc(text)}</span>`, iconSize: [0, 0] }),
+    }).addTo(regionLayer);
   }
 
   function routePopup(route) {
@@ -375,7 +403,7 @@
     div.className = 'popup';
     div.innerHTML =
       `<h3>${esc(c.name)}</h3><div class="modern">${c.kind === 'city' ? '' : esc(KIND_LABEL[c.kind]) + ' · '}Today: ${esc(c.modern)}</div>` +
-      (state.network.territories.length ? `<div class="owner">Controlled by ${territoryChip(c.owner)}</div>` : '<div class="owner"><i>No border map for this year</i></div>') +
+      `<div class="owner">Controlled by ${territoryChip(c.owner)}</div>` +
       `<p>${noteWhen(c)}${esc(c.note)}</p>` +
       nameHistory(c.id) +
       '<div class="actions"><button data-act="from">Start here</button><button data-act="to">Go here</button></div>';
@@ -525,37 +553,83 @@
     );
   }
 
+  // Region polygons are created once and recoloured for each year.
+  let regionShapes = null;
+  const borderLayer = L.layerGroup();
   function drawTerritories() {
-    territoryLayer.clearLayers();
-    territoryShapes = {};
-    if (!showTerritories) return;
+    const R = AWT.regions;
+    if (!regionShapes) {
+      regionShapes = R.list.map((reg, i) =>
+        L.polygon(reg.polygons, { pane: 'territoryPane', stroke: false, fillOpacity: 0 }).bindTooltip(() => regionTip(i), {
+          sticky: true,
+          className: 'terr-tip',
+        })
+      );
+      territoryLayer.addLayer(borderLayer);
+    }
+    const net = state.network;
     const res = state.results[state.selected];
     const crossed = new Set(res ? res.territories : []);
-    for (const t of state.network.territories) {
-      const hot = crossed.has(t.id);
-      const dim = res && !hot;
-      const shape = L.geoJSON(
-        { type: 'Feature', geometry: t.geometry },
-        {
-          pane: 'territoryPane',
-          style: {
-            color: t.color,
-            weight: hot ? 2 : 1,
-            opacity: dim ? 0.35 : 0.8,
-            fillColor: t.color,
-            fillOpacity: hot ? 0.45 : dim ? 0.12 : 0.32,
-          },
+    regionShapes.forEach((shape, i) => {
+      const o = net.regionOwners[i];
+      const t = o && net.territoryById[o];
+      const on = showTerritories && !!t;
+      if (on && !territoryLayer.hasLayer(shape)) territoryLayer.addLayer(shape);
+      if (!on) {
+        territoryLayer.removeLayer(shape);
+        return;
+      }
+      const hot = crossed.has(o);
+      shape.setStyle({ fillColor: t.color, fillOpacity: hot ? 0.5 : res ? 0.14 : 0.38 });
+    });
+    // borders: only between neighbours with different owners (and redrawn only when ownership changes)
+    if (state.drawnEpoch !== net.epoch || state.drawnBordersOn !== showTerritories) {
+      borderLayer.clearLayers();
+      state.drawnEpoch = net.epoch;
+      state.drawnBordersOn = showTerritories;
+      if (showTerritories) {
+        const owners = net.regionOwners;
+        const lines = [];
+        const faint = [];
+        for (const b of R.borders) {
+          const oa = owners[b.a];
+          const ob = owners[b.b];
+          if (oa === ob) continue;
+          (oa && ob ? lines : faint).push(...b.segments);
         }
-      );
-      shape.bindTooltip(esc(t.name), { sticky: true, className: 'terr-tip' });
-      shape.addTo(territoryLayer);
-      territoryShapes[t.id] = shape;
+        if (lines.length) L.polyline(lines, { pane: 'territoryPane', color: '#4a3a28', weight: 1.4, opacity: 0.75, interactive: false }).addTo(borderLayer);
+        if (faint.length) L.polyline(faint, { pane: 'territoryPane', color: '#4a3a28', weight: 1, opacity: 0.4, dashArray: '3 4', interactive: false }).addTo(borderLayer);
+      }
     }
+  }
+
+  function regionTip(i) {
+    const reg = AWT.regions.list[i];
+    const o = state.network.regionOwners[i];
+    const t = o && state.network.territoryById[o];
+    const owners = reg.owners;
+    // when did the current owner take over?
+    let since = null;
+    for (const x of owners) if (x.from <= state.year) since = x.from;
+    return `<b>${esc(t ? t.name : 'No state')}</b><br>${esc(reg.name)}${since > -3000 ? ` · since ${fmtYear(since)}` : ''}`;
+  }
+
+  /** Bounds of all regions a power holds this year. */
+  function powerBounds(id) {
+    let b = null;
+    state.network.regionOwners.forEach((o, i) => {
+      if (o !== id) return;
+      const rb = regionShapes[i].getBounds();
+      b = b ? b.extend(rb) : L.latLngBounds(rb.getSouthWest(), rb.getNorthEast());
+    });
+    return b;
   }
 
   function renderPowers() {
     const box = $('#powers');
-    const list = state.network.territories;
+    const area = {};
+    state.network.regionOwners.forEach((o, i) => o && (area[o] = (area[o] || 0) + AWT.regions.list[i].area));
+    const list = state.network.territories.slice().sort((a, b) => area[b.id] - area[a.id]);
     if (!list.length) {
       box.innerHTML = '';
       return;
@@ -568,8 +642,8 @@
       '</ul>';
     box.querySelectorAll('[data-terr]').forEach((b) =>
       b.addEventListener('click', () => {
-        const shape = territoryShapes[b.dataset.terr];
-        if (shape) map.fitBounds(shape.getBounds(), { padding: [30, 30], maxZoom: 6 });
+        const bounds = powerBounds(b.dataset.terr);
+        if (bounds) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 6 });
       })
     );
   }
@@ -722,7 +796,8 @@
     if (y === 0) y = state.year < 0 ? 1 : -1; // there is no year 0
     state.year = y;
     state.network = new AWT.Router.Network(AWT, y);
-    const snapshotChanged = state.network.snapshot !== state.snapshot || state.network.periodId !== state.period;
+    const bordersChanged = state.network.epoch !== state.epoch;
+    state.epoch = state.network.epoch;
     state.period = state.network.periodId;
     state.snapshot = state.network.snapshot;
     const now = new Set(Object.keys(state.network.cities));
@@ -731,25 +806,21 @@
 
     $('#year').value = y;
     $('#year-label').textContent = fmtYear(y);
+    // period descriptions apply only near the year they were written for
     if (state.snapshot) {
       const p = AWT.periods.find((x) => x.id === state.snapshot);
-      const [wa, wb] = TL.snapshotWindows[p.id];
       $('#period-title').textContent = `${fmtYear(y)} — ${p.title}`;
-      $('#snapshot-note').textContent = `Borders mapped for ${fmtYear(wa)} – ${fmtYear(wb)}.`;
+      $('#snapshot-note').textContent = '';
       $('#period-summary').textContent = p.summary;
     } else {
-      const wins = Object.entries(TL.snapshotWindows);
-      const before = wins.filter(([, [, b]]) => b < y).pop();
-      const after = wins.find(([, [a]]) => a > y);
-      const near = [before, after].filter(Boolean).map(([id, [a, b]]) => `${fmtYear(a)}–${fmtYear(b)} (${AWT.periods.find((x) => x.id === id).title})`);
       $('#period-title').textContent = fmtYear(y);
-      $('#snapshot-note').textContent = `No border map for this year, so territories and border-crossing weights are switched off. Borders are mapped for ${near.join(' and ')}.`;
-      $('#period-summary').textContent = 'Places and routes are shown as they stood in this year; drag the slider to watch them appear and disappear.';
+      $('#snapshot-note').textContent = '';
+      $('#period-summary').textContent = 'Borders, places and routes are shown as they stood in this year. Drag the slider to watch realms rise and fall and places appear and disappear.';
     }
     document.querySelectorAll('#period-tabs button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.period === state.snapshot)));
     renderEvents();
     fillSelects();
-    if (snapshotChanged) {
+    if (bordersChanged) {
       drawRegions();
       renderPowers();
     }
@@ -765,7 +836,7 @@
       $('#year-events').innerHTML = '';
       return;
     }
-    const icon = { appear: '+', vanish: '−', rename: '↻', 'route-open': '⟶', 'route-close': '⤫' };
+    const icon = { appear: '+', vanish: '−', rename: '↻', 'route-open': '⟶', 'route-close': '⤫', border: '⚑' };
     $('#year-events').innerHTML =
       `<h3>Changes within ${W} years</h3><ul>` +
       near
