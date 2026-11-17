@@ -1,0 +1,6255 @@
+[
+  {
+    "id": "rome",
+    "modern": "Rome, Italy",
+    "lat": 41.8925,
+    "lng": 12.4853,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -753,
+        "to": -249,
+        "name": "Roma",
+        "rank": 2,
+        "note": "A young republic: the last king, Tarquinius Superbus, was traditionally expelled in 509 BC. Rome dominates Latium and has just signed its first treaty with Carthage (Polybius 3.22).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Roma",
+        "rank": 1,
+        "note": "Capital of the empire and the largest city in the world, with perhaps a million inhabitants, fed by grain fleets from Egypt, Africa and Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Roma",
+        "rank": 1,
+        "note": "Still the symbolic capital, ringed by the new Aurelian Walls (270s), with the vast Baths of Diocletian (298–306) going up. But the emperors now rarely visit, ruling from frontier capitals.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Roma",
+        "rank": 2,
+        "note": "Still the seat of the Senate and the Pope, but ruled by the Ostrogothic king Theoderic, who visited the city in 500. Its population has fallen dramatically since the sacks of 410 and 455.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Roma",
+        "rank": 2,
+        "note": "Recovered by Justinian after the ruinous Gothic War (535–554), when it changed hands several times. Its population has collapsed and the aqueducts are broken.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "caere",
+    "modern": "Cerveteri, Italy",
+    "lat": 42,
+    "lng": 12.1,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Caere (Cisra)",
+        "rank": 2,
+        "note": "Wealthy Etruscan city. At its port of Pyrgi the gold \"Pyrgi tablets\" (c. 500 BC), in Etruscan and Phoenician, record King Thefarie Velianas honouring Uni-Astarte — evidence of the Etruscan–Carthaginian alliance.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "kyme",
+    "modern": "Cuma, Italy",
+    "lat": 40.848,
+    "lng": 14.054,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Kyme (Cumae)",
+        "rank": 2,
+        "note": "The oldest Greek colony on the Italian mainland. Under the tyrant Aristodemus it fought off the Etruscans and sold grain to Rome during the famine of 492 BC (Livy 2.34).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "ostia",
+    "modern": "Ostia Antica, Italy",
+    "lat": 41.7556,
+    "lng": 12.2917,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -350,
+        "to": 151,
+        "name": "Ostia",
+        "rank": 3,
+        "note": "Rome's river-mouth port, where cargo was transferred to barges for the trip up the Tiber.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Portus & Ostia",
+        "rank": 3,
+        "note": "Trajan's hexagonal harbour at Portus has taken over most of Ostia's trade.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Portus Romae",
+        "rank": 3,
+        "note": "The artificial harbour built by Claudius and Trajan beside Ostia, still Rome's gateway to the sea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Portus",
+        "rank": 3,
+        "note": "Rome's harbour, fought over in the Gothic War.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "puteoli",
+    "modern": "Pozzuoli, Italy",
+    "lat": 40.8228,
+    "lng": 14.1217,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -194,
+        "to": 151,
+        "name": "Puteoli",
+        "rank": 2,
+        "note": "The great port of Campania and main arrival point of the Alexandrian grain ships; St Paul landed here (Acts 28:13).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Puteoli",
+        "rank": 3,
+        "note": "Declining harbour town; the grain fleets now unload at Portus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Puteoli",
+        "rank": 3,
+        "note": "A declining harbour town; trade has largely moved to Portus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      }
+    ]
+  },
+  {
+    "id": "capua",
+    "modern": "Santa Maria Capua Vetere, Italy",
+    "lat": 41.0833,
+    "lng": 14.25,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Capua",
+        "rank": 2,
+        "note": "Rich Campanian city on the Via Appia, famed for bronze work, perfumes and gladiator schools.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Capua",
+        "rank": 2,
+        "note": "Seat of the governor of Campania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Capua",
+        "rank": 3,
+        "note": "Still a junction on the Via Appia under Ostrogothic rule.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Capua",
+        "rank": 3,
+        "note": "Narses defeated the Franks and Alamanni near here at the Casilinus in 554.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "taras",
+    "modern": "Taranto, Italy",
+    "lat": 40.4644,
+    "lng": 17.247,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -706,
+        "to": -249,
+        "name": "Taras",
+        "rank": 2,
+        "note": "Spartan colony with the best harbour in southern Italy; a leading city of Magna Graecia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Tarentum",
+        "rank": 3,
+        "note": "A quiet Roman municipium on the Via Appia, past its Hellenistic glory.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tarentum",
+        "rank": 3,
+        "note": "Port town of Calabria.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tarentum",
+        "rank": 3,
+        "note": "Port town of Ostrogothic Italy.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tarentum",
+        "rank": 3,
+        "note": "Roman port in the south.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "brundisium",
+    "modern": "Brindisi, Italy",
+    "lat": 40.6383,
+    "lng": 17.9458,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -244,
+        "to": 151,
+        "name": "Brundisium",
+        "rank": 2,
+        "note": "End of the Via Appia and the usual port for the crossing to Greece and the East.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Brundisium",
+        "rank": 3,
+        "note": "Crossing port to the Balkans.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Brundisium",
+        "rank": 3,
+        "note": "Adriatic port of Ostrogothic Italy, facing the Eastern Empire across the strait.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Brundisium",
+        "rank": 3,
+        "note": "Adriatic port.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "ariminum",
+    "modern": "Rimini, Italy",
+    "lat": 44.0594,
+    "lng": 12.5683,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -244,
+        "to": 151,
+        "name": "Ariminum",
+        "rank": 3,
+        "note": "Where the Via Flaminia from Rome meets the Via Aemilia to the Po valley; Augustus's arch (27 BC) still stands.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Ariminum",
+        "rank": 3,
+        "note": "Junction of the Via Flaminia and Via Aemilia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Ariminum",
+        "rank": 3,
+        "note": "Road junction south of Ravenna.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Ariminum",
+        "rank": 3,
+        "note": "Besieged in the Gothic War.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "ravenna",
+    "modern": "Ravenna, Italy",
+    "lat": 44.4175,
+    "lng": 12.2,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -244,
+        "to": 151,
+        "name": "Ravenna",
+        "rank": 3,
+        "note": "Augustus based the Adriatic fleet at nearby Classis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Ravenna",
+        "rank": 3,
+        "note": "Base of the Adriatic fleet at Classis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Ravenna",
+        "rank": 1,
+        "note": "Capital of Theoderic the Great's Ostrogothic kingdom, protected by marshes and the sea; Theoderic's palace and churches are being built.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Ravenna",
+        "rank": 1,
+        "note": "Seat of the Roman governor of Italy (Narses). San Vitale (547) shows Justinian and Theodora in mosaic.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "aquileia",
+    "modern": "Aquileia, Italy",
+    "lat": 45.7689,
+    "lng": 13.3667,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -181,
+        "to": 151,
+        "name": "Aquileia",
+        "rank": 2,
+        "note": "Great trading city at the head of the Adriatic, gateway to the Danube lands and the amber trade.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Aquileia",
+        "rank": 2,
+        "note": "One of the great cities of Italy, with an imperial mint and residence, guarding the routes to the Balkans.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Aquileia",
+        "rank": 3,
+        "note": "Sacked by Attila in 452 and much reduced, but still the seat of a powerful bishop (later patriarch) and the start of the road into the Balkans.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Aquileia",
+        "rank": 3,
+        "note": "Its patriarch will flee to Grado when the Lombards invade in 568.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "mediolanum",
+    "modern": "Milan, Italy",
+    "lat": 45.4642,
+    "lng": 9.19,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -187,
+        "to": 151,
+        "name": "Mediolanum",
+        "rank": 3,
+        "note": "Prosperous city of Cisalpine Gaul.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Mediolanum",
+        "rank": 1,
+        "note": "Residence of Maximian, Augustus of the West; in practice the capital of Italy.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Mediolanum",
+        "rank": 2,
+        "note": "Former imperial capital (286–402) and great see of St Ambrose, now an Ostrogothic city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Mediolanum",
+        "rank": 3,
+        "note": "Sacked by the Goths and Burgundians in 539, its men reportedly massacred (Procopius, Wars 6.21).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "rhegion",
+    "modern": "Reggio Calabria, Italy",
+    "lat": 38.11,
+    "lng": 15.65,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -720,
+        "to": -249,
+        "name": "Rhegion",
+        "rank": 3,
+        "note": "Greek colony guarding the Strait of Messina, ruled from 494 BC by the tyrant Anaxilas.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Rhegium",
+        "rank": 3,
+        "note": "Port on the Strait of Messina where St Paul's ship waited for a south wind (Acts 28:13).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Rhegium",
+        "rank": 3,
+        "note": "Crossing to Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Rhegium",
+        "rank": 3,
+        "note": "Crossing point to Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Rhegium",
+        "rank": 3,
+        "note": "Crossing to Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "syracuse",
+    "modern": "Syracuse, Sicily",
+    "lat": 37.0755,
+    "lng": 15.2866,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -733,
+        "to": -249,
+        "name": "Syrakousai",
+        "rank": 2,
+        "note": "Rich Corinthian colony; within a generation Gelon will make it the greatest Greek city in the west.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Syracusae",
+        "rank": 2,
+        "note": "Capital of the Roman province of Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Syracusae",
+        "rank": 2,
+        "note": "Chief city of Sicily, famed for its catacombs.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Syracusae",
+        "rank": 2,
+        "note": "Chief city of Ostrogothic Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Syracusae",
+        "rank": 2,
+        "note": "Belisarius took Sicily in 535 and celebrated his consulship here.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "akragas",
+    "modern": "Agrigento, Sicily",
+    "lat": 37.29,
+    "lng": 13.585,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -580,
+        "to": -210,
+        "name": "Akragas",
+        "rank": 2,
+        "note": "Prosperous Greek city famed for its temples; Pindar called it \"the fairest city of mortals\".",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "motya",
+    "modern": "Mozia, Sicily",
+    "lat": 37.8678,
+    "lng": 12.4686,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -397,
+        "name": "Motya",
+        "rank": 3,
+        "note": "Phoenician island-town off western Sicily, Carthage's foothold on the island.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "lilybaeum",
+    "modern": "Marsala, Sicily",
+    "lat": 37.8,
+    "lng": 12.43,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -397,
+        "to": 151,
+        "name": "Lilybaeum",
+        "rank": 3,
+        "note": "Port of western Sicily, closest point to Africa.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Lilybaeum",
+        "rank": 3,
+        "note": "Port of western Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Lilybaeum",
+        "rank": 3,
+        "note": "Given to the Vandals c. 500 as the dowry of Theoderic's sister Amalafrida when she married King Thrasamund.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Lilybaeum",
+        "rank": 3,
+        "note": "Roman port of western Sicily.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "carales",
+    "modern": "Cagliari, Sardinia",
+    "lat": 39.2238,
+    "lng": 9.1217,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Karalis",
+        "rank": 3,
+        "note": "Phoenician harbour town; Carthage has been extending its control over Sardinia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Carales",
+        "rank": 3,
+        "note": "Main port of Sardinia, a grain supplier of Rome.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Carales",
+        "rank": 3,
+        "note": "Main port of Sardinia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Carales",
+        "rank": 3,
+        "note": "Vandal-held Sardinia's chief city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Carales",
+        "rank": 3,
+        "note": "Roman Sardinia since 534.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "massalia",
+    "modern": "Marseille, France",
+    "lat": 43.2965,
+    "lng": 5.3698,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -600,
+        "to": -249,
+        "name": "Massalia",
+        "rank": 2,
+        "note": "Founded c. 600 BC by Greeks from Phocaea; trades wine and goods up the Rhône to the Celts.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Massilia",
+        "rank": 2,
+        "note": "Old Greek city, still a centre of learning, now within Roman Gallia Narbonensis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Massilia",
+        "rank": 3,
+        "note": "Old Greek port, now a provincial city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Massilia",
+        "rank": 3,
+        "note": "Port held by the Visigoths (Provence passes to the Ostrogoths in 508).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Massilia",
+        "rank": 2,
+        "note": "Frankish since 536 and their main Mediterranean port, importing papyrus, oil and spices.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "emporion",
+    "modern": "Empúries, Spain",
+    "lat": 42.1347,
+    "lng": 3.1206,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -575,
+        "to": -249,
+        "name": "Emporion",
+        "rank": 3,
+        "note": "Greek trading post (\"the market\") founded by Phocaeans from Massalia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "gades",
+    "modern": "Cádiz, Spain",
+    "lat": 36.5297,
+    "lng": -6.2925,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -1100,
+        "to": -249,
+        "name": "Gadir",
+        "rank": 2,
+        "note": "Ancient Phoenician city beyond the Pillars of Heracles, with a famous temple of Melqart; gateway to the silver of Tartessos.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Gades",
+        "rank": 2,
+        "note": "Wealthy port of Baetica whose shipowners were famous; Strabo says it had more men of equestrian rank than any city but Rome.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Gades",
+        "rank": 3,
+        "note": "Its golden age is past; Avienus will describe the old city as largely empty.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Gades",
+        "rank": 3,
+        "note": "Hispano-Roman port in Visigothic-claimed Baetica.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Gades",
+        "rank": 3,
+        "note": "Small port on the edge of Byzantine Spania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "hispalis",
+    "modern": "Seville, Spain",
+    "lat": 37.3891,
+    "lng": -5.9845,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -120,
+        "to": 151,
+        "name": "Hispalis",
+        "rank": 2,
+        "note": "River port on the Baetis where sea-going ships loaded olive oil for Rome.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Hispalis",
+        "rank": 2,
+        "note": "Great river port for Baetican olive oil.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Hispalis",
+        "rank": 2,
+        "note": "Major city of the south; Isidore of Seville will be its bishop a century later.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Hispalis",
+        "rank": 2,
+        "note": "Visigothic city of Baetica.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "corduba",
+    "modern": "Córdoba, Spain",
+    "lat": 37.8845,
+    "lng": -4.7796,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -120,
+        "to": 151,
+        "name": "Corduba",
+        "rank": 2,
+        "note": "Capital of Hispania Baetica; birthplace of the Senecas.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Corduba",
+        "rank": 2,
+        "note": "Home of Bishop Hosius, adviser to Constantine.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Corduba",
+        "rank": 2,
+        "note": "Largely self-governing Hispano-Roman city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Corduba",
+        "rank": 2,
+        "note": "In open revolt against the Visigothic kings; Leovigild will retake it in 572.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "carthago_nova",
+    "modern": "Cartagena, Spain",
+    "lat": 37.6,
+    "lng": -0.986,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -227,
+        "to": 151,
+        "name": "Carthago Nova",
+        "rank": 2,
+        "note": "Founded by Hasdrubal the Carthaginian in 227 BC; Roman colony with rich silver mines.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Carthago Nova",
+        "rank": 2,
+        "note": "Capital of Diocletian's new province of Carthaginiensis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Carthago Spartaria",
+        "rank": 3,
+        "note": "Port city; it will become the capital of Byzantine Spania after 552.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Carthago Spartaria",
+        "rank": 2,
+        "note": "Capital of Byzantine Spania, held since c. 552.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tarraco",
+    "modern": "Tarragona, Spain",
+    "lat": 41.1189,
+    "lng": 1.2445,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -218,
+        "to": 151,
+        "name": "Tarraco",
+        "rank": 2,
+        "note": "Capital of Hispania Tarraconensis, where Augustus wintered in 26–25 BC.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tarraco",
+        "rank": 2,
+        "note": "Capital of Tarraconensis, recovering from Frankish raids of the 260s.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tarraco",
+        "rank": 3,
+        "note": "Visigothic since the 470s.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tarraco",
+        "rank": 3,
+        "note": "Visigothic port.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "narbo",
+    "modern": "Narbonne, France",
+    "lat": 43.1839,
+    "lng": 3.0042,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -118,
+        "to": 151,
+        "name": "Narbo Martius",
+        "rank": 2,
+        "note": "First Roman colony in Gaul (118 BC) and capital of Gallia Narbonensis, on the Via Domitia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Narbo",
+        "rank": 3,
+        "note": "Old provincial capital on the Via Domitia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Narbo",
+        "rank": 3,
+        "note": "Visigothic city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Narbo",
+        "rank": 2,
+        "note": "Chief city of Visigothic Septimania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tolosa",
+    "modern": "Toulouse, France",
+    "lat": 43.6045,
+    "lng": 1.444,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -118,
+        "to": 151,
+        "name": "Tolosa",
+        "rank": 3,
+        "note": "Town on the route from the Mediterranean to the Atlantic.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tolosa",
+        "rank": 3,
+        "note": "Garonne city on the route to the Atlantic.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tolosa",
+        "rank": 1,
+        "note": "Capital of the Visigothic kingdom of Alaric II, until his defeat by Clovis at Vouillé in 507.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tolosa",
+        "rank": 3,
+        "note": "Frankish since 507.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "arelate",
+    "modern": "Arles, France",
+    "lat": 43.6766,
+    "lng": 4.6278,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -46,
+        "to": 151,
+        "name": "Arelate",
+        "rank": 3,
+        "note": "Colony of Caesar's veterans and Rhône river port.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Arelate",
+        "rank": 2,
+        "note": "Prosperous Rhône port; Constantine will favour it and the church council of 314 will meet here.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Arelate",
+        "rank": 2,
+        "note": "Seat of the Prefecture of the Gauls since c. 407; held by the Visigoths in 500.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Arelate",
+        "rank": 2,
+        "note": "Frankish city, whose bishop Caesarius (d. 542) was a famous preacher.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "lugdunum",
+    "modern": "Lyon, France",
+    "lat": 45.76,
+    "lng": 4.835,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -43,
+        "to": 151,
+        "name": "Lugdunum",
+        "rank": 2,
+        "note": "Founded in 43 BC, capital of the Three Gauls and hub of Agrippa's road network.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Lugdunum",
+        "rank": 2,
+        "note": "Former capital of the Three Gauls, still an important mint, though it suffered in the civil war of 197.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Lugdunum",
+        "rank": 2,
+        "note": "A royal seat of the Burgundian kings.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Lugdunum",
+        "rank": 2,
+        "note": "Frankish since the conquest of Burgundy in 534.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "carthage",
+    "modern": "Tunis, Tunisia",
+    "lat": 36.8528,
+    "lng": 10.3233,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -814,
+        "to": -146,
+        "name": "Qart-Hadasht",
+        "rank": 1,
+        "note": "Phoenician \"New City\", leader of the western Phoenician world, controlling sea lanes from Sicily to the Atlantic.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": -500
+      },
+      {
+        "from": -145,
+        "to": -45,
+        "name": "Ruins of Carthage",
+        "rank": 3,
+        "note": "Razed by Scipio Aemilianus in 146 BC; Utica is now the capital of Roman Africa. Gaius Gracchus's colony \"Junonia\" (122 BC) briefly settled nearby, and Caesar will refound the city in 44 BC.",
+        "exactFrom": true,
+        "exactTo": true
+      },
+      {
+        "from": -44,
+        "to": 151,
+        "name": "Carthago",
+        "rank": 1,
+        "note": "Destroyed in 146 BC, refounded as a Roman colony by Caesar and Augustus; capital of Africa Proconsularis.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Carthago",
+        "rank": 1,
+        "note": "Second city of the West, capital of Africa Proconsularis and a great Christian centre (Cyprian's see).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Carthago",
+        "rank": 1,
+        "note": "Capital of the Vandal kingdom (since 439), ruled by King Thrasamund.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Carthago",
+        "rank": 1,
+        "note": "Capital of Roman Africa, reconquered by Belisarius in 533.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "leptis",
+    "modern": "Lebda, Libya",
+    "lat": 32.6383,
+    "lng": 14.2906,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Lepcis Magna",
+        "rank": 2,
+        "note": "Punic trading town flourishing under Rome; its theatre was dedicated in AD 1–2.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Lepcis Magna",
+        "rank": 2,
+        "note": "Home town of Septimius Severus, magnificently rebuilt by him c. 200; capital of Diocletian's new province of Tripolitania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Lepcis Magna",
+        "rank": 3,
+        "note": "Declining town in the Vandal kingdom, harried by desert raiders.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Lepcis Magna",
+        "rank": 3,
+        "note": "Reduced to a small walled core, its harbour silting up (Procopius, Buildings 6.4).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "caesarea_maur",
+    "modern": "Cherchell, Algeria",
+    "lat": 36.6,
+    "lng": 2.19,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -25,
+        "to": 151,
+        "name": "Iol Caesarea",
+        "rank": 2,
+        "note": "Capital of the client king Juba II of Mauretania and his wife Cleopatra Selene, daughter of Antony and Cleopatra.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Caesarea",
+        "rank": 2,
+        "note": "Capital of Mauretania Caesariensis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Caesarea",
+        "rank": 3,
+        "note": "Coastal city between Vandal and Moorish rule.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Caesarea",
+        "rank": 3,
+        "note": "Isolated Roman outpost reached by sea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tingis",
+    "modern": "Tangier, Morocco",
+    "lat": 35.7595,
+    "lng": -5.834,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Tingis",
+        "rank": 3,
+        "note": "Port on the African side of the Strait of Gibraltar.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tingis",
+        "rank": 2,
+        "note": "Capital of Mauretania Tingitana, which Diocletian attached to the Diocese of the Spains.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tingis",
+        "rank": 3,
+        "note": "Strait port, crossing point to Spain.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tingis",
+        "rank": 3,
+        "note": "Under Moorish control; the Romans hold the fortress of Septem (Ceuta) nearby.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "cyrene",
+    "modern": "Shahhat, Libya",
+    "lat": 32.8256,
+    "lng": 21.8585,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -631,
+        "to": -249,
+        "name": "Kyrene",
+        "rank": 2,
+        "note": "Greek colony founded from Thera c. 631 BC, rich from horses and silphium; under Persian suzerainty.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Cyrene",
+        "rank": 2,
+        "note": "Capital of the Roman province of Crete and Cyrenaica.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Cyrene",
+        "rank": 3,
+        "note": "Shrinking city of Libya Superior, damaged by earthquake in 262.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Cyrene",
+        "rank": 3,
+        "note": "A shrinking city of the Eastern Empire.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Cyrene",
+        "rank": 3,
+        "note": "A small town; the provincial capital has moved to Ptolemais.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "naukratis",
+    "modern": "Kom Ge'if, Egypt",
+    "lat": 30.9,
+    "lng": 30.5917,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Naukratis",
+        "rank": 3,
+        "note": "Greek trading port on the Canopic branch of the Nile; under Pharaoh Amasis the only Egyptian port open to Greek merchants (Herodotus 2.178–179).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "memphis",
+    "modern": "Mit Rahina, Egypt",
+    "lat": 29.8447,
+    "lng": 31.2547,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Memphis",
+        "rank": 1,
+        "note": "Ancient capital of Egypt, seat of the Persian satrap since Cambyses's conquest in 525 BC.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Memphis",
+        "rank": 2,
+        "note": "Still a great religious centre; Strabo describes its temple of Apis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Memphis",
+        "rank": 3,
+        "note": "Faded ancient capital.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "alexandria",
+    "modern": "Alexandria, Egypt",
+    "lat": 31.2001,
+    "lng": 29.9187,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -331,
+        "to": 151,
+        "name": "Alexandria",
+        "rank": 1,
+        "note": "Second city of the empire, home of the Library and the Pharos lighthouse; Strabo calls it the greatest emporium in the world.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Alexandria",
+        "rank": 1,
+        "note": "Diocletian besieged the city for eight months in 297–298 to crush a revolt; the column now called \"Pompey's Pillar\" was raised in his honour.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Alexandria",
+        "rank": 1,
+        "note": "Great Christian city and source of Constantinople's grain.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Alexandria",
+        "rank": 1,
+        "note": "Source of Constantinople's grain, divided between rival Christian churches.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "pelusium",
+    "modern": "Tell el-Farama, Egypt",
+    "lat": 31.0417,
+    "lng": 32.545,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Pelusium",
+        "rank": 3,
+        "note": "Fortress at the eastern gate of Egypt, where Cambyses defeated the last Saite pharaoh in 525 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Pelusium",
+        "rank": 3,
+        "note": "Frontier city of Roman Egypt on the road from Syria.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Pelusium",
+        "rank": 3,
+        "note": "Eastern gateway of Egypt.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Pelusium",
+        "rank": 3,
+        "note": "Frontier city and stop for pilgrims to Sinai and Jerusalem.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Pelusium",
+        "rank": 3,
+        "note": "Where the Plague of Justinian first appeared in 541 (Procopius, Wars 2.22).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "gaza",
+    "modern": "Gaza",
+    "lat": 31.5,
+    "lng": 34.4667,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Gaza (Kadytis)",
+        "rank": 3,
+        "note": "Herodotus's \"Kadytis\", a city \"not much smaller than Sardis\", on the road from Phoenicia to Egypt.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Gaza",
+        "rank": 2,
+        "note": "Terminus of the incense road from Arabia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Gaza",
+        "rank": 2,
+        "note": "Prosperous pagan city with its temple of Marnas.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Gaza",
+        "rank": 2,
+        "note": "Flourishing centre of rhetoric and the wine trade.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Gaza",
+        "rank": 2,
+        "note": "Famous for its wine, shipped all over the Mediterranean, and its school of rhetoric.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "joppa",
+    "modern": "Jaffa, Israel",
+    "lat": 32.054,
+    "lng": 34.752,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Yafo (Joppa)",
+        "rank": 3,
+        "note": "Port where cedar from Lebanon was landed for the rebuilding of the Jerusalem Temple (Ezra 3:7).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Joppa",
+        "rank": 3,
+        "note": "Old port of Judaea, overshadowed by Caesarea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Joppa",
+        "rank": 3,
+        "note": "Small port of Palaestina.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Joppa",
+        "rank": 3,
+        "note": "Landing place for Holy Land pilgrims.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Joppa",
+        "rank": 3,
+        "note": "Pilgrim port.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "jerusalem",
+    "modern": "Jerusalem",
+    "lat": 31.7781,
+    "lng": 35.2353,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Yerushalayim",
+        "rank": 3,
+        "note": "Small capital of the Persian province of Yehud; the Second Temple was completed c. 516 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 129,
+        "name": "Hierosolyma",
+        "rank": 2,
+        "note": "Herod the Great's rebuilt Temple is one of the wonders of the East.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 1
+      },
+      {
+        "from": 130,
+        "to": 400,
+        "name": "Aelia Capitolina",
+        "rank": 3,
+        "note": "Hadrian's small Roman colony on the site of Jerusalem. Christian pilgrims already come to see the holy places.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Hierosolyma",
+        "rank": 2,
+        "note": "Christianity's holy city, full of churches and pilgrims.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Hierosolyma",
+        "rank": 1,
+        "note": "Justinian's Nea Church (543) joins the Holy Sepulchre; the Madaba Map shows the city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "caesarea",
+    "modern": "Caesarea, Israel",
+    "lat": 32.5,
+    "lng": 34.892,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -22,
+        "to": 151,
+        "name": "Caesarea Maritima",
+        "rank": 2,
+        "note": "Herod's new port city (c. 22–10 BC) with a huge artificial harbour; seat of the Roman governors of Judaea.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Caesarea",
+        "rank": 1,
+        "note": "Capital of Palaestina, home of Origen's library; Eusebius, the church historian, works here.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Caesarea",
+        "rank": 2,
+        "note": "Capital of Palaestina Prima; hometown of the historian Procopius.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Caesarea",
+        "rank": 2,
+        "note": "Capital of Palaestina Prima, home of the historian Procopius.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tyre",
+    "modern": "Tyre, Lebanon",
+    "lat": 33.2705,
+    "lng": 35.1964,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Tyre",
+        "rank": 2,
+        "note": "Island city whose merchants founded Carthage and Gadir; its fleet serves the Persian king.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Tyrus",
+        "rank": 2,
+        "note": "Famous for purple dye and glass.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tyrus",
+        "rank": 2,
+        "note": "Metropolis of Phoenicia, famous for purple dye.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tyrus",
+        "rank": 2,
+        "note": "Metropolis of Phoenice; silk weaving and purple dyeing.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tyrus",
+        "rank": 2,
+        "note": "Silk-weaving city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "sidon",
+    "modern": "Sidon, Lebanon",
+    "lat": 33.5631,
+    "lng": 35.3689,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Sidon",
+        "rank": 2,
+        "note": "Leading Phoenician city under Persia; its ships were the best in Xerxes's fleet.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Sidon",
+        "rank": 3,
+        "note": "Phoenician port where St Paul visited friends (Acts 27:3).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Sidon",
+        "rank": 3,
+        "note": "Phoenician coastal city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Sidon",
+        "rank": 3,
+        "note": "Coastal city on the pilgrim road.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Sidon",
+        "rank": 3,
+        "note": "Coastal city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "damascus",
+    "modern": "Damascus, Syria",
+    "lat": 33.5117,
+    "lng": 36.3064,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Dimashq",
+        "rank": 3,
+        "note": "Oasis city of the Persian satrapy \"Beyond the River\".",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Damascus",
+        "rank": 2,
+        "note": "Caravan city of the Decapolis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Damascus",
+        "rank": 2,
+        "note": "Arsenal city and start of the Strata Diocletiana.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Damascus",
+        "rank": 2,
+        "note": "Strong city of the Eastern frontier.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Damascus",
+        "rank": 2,
+        "note": "Frontier city near the Ghassanid camps.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "petra",
+    "modern": "Petra, Jordan",
+    "lat": 30.3285,
+    "lng": 35.4444,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Raqmu (Petra)",
+        "rank": 1,
+        "note": "Rock-cut capital of the Nabataean king Aretas IV, grown rich on the incense trade.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Petra",
+        "rank": 3,
+        "note": "Former Nabataean capital, now a city of the province of Arabia (annexed 106).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Petra",
+        "rank": 3,
+        "note": "Still a bishopric; papyri found in its church (the Petra Papyri) record property dealings in the 6th century.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "palmyra",
+    "modern": "Tadmur, Syria",
+    "lat": 34.5503,
+    "lng": 38.2683,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Tadmor (Palmyra)",
+        "rank": 2,
+        "note": "Desert oasis whose caravans link the Roman world with Parthian Mesopotamia; the Temple of Bel is dedicated in AD 32.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Palmyra",
+        "rank": 3,
+        "note": "Sacked by Aurelian in 273 after Queen Zenobia's revolt, now a garrison town with the \"Camp of Diocletian\" on the Strata Diocletiana.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "antioch",
+    "modern": "Antakya, Turkey",
+    "lat": 36.2021,
+    "lng": 36.1606,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -300,
+        "to": 151,
+        "name": "Antiochia",
+        "rank": 1,
+        "note": "Capital of Roman Syria and third city of the empire; its port is Seleucia Pieria.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Antiochia",
+        "rank": 1,
+        "note": "Great city of the East and the emperors' base for the Persian wars; Diocletian built a palace here.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Antiochia",
+        "rank": 1,
+        "note": "One of the great cities of the East, seat of a patriarch.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Theoupolis (Antioch)",
+        "rank": 2,
+        "note": "Sacked by Khosrow I in 540, rebuilt by Justinian and renamed \"City of God\".",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "zeugma",
+    "modern": "Belkıs, Turkey",
+    "lat": 37.06,
+    "lng": 37.87,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -300,
+        "to": 253,
+        "name": "Zeugma",
+        "rank": 3,
+        "note": "Its name means \"bridge\": the main Euphrates crossing between Roman Syria and Parthia.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "edessa",
+    "modern": "Şanlıurfa, Turkey",
+    "lat": 37.159,
+    "lng": 38.7917,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -303,
+        "to": 151,
+        "name": "Edessa (Urhay)",
+        "rank": 3,
+        "note": "Capital of the small kingdom of Osrhoene under its Abgar kings, between Rome and Parthia. The Roman disaster at Carrhae (53 BC) happened nearby.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Edessa",
+        "rank": 2,
+        "note": "Capital of Osrhoene, an early centre of Syriac Christianity.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Edessa",
+        "rank": 2,
+        "note": "Frontier stronghold and centre of Syriac Christian learning; besieged by the Persians in 503.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Edessa",
+        "rank": 2,
+        "note": "Proud of its image of Christ (the Mandylion), credited with saving it from Khosrow in 544.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "nisibis",
+    "modern": "Nusaybin, Turkey",
+    "lat": 37.0667,
+    "lng": 41.2167,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Nisibis",
+        "rank": 2,
+        "note": "Roman again since the Peace of Nisibis (299), and named in that treaty as the only legal crossing point for Roman–Persian trade (Peter the Patrician, fr. 14).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Nisibis",
+        "rank": 2,
+        "note": "Persian frontier city, one of only three places where Roman–Persian trade was legally allowed (Codex Justinianus 4.63.4, AD 408/9).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Nisibis",
+        "rank": 2,
+        "note": "Persian frontier city with a famous Christian (Church of the East) school.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "ctesiphon",
+    "modern": "Salman Pak, Iraq",
+    "lat": 33.0936,
+    "lng": 44.5808,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -120,
+        "to": 151,
+        "name": "Ctesiphon",
+        "rank": 1,
+        "note": "Parthian winter capital on the Tigris, opposite the Greek city of Seleucia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Ctesiphon",
+        "rank": 1,
+        "note": "Capital of the Sasanian king Narseh, defeated by Galerius in 298.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Ctesiphon",
+        "rank": 1,
+        "note": "Capital of the Sasanian king Kavad I; its great arched palace hall survives.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Ctesiphon",
+        "rank": 1,
+        "note": "Capital of Khosrow I Anushirvan, with its great vaulted palace hall, the Taq Kasra.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "babylon",
+    "modern": "Hillah, Iraq",
+    "lat": 32.5364,
+    "lng": 44.4209,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -100,
+        "name": "Babylon",
+        "rank": 1,
+        "note": "One of the largest cities in the world and a royal capital of the Persian kings.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "susa",
+    "modern": "Shush, Iran",
+    "lat": 32.1894,
+    "lng": 48.2575,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -250,
+        "name": "Susa",
+        "rank": 1,
+        "note": "Administrative capital of Darius I, end point of the Royal Road from Sardis.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "tarsus",
+    "modern": "Tarsus, Turkey",
+    "lat": 36.9177,
+    "lng": 34.8928,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Tarsus",
+        "rank": 3,
+        "note": "Seat of the Cilician kings under Persia, below the Cilician Gates.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Tarsus",
+        "rank": 2,
+        "note": "Capital of Cilicia, famous for its schools; birthplace of St Paul.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tarsus",
+        "rank": 2,
+        "note": "Capital of Cilicia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tarsus",
+        "rank": 2,
+        "note": "Stop on the pilgrim road to Jerusalem.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tarsus",
+        "rank": 2,
+        "note": "Cilician city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "salamis",
+    "modern": "Famagusta, Cyprus",
+    "lat": 35.1847,
+    "lng": 33.9006,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Salamis",
+        "rank": 2,
+        "note": "Leading city-kingdom of Cyprus; it will join the Ionian Revolt in 499 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Salamis",
+        "rank": 3,
+        "note": "Port city of Roman Cyprus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Salamis",
+        "rank": 3,
+        "note": "Chief city of Cyprus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Constantia",
+        "rank": 2,
+        "note": "Rebuilt and renamed after earthquakes; metropolis of Cyprus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Constantia",
+        "rank": 2,
+        "note": "Metropolis of Cyprus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "sardis",
+    "modern": "Sart, Turkey",
+    "lat": 38.4881,
+    "lng": 28.0403,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Sparda (Sardis)",
+        "rank": 1,
+        "note": "Former Lydian capital of Croesus, now seat of the Persian satrap and start of the Royal Road.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Sardes",
+        "rank": 3,
+        "note": "City of Roman Asia recovering from the earthquake of AD 17.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Sardis",
+        "rank": 3,
+        "note": "Capital of Diocletian's new province of Lydia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Sardis",
+        "rank": 3,
+        "note": "Provincial city with a large synagogue.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Sardis",
+        "rank": 3,
+        "note": "Lydian city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "ephesus",
+    "modern": "Selçuk, Turkey",
+    "lat": 37.9394,
+    "lng": 27.3417,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Ephesos",
+        "rank": 2,
+        "note": "Ionian city of the great temple of Artemis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Ephesus",
+        "rank": 1,
+        "note": "Capital of the province of Asia; one of the great cities of the East.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Ephesus",
+        "rank": 2,
+        "note": "Capital of Asia; the rebuilt temple of Artemis still stands despite the Gothic raid of 262.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Ephesus",
+        "rank": 2,
+        "note": "Great Christian city; site of the councils of 431 and 449.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Ephesus",
+        "rank": 2,
+        "note": "Justinian's great basilica of St John stands on the hill.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "miletus",
+    "modern": "Balat, Turkey",
+    "lat": 37.5306,
+    "lng": 27.2778,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Miletos",
+        "rank": 2,
+        "note": "Greatest Ionian city, mother of dozens of Black Sea colonies; in 499 BC Aristagoras will lead the Ionian Revolt from here.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Miletus",
+        "rank": 3,
+        "note": "Port city whose harbours are slowly silting up; St Paul met the Ephesian elders here (Acts 20).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Miletus",
+        "rank": 3,
+        "note": "Its harbours are silting up.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "pergamon",
+    "modern": "Bergama, Turkey",
+    "lat": 39.1214,
+    "lng": 27.1844,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Pergamum",
+        "rank": 2,
+        "note": "Former Attalid capital with a great library and altar.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Pergamum",
+        "rank": 3,
+        "note": "Famous for the Asclepieion where Galen trained.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "lindos",
+    "modern": "Lindos, Rhodes",
+    "lat": 36.0917,
+    "lng": 28.0883,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Lindos",
+        "rank": 3,
+        "note": "The leading town of Rhodes before the city of Rhodes was founded in 408 BC; a partner in the Greek trading post at Naukratis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "rhodes",
+    "modern": "Rhodes, Greece",
+    "lat": 36.4431,
+    "lng": 28.2276,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -408,
+        "to": 151,
+        "name": "Rhodos",
+        "rank": 2,
+        "note": "Great maritime republic and school of rhetoric; the Colossus lies fallen since 226 BC.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Rhodos",
+        "rank": 3,
+        "note": "Island port and capital of the Province of the Islands.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Rhodos",
+        "rank": 3,
+        "note": "Port on the grain route from Egypt to Constantinople.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Rhodos",
+        "rank": 3,
+        "note": "Island port on the grain route.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "myra",
+    "modern": "Demre, Turkey",
+    "lat": 36.26,
+    "lng": 29.98,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Myra",
+        "rank": 3,
+        "note": "Lycian city whose port Andriake was a stopping place for Alexandrian grain ships (Acts 27:5–6).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Myra",
+        "rank": 3,
+        "note": "Lycian city. Its bishop, later known as St Nicholas, is a young man now.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Myra",
+        "rank": 3,
+        "note": "Pilgrimage town of its 4th-century bishop, St Nicholas.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Myra",
+        "rank": 3,
+        "note": "Pilgrimage to St Nicholas.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "byzantium",
+    "modern": "Istanbul, Turkey",
+    "lat": 41.0086,
+    "lng": 28.98,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -667,
+        "to": -249,
+        "name": "Byzantion",
+        "rank": 3,
+        "note": "Megarian colony on the Bosporus, under Persian control since Darius's Scythian campaign.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Byzantium",
+        "rank": 3,
+        "note": "A modest free Greek city controlling the Bosporus tolls.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 329,
+        "name": "Byzantium",
+        "rank": 2,
+        "note": "Rebuilt by Septimius Severus after he besieged it in 193–196. Constantine will refound it as Constantinople in 330.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 300
+      },
+      {
+        "from": 330,
+        "to": 533,
+        "name": "Constantinopolis",
+        "rank": 1,
+        "note": "The \"New Rome\" of Constantine, capital of Emperor Anastasius I and the largest city of the Christian world.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Constantinopolis",
+        "rank": 1,
+        "note": "Justinian died here on 14 November 565. Hagia Sophia (537) is the largest church in the world.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "nicomedia",
+    "modern": "İzmit, Turkey",
+    "lat": 40.7654,
+    "lng": 29.9408,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -264,
+        "to": 151,
+        "name": "Nicomedia",
+        "rank": 2,
+        "note": "Capital of Bithynia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Nicomedia",
+        "rank": 1,
+        "note": "Diocletian's capital, where he is building a great palace; the edict of the Great Persecution will be posted here in 303.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Nicomedia",
+        "rank": 2,
+        "note": "Former residence of Diocletian; first stage on the road east from Constantinople.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Nicomedia",
+        "rank": 2,
+        "note": "Bithynian metropolis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "ancyra",
+    "modern": "Ankara, Turkey",
+    "lat": 39.9334,
+    "lng": 32.8597,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Ancyra",
+        "rank": 2,
+        "note": "Capital of Galatia; its temple preserves the \"Res Gestae\" of Augustus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Ancyra",
+        "rank": 2,
+        "note": "Capital of Galatia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Ancyra",
+        "rank": 2,
+        "note": "Junction on the military road to the Persian frontier.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Ancyra",
+        "rank": 2,
+        "note": "Galatian city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "gordion",
+    "modern": "Yassıhüyük, Turkey",
+    "lat": 39.65,
+    "lng": 31.98,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -547,
+        "to": -330,
+        "name": "Gordion",
+        "rank": 3,
+        "note": "Old Phrygian capital of King Midas, a station on the Royal Road.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "sinope",
+    "modern": "Sinop, Turkey",
+    "lat": 42.0231,
+    "lng": 35.1531,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -630,
+        "to": -249,
+        "name": "Sinope",
+        "rank": 3,
+        "note": "Milesian colony and the best harbour of the southern Black Sea.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Sinope",
+        "rank": 2,
+        "note": "Former capital of Mithridates VI, now a Roman colony.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Sinope",
+        "rank": 3,
+        "note": "Black Sea port of Pontus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Sinope",
+        "rank": 3,
+        "note": "Black Sea port of the Eastern Empire.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Sinope",
+        "rank": 3,
+        "note": "Black Sea port.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "trapezus",
+    "modern": "Trabzon, Turkey",
+    "lat": 41.005,
+    "lng": 39.7178,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Trapezous",
+        "rank": 3,
+        "note": "Colony of Sinope; Xenophon's Ten Thousand will reach the sea here in 400 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Trapezus",
+        "rank": 3,
+        "note": "Port for trade with the Caucasus and Armenia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Trapezus",
+        "rank": 3,
+        "note": "Port sacked by the Goths in 257, since recovered.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Trapezus",
+        "rank": 3,
+        "note": "Port and base for Roman operations in the Caucasus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Trapezus",
+        "rank": 2,
+        "note": "Base for the Lazic War.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "panticapaeum",
+    "modern": "Kerch, Crimea",
+    "lat": 45.35,
+    "lng": 36.47,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Pantikapaion",
+        "rank": 3,
+        "note": "Milesian colony on the Cimmerian Bosporus, exporting grain and fish.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Panticapaeum",
+        "rank": 2,
+        "note": "Capital of the Bosporan kingdom, a Roman client.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Panticapaeum",
+        "rank": 3,
+        "note": "Capital of the Bosporan kingdom, a Roman client.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Bosporus",
+        "rank": 3,
+        "note": "Distant Greek city on the edge of the steppe, allied to Constantinople.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Bosporus",
+        "rank": 3,
+        "note": "Roman outpost in Crimea since c. 528.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "olbia",
+    "modern": "Parutyne, Ukraine",
+    "lat": 46.6942,
+    "lng": 31.9028,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -550,
+        "to": -249,
+        "name": "Olbia",
+        "rank": 3,
+        "note": "Milesian colony at the mouth of the Bug and Dnieper; Herodotus visited and describes the Scythians around it.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 250,
+        "name": "Olbia",
+        "rank": 3,
+        "note": "Rebuilt after its sack by the Getae c. 50 BC; described by Dio Chrysostom.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "athens",
+    "modern": "Athens, Greece",
+    "lat": 37.9715,
+    "lng": 23.7257,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Athenai",
+        "rank": 2,
+        "note": "Newly democratic after the reforms of Cleisthenes (508 BC); in 498 BC it will send ships to help the Ionian Revolt.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Athenae",
+        "rank": 2,
+        "note": "Cultural and university town of the Roman world.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Athenae",
+        "rank": 2,
+        "note": "University city, partly ruined by the Herulian sack of 267.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Athenae",
+        "rank": 3,
+        "note": "The Neoplatonist Academy still teaches (until 529).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Athenae",
+        "rank": 3,
+        "note": "Justinian closed the philosophical schools in 529.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "corinth",
+    "modern": "Ancient Corinth, Greece",
+    "lat": 37.9057,
+    "lng": 22.8789,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -146,
+        "name": "Korinthos",
+        "rank": 2,
+        "note": "Rich trading city on the Isthmus with two harbours and the \"diolkos\" ship-haulway between the gulfs.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      },
+      {
+        "from": -145,
+        "to": -45,
+        "name": "Ruins of Corinth",
+        "rank": 3,
+        "note": "Sacked by Mummius in 146 BC. Squatters live among the ruins, which Cicero saw, but travellers still cross the Isthmus. Caesar will refound it as a colony in 44 BC.",
+        "exactFrom": true,
+        "exactTo": true
+      },
+      {
+        "from": -44,
+        "to": 151,
+        "name": "Corinthus",
+        "rank": 2,
+        "note": "Destroyed by Rome in 146 BC, refounded by Caesar in 44 BC; capital of Achaea.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Corinthus",
+        "rank": 2,
+        "note": "Capital of Achaea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Corinthus",
+        "rank": 3,
+        "note": "Provincial capital of Achaea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Corinthus",
+        "rank": 3,
+        "note": "Shaken by earthquakes; Justinian walled the Isthmus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "sparta",
+    "modern": "Sparti, Greece",
+    "lat": 37.0745,
+    "lng": 22.4303,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Sparta",
+        "rank": 2,
+        "note": "The leading military power of Greece, head of the Peloponnesian League.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Sparta",
+        "rank": 3,
+        "note": "A free city with its old customs preserved as a tourist attraction.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Sparta",
+        "rank": 3,
+        "note": "Provincial town.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "corcyra",
+    "modern": "Corfu, Greece",
+    "lat": 39.62,
+    "lng": 19.92,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Kerkyra",
+        "rank": 3,
+        "note": "Corinthian colony with a strong fleet, \"on the route to Italy and Sicily\" (Thucydides 1.36).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Corcyra",
+        "rank": 3,
+        "note": "Island stop on the sea route between Greece and Italy.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Corcyra",
+        "rank": 3,
+        "note": "Island port.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Corcyra",
+        "rank": 3,
+        "note": "Island port of the Eastern Empire.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Corcyra",
+        "rank": 3,
+        "note": "Island port.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "dyrrachium",
+    "modern": "Durrës, Albania",
+    "lat": 41.3231,
+    "lng": 19.4414,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Epidamnos",
+        "rank": 3,
+        "note": "Colony of Corcyra and Corinth on the Illyrian coast.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Dyrrachium",
+        "rank": 2,
+        "note": "Western terminus of the Via Egnatia; Caesar and Pompey fought here in 48 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Dyrrachium",
+        "rank": 2,
+        "note": "Capital of Epirus Nova and head of the Via Egnatia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Dyrrachium",
+        "rank": 2,
+        "note": "Birthplace of the reigning emperor Anastasius I.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Dyrrachium",
+        "rank": 2,
+        "note": "Adriatic gateway of the Via Egnatia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "thessalonica",
+    "modern": "Thessaloniki, Greece",
+    "lat": 40.6403,
+    "lng": 22.9353,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -315,
+        "to": 151,
+        "name": "Thessalonica",
+        "rank": 2,
+        "note": "Capital of Macedonia on the Via Egnatia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Thessalonica",
+        "rank": 1,
+        "note": "Residence of Galerius, Caesar of the East, with his new palace, rotunda and triumphal arch celebrating his Persian victory.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Thessalonica",
+        "rank": 1,
+        "note": "Second city of the European provinces of the Eastern Empire.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Thessalonica",
+        "rank": 1,
+        "note": "Great city of the Balkans, protected by St Demetrius.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "gortyn",
+    "modern": "Gortyna, Crete",
+    "lat": 35.0636,
+    "lng": 24.9466,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Gortyn",
+        "rank": 3,
+        "note": "Leading Cretan city; its great law code was inscribed in the 5th century BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Gortyna",
+        "rank": 2,
+        "note": "Capital of the Roman province of Crete and Cyrene, near the harbour of Fair Havens.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Gortyna",
+        "rank": 2,
+        "note": "Capital of Crete.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Gortyna",
+        "rank": 3,
+        "note": "Metropolis of Crete.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Gortyna",
+        "rank": 3,
+        "note": "Metropolis of Crete.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "aquincum",
+    "modern": "Budapest (Óbuda), Hungary",
+    "lat": 47.55,
+    "lng": 19.05,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -181,
+        "to": 151,
+        "name": "Ak-Ink (Eravisci)",
+        "rank": 3,
+        "note": "Oppidum of the Celtic Eravisci on Gellért Hill above the Danube. Pannonia was conquered by Tiberius (12–9 BC) and rose in revolt in AD 6–9. The Roman fort, the legionary fortress (c. AD 89) and the provincial capital came later.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Aquincum",
+        "rank": 2,
+        "note": "Legionary fortress and city at its height, with two amphitheatres and a hydraulic organ (Valeria).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Aquincum (ruins)",
+        "rank": 3,
+        "note": "Capital of Pannonia Inferior in the 2nd–4th centuries (the future emperor Hadrian was governor here c. 107), with amphitheatres, baths and an aqueduct. Pannonia was given up to the Huns in the 430s, and by 500 the half-deserted city lies outside the empire, in the lands of Germanic peoples such as the Gepids.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Aquincum (ruins)",
+        "rank": 3,
+        "note": "In Lombard Pannonia; the Lombards will leave for Italy in 568 and the Avars will take over.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "carnuntum",
+    "modern": "Petronell-Carnuntum, Austria",
+    "lat": 48.114,
+    "lng": 16.86,
+    "kind": "fortress",
+    "eras": [
+      {
+        "from": -181,
+        "to": 151,
+        "name": "Carnuntum",
+        "rank": 3,
+        "note": "Celtic settlement on the Danube where the Amber Road from the Baltic crossed the river. Tiberius made it his base against King Maroboduus in AD 6 (Velleius 2.109). Pliny puts it about 600 miles from the amber coast.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 430,
+        "name": "Carnuntum",
+        "rank": 2,
+        "note": "Great Danube fortress-city; the emperors will meet here in 308 (the Conference of Carnuntum).",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "siscia",
+    "modern": "Sisak, Croatia",
+    "lat": 45.484,
+    "lng": 16.372,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -181,
+        "to": 151,
+        "name": "Siscia (Segestica)",
+        "rank": 3,
+        "note": "Taken by Octavian after a siege in 35 BC (Appian, Illyrica 22–24) and a base for the conquest of Pannonia; a river port on the Sava.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Siscia",
+        "rank": 2,
+        "note": "River port with an imperial mint.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Siscia",
+        "rank": 3,
+        "note": "Bishop's seat and river town of Ostrogothic Pannonia Savia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      }
+    ]
+  },
+  {
+    "id": "sirmium",
+    "modern": "Sremska Mitrovica, Serbia",
+    "lat": 44.97,
+    "lng": 19.61,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -181,
+        "to": 151,
+        "name": "Sirmium",
+        "rank": 3,
+        "note": "Roman outpost on the Sava; it was besieged by the rebel Breuci in AD 6 (Cassius Dio 55.29).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Sirmium",
+        "rank": 1,
+        "note": "Imperial residence on the Sava, birthplace of the emperors Probus and Maximian.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Sirmium",
+        "rank": 2,
+        "note": "A Tetrarchic capital and birthplace of several emperors. In 500 it is held by the Gepids; Theoderic's Goths will take it in 504.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Sirmium",
+        "rank": 2,
+        "note": "Capital of the Gepids; it will pass to Rome in 567 and fall to the Avars in 582.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "singidunum",
+    "modern": "Belgrade, Serbia",
+    "lat": 44.82,
+    "lng": 20.46,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Singidunum",
+        "rank": 3,
+        "note": "Legionary fortress of the Fourth Flavia on the Danube.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Singidunum",
+        "rank": 3,
+        "note": "Danube fortress city of the Eastern Empire, founded as a Celtic (Scordiscan) settlement.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Singidunum",
+        "rank": 3,
+        "note": "Roman Danube fortress rebuilt by Justinian.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "naissus",
+    "modern": "Niš, Serbia",
+    "lat": 43.32,
+    "lng": 21.9,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Naissus",
+        "rank": 2,
+        "note": "Birthplace of Constantine (c. 272).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Naissus",
+        "rank": 3,
+        "note": "Birthplace of Constantine the Great. Sacked by Attila in 441: in 448 the envoy Priscus found it deserted, with the riverbank full of bones.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Naissus",
+        "rank": 3,
+        "note": "Rebuilt by Justinian.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "serdica",
+    "modern": "Sofia, Bulgaria",
+    "lat": 42.7,
+    "lng": 23.32,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Serdica",
+        "rank": 2,
+        "note": "Capital of Dacia Mediterranea; Galerius will die here in 311.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Serdica",
+        "rank": 2,
+        "note": "Constantine is said to have called it \"my Rome\". It hosted the church council of 343 and is a major stop on the Via Militaris.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Serdica",
+        "rank": 2,
+        "note": "Strong city on the Via Militaris.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "salona",
+    "modern": "Solin, Croatia",
+    "lat": 43.539,
+    "lng": 16.484,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Salona",
+        "rank": 2,
+        "note": "Colonia Martia Iulia Salona, capital of Illyricum (later Dalmatia), a port and the base for the conquest of the interior.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Salona",
+        "rank": 2,
+        "note": "Capital of Dalmatia and home town of Diocletian.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Salona",
+        "rank": 2,
+        "note": "Great Christian metropolis of Dalmatia, ruled by Theoderic since 493. Diocletian was born nearby.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Salona",
+        "rank": 2,
+        "note": "Roman again since 535; it will be destroyed by Avars and Slavs c. 614.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "spalatum",
+    "modern": "Split, Croatia",
+    "lat": 43.508,
+    "lng": 16.44,
+    "kind": "monument",
+    "eras": [
+      {
+        "from": 295,
+        "to": 400,
+        "name": "Diocletian's Palace (building)",
+        "rank": 3,
+        "note": "The emperor's retirement palace is under construction on the bay of Aspalathos; he will move in after abdicating in 305.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Diocletian's Palace (Spalatum)",
+        "rank": 3,
+        "note": "The vast fortified retirement palace that Diocletian built c. 295–305 and lived in after his abdication in 305. Asked to return to power, he said he would rather show off the cabbages he grew at Salona (Epitome de Caesaribus 39.6). The last western emperor, Julius Nepos, was murdered at his villa near Salona in 480.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Diocletian's Palace (Spalatum)",
+        "rank": 3,
+        "note": "Still standing; refugees from Salona will settle inside its walls in the 7th century, founding the city of Split.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "delphi",
+    "modern": "Delphi, Greece",
+    "lat": 38.482,
+    "lng": 22.501,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Delphoi",
+        "rank": 2,
+        "note": "The oracle of Apollo, the \"navel of the world\". Kings like Croesus consulted it (Herodotus 1.46–55), and the Athenian Alcmaeonid family has just rebuilt its temple after the fire of 548 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Delphi",
+        "rank": 3,
+        "note": "The oracle is still consulted but in decline. Its treasuries are full of statues, many carried off by Roman generals.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Delphi",
+        "rank": 3,
+        "note": "The oracle still functions, but in decline.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 560,
+        "name": "Delphi",
+        "rank": 3,
+        "note": "The oracle fell silent in the late 4th century; Delphi is now a small Christian town with a basilica among the ruined treasuries.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 500
+      }
+    ]
+  },
+  {
+    "id": "olympia",
+    "modern": "Olympia, Greece",
+    "lat": 37.638,
+    "lng": 21.63,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Olympia",
+        "rank": 3,
+        "note": "Sanctuary of Zeus where the Olympic Games have been held every four years since, by tradition, 776 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Olympia",
+        "rank": 3,
+        "note": "Home of Phidias's gold-and-ivory statue of Zeus, one of the Seven Wonders. The games continue; Nero will compete in AD 67.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 426,
+        "name": "Olympia",
+        "rank": 3,
+        "note": "The games continue; the last known victor is recorded in 385.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "delos",
+    "modern": "Delos, Greece",
+    "lat": 37.396,
+    "lng": 25.27,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -88,
+        "name": "Delos",
+        "rank": 3,
+        "note": "Sacred island where Apollo and Artemis were born. Peisistratus purified it (Herodotus 1.64) and Polycrates of Samos dedicated neighbouring Rheneia to Apollo (Thucydides 3.104).",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "nicopolis",
+    "modern": "Preveza, Greece",
+    "lat": 39.01,
+    "lng": 20.73,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -29,
+        "to": 151,
+        "name": "Nicopolis",
+        "rank": 2,
+        "note": "\"Victory City\", founded by Octavian beside the battlefield of Actium (31 BC), where he defeated Antony and Cleopatra (Strabo 7.7.6).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Nicopolis",
+        "rank": 2,
+        "note": "Capital of Epirus Vetus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Nicopolis",
+        "rank": 3,
+        "note": "Capital of the province of Epirus Vetus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Nicopolis",
+        "rank": 3,
+        "note": "Shrinking capital of Epirus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "samos",
+    "modern": "Pythagoreio, Samos",
+    "lat": 37.69,
+    "lng": 26.94,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Samos",
+        "rank": 2,
+        "note": "Polycrates' island city (he died c. 522). Herodotus (3.60) singles out its three greatest works of engineering: the tunnel of Eupalinos, the harbour mole and the temple of Hera.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "paphos",
+    "modern": "Paphos, Cyprus",
+    "lat": 34.757,
+    "lng": 32.41,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Paphos",
+        "rank": 3,
+        "note": "Kingdom famous for its sanctuary of Aphrodite, who came ashore here after her birth from the sea (Odyssey 8.362–363; Herodotus 1.105).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Paphos",
+        "rank": 2,
+        "note": "Seat of the Roman governor of Cyprus. Paul met the proconsul Sergius Paulus here (Acts 13:6–12).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "halicarnassus",
+    "modern": "Bodrum, Turkey",
+    "lat": 37.038,
+    "lng": 27.424,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Halikarnassos",
+        "rank": 3,
+        "note": "Dorian city ruled by a Carian dynasty under Persia. Its queen Artemisia will command ships at Salamis in 480 (Herodotus 7.99), and Herodotus himself is born here c. 484 BC.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Halicarnassus",
+        "rank": 3,
+        "note": "Home of the Mausoleum (c. 350 BC), the tomb of Mausolus and one of the Seven Wonders.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Halicarnassus",
+        "rank": 3,
+        "note": "The Mausoleum still stands.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Halicarnassus",
+        "rank": 3,
+        "note": "The Mausoleum still stands. It is thought to have fallen in medieval earthquakes, and the Knights of St John later quarried it.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Halicarnassus",
+        "rank": 3,
+        "note": "The Mausoleum still stands.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "didyma",
+    "modern": "Didim, Turkey",
+    "lat": 37.385,
+    "lng": 27.256,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Didyma (Branchidai)",
+        "rank": 3,
+        "note": "Oracle of Apollo run by the Branchidae, enriched by Croesus (Herodotus 1.46, 1.92). The Persians will sack it after the Ionian Revolt (Herodotus 6.19).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Didyma",
+        "rank": 3,
+        "note": "The colossal Hellenistic temple of Apollo is still under construction; it was never finished.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "troy",
+    "modern": "Hisarlık, Turkey",
+    "lat": 39.957,
+    "lng": 26.239,
+    "kind": "monument",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Ilion",
+        "rank": 3,
+        "note": "Small Aeolian town on the site of Homer's Troy. Xerxes will sacrifice a thousand oxen to Athena of Ilion in 480 (Herodotus 7.43).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Ilium",
+        "rank": 3,
+        "note": "Favoured by Caesar and Augustus as the ancestral home of the Julii, descendants of Aeneas (Strabo 13.1.27).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "hierapolis",
+    "modern": "Pamukkale, Turkey",
+    "lat": 37.925,
+    "lng": 29.126,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Hierapolis",
+        "rank": 3,
+        "note": "Spa town on the white travertine terraces. Strabo (13.4.14) tested its deadly \"Plutonium\" cave by releasing sparrows into it.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Hierapolis",
+        "rank": 3,
+        "note": "Spa town with its Plutonium and theatre.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Hierapolis",
+        "rank": 3,
+        "note": "Pilgrimage centre with the martyrium of the apostle Philip (early 5th century).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Hierapolis",
+        "rank": 3,
+        "note": "Pilgrimage to St Philip.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "caesarea_capp",
+    "modern": "Kayseri, Turkey",
+    "lat": 38.72,
+    "lng": 35.49,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Mazaca / Caesarea",
+        "rank": 2,
+        "note": "Capital of King Archelaus of Cappadocia, renamed Caesarea in honour of Augustus, below Mount Argaeus (Strabo 12.2.7–9).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Caesarea",
+        "rank": 2,
+        "note": "Metropolis of Cappadocia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Caesarea",
+        "rank": 2,
+        "note": "Metropolis of Cappadocia, see of St Basil the Great (d. 379).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Caesarea",
+        "rank": 2,
+        "note": "Cappadocian metropolis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tomis",
+    "modern": "Constanța, Romania",
+    "lat": 44.173,
+    "lng": 28.65,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Tomis",
+        "rank": 3,
+        "note": "Greek trading colony on the western Black Sea coast.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Tomis",
+        "rank": 3,
+        "note": "Augustus exiled the poet Ovid here in AD 8; his Tristia and Letters from Pontus complain of the cold, the Getae and the frozen sea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Tomis",
+        "rank": 3,
+        "note": "Capital of Scythia Minor.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Tomis",
+        "rank": 3,
+        "note": "Capital of the frontier province of Scythia Minor.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Tomis",
+        "rank": 3,
+        "note": "Frontier city facing the newly arrived Avars.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "phasis",
+    "modern": "Poti, Georgia",
+    "lat": 42.15,
+    "lng": 41.67,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Phasis",
+        "rank": 3,
+        "note": "Milesian colony in Colchis, the land of the Golden Fleece sought by the Argonauts.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Phasis",
+        "rank": 3,
+        "note": "Port at the eastern end of the Black Sea (Strabo 11.2.17).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Phasis",
+        "rank": 3,
+        "note": "Roman fort in Colchis.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Phasis",
+        "rank": 3,
+        "note": "Port of Lazica, a Roman ally; Rome and Persia will fight over it in the Lazic War (541–562).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Phasis",
+        "rank": 2,
+        "note": "Port of Lazica, fought over until the Fifty-Year Peace of 562.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tanais",
+    "modern": "Nedvigovka, Russia",
+    "lat": 47.27,
+    "lng": 39.33,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -250,
+        "to": 240,
+        "name": "Tanais",
+        "rank": 3,
+        "note": "Bosporan emporium at the mouth of the Don, where steppe nomads traded slaves and hides for wine and cloth (Strabo 11.2.3).",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "chersonesos",
+    "modern": "Sevastopol, Crimea",
+    "lat": 44.611,
+    "lng": 33.493,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -422,
+        "to": 151,
+        "name": "Chersonesus",
+        "rank": 3,
+        "note": "Dorian Greek city (founded 422/1 BC) in the south-west of Crimea, under Bosporan and Roman protection.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Chersonesus",
+        "rank": 3,
+        "note": "Greek city of Crimea under Roman protection.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Cherson",
+        "rank": 3,
+        "note": "The Eastern Empire's outpost in Crimea and a place of exile.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Cherson",
+        "rank": 3,
+        "note": "Roman city of Crimea.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "artaxata",
+    "modern": "Artashat, Armenia",
+    "lat": 39.96,
+    "lng": 44.55,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -176,
+        "to": 151,
+        "name": "Artaxata",
+        "rank": 2,
+        "note": "Capital of Armenia, said to have been laid out on Hannibal's advice (Strabo 11.14.6; Plutarch, Lucullus 31). Rome and Parthia compete for control of Armenia.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Artaxata",
+        "rank": 2,
+        "note": "Capital of King Tiridates III of Armenia, restored with Roman help; Armenia will become the first Christian kingdom c. 301.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Artaxata / Dvin",
+        "rank": 3,
+        "note": "In Persian Armenia; one of only three places where Roman–Persian trade was legally allowed (Codex Justinianus 4.63.4).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Dvin",
+        "rank": 2,
+        "note": "Capital of Persian Armenia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "nemrut",
+    "modern": "Mount Nemrut, Turkey",
+    "lat": 37.981,
+    "lng": 38.741,
+    "kind": "monument",
+    "eras": [
+      {
+        "from": -62,
+        "to": 151,
+        "name": "Hierothesion of Antiochus I (Nemrud Dağ)",
+        "rank": 3,
+        "note": "Mountain-top tomb sanctuary of King Antiochus I of Commagene (r. c. 70–38 BC), with colossal statues of the king beside Greek and Persian gods. Commagene stays a client kingdom until AD 17 (Tacitus, Annals 2.42).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "giza",
+    "modern": "Giza, Egypt",
+    "lat": 29.979,
+    "lng": 31.134,
+    "kind": "monument",
+    "eras": [
+      {
+        "from": -2560,
+        "to": -249,
+        "name": "Pyramids of Khufu",
+        "rank": 3,
+        "note": "Already over 2,000 years old. Herodotus heard that 100,000 men worked for twenty years to build the Great Pyramid (2.124–127).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "The Pyramids",
+        "rank": 3,
+        "note": "A must-see for Roman tourists. Strabo (17.1.33) and Pliny (36.75–82) describe them.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "The Pyramids",
+        "rank": 3,
+        "note": "Visited by Roman tourists, who scratched graffiti on them.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "The Pyramids",
+        "rank": 3,
+        "note": "Still clad in their white limestone casing; Christian travellers sometimes call them \"Joseph's granaries\".",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "The Pyramids",
+        "rank": 3,
+        "note": "Still clad in their casing stones.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "babylon_egypt",
+    "modern": "Old Cairo, Egypt",
+    "lat": 30.006,
+    "lng": 31.231,
+    "kind": "fortress",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Babylon (Egypt)",
+        "rank": 3,
+        "note": "Fortress at the head of the Delta, garrisoned by one of Egypt's three Roman legions (Strabo 17.1.30).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Babylon (Egypt)",
+        "rank": 3,
+        "note": "Fortress at the apex of the Delta, rebuilt as a strong fort around this time.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Babylon (Egypt)",
+        "rank": 2,
+        "note": "Roman fortress city at the apex of the Delta, the site of later Cairo.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Babylon (Egypt)",
+        "rank": 2,
+        "note": "Fortress city at the apex of the Delta; it will fall to the Arabs in 641.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "thebes",
+    "modern": "Luxor, Egypt",
+    "lat": 25.7,
+    "lng": 32.64,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -2000,
+        "to": -249,
+        "name": "Waset (Thebes)",
+        "rank": 2,
+        "note": "Homer's \"hundred-gated Thebes\", with the vast temples of Karnak and Luxor.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Thebes (Diospolis)",
+        "rank": 3,
+        "note": "Tourists visit the Valley of the Kings and the \"singing\" Colossus of Memnon. Strabo heard its sound at dawn but suspected a trick (17.1.46).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Thebes (Luxor)",
+        "rank": 3,
+        "note": "The Luxor temple has been converted into a legionary fortress, with an imperial-cult chamber painted with the Tetrarchs.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Thebes",
+        "rank": 3,
+        "note": "Monks and hermits live among the old tombs and temples.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Thebes",
+        "rank": 3,
+        "note": "Monasteries and the village of Djeme fill the old temples.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "syene",
+    "modern": "Aswan, Egypt",
+    "lat": 24.088,
+    "lng": 32.899,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Swenet / Elephantine",
+        "rank": 3,
+        "note": "Frontier at the First Cataract. Persian-era papyri record a Jewish military colony on Elephantine island.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Syene",
+        "rank": 3,
+        "note": "Frontier garrison. Eratosthenes measured the Earth's circumference from the fact that the sun shines straight down a well here at midsummer (Strabo 17.1.48; Cleomedes 1.7).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Syene & Philae",
+        "rank": 3,
+        "note": "In 298 Diocletian pulled the frontier back to here and Philae, paying the Nobatae and Blemmyes to guard the south (Procopius, Wars 1.19).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Syene",
+        "rank": 3,
+        "note": "Southern frontier. Nearby Philae is the last working temple of Isis; Justinian will close it c. 535 (Procopius, Wars 1.19).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Syene",
+        "rank": 3,
+        "note": "Justinian closed the temple of Isis at Philae c. 537 (Procopius, Wars 1.19).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "meroe",
+    "modern": "Bagrawiya, Sudan",
+    "lat": 16.938,
+    "lng": 33.749,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Meroë",
+        "rank": 2,
+        "note": "Herodotus heard of Meroë as \"the mother-city of the Ethiopians\" (2.29). Cambyses' expedition against the Ethiopians failed (3.25).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Meroë",
+        "rank": 1,
+        "note": "Royal city of the Kingdom of Kush, with its pyramids. Its queen (the \"Kandake\") fought Rome in 24–22 BC (Strabo 17.1.54); a bronze head of Augustus looted then was buried here.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 350,
+        "name": "Meroë",
+        "rank": 2,
+        "note": "The Kingdom of Kush is in decline; Aksumite armies will sack the region c. 350.",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "myos_hormos",
+    "modern": "Quseir al-Qadim, Egypt",
+    "lat": 26.155,
+    "lng": 34.24,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Myos Hormos",
+        "rank": 3,
+        "note": "Red Sea port for the India trade. Strabo saw up to 120 ships a year sailing from here to India (2.5.12; Periplus Maris Erythraei 1).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "siwa",
+    "modern": "Siwa Oasis, Egypt",
+    "lat": 29.2,
+    "lng": 25.52,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Oracle of Ammon",
+        "rank": 3,
+        "note": "Desert oracle consulted even by Croesus (Herodotus 1.46). An army Cambyses sent against it vanished in a sandstorm (3.26).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Ammonium",
+        "rank": 3,
+        "note": "Alexander was greeted here as son of Zeus-Ammon in 331 BC, but Strabo says the oracle is now almost abandoned (17.1.43).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "garama",
+    "modern": "Germa, Libya",
+    "lat": 26.56,
+    "lng": 13.07,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Garama (Garamantes)",
+        "rank": 3,
+        "note": "Capital of the Garamantes, who according to Herodotus hunted \"cave-dwelling Ethiopians\" in four-horse chariots (4.183).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Garama",
+        "rank": 3,
+        "note": "Saharan kingdom controlling caravan routes; Cornelius Balbus celebrated a triumph over the Garamantes in 19 BC (Pliny 5.35–38).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Garama",
+        "rank": 3,
+        "note": "Capital of the Saharan Garamantes, trading with Roman Tripolitania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Garama",
+        "rank": 3,
+        "note": "The Garamantian kingdom survives; it will make peace with Constantinople and accept Christianity c. 569.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Garama",
+        "rank": 3,
+        "note": "The Garamantes will make peace with Rome and accept Christianity c. 569.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "abu_mena",
+    "modern": "Abu Mena, Egypt",
+    "lat": 30.84,
+    "lng": 29.66,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Shrine of St Menas",
+        "rank": 3,
+        "note": "Great pilgrimage centre in the desert west of Alexandria, enlarged by Emperor Zeno. Pilgrims took home clay flasks (\"Menas ampullae\") of holy water, which have been found as far away as Britain.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Shrine of St Menas",
+        "rank": 2,
+        "note": "At its height: a pilgrim city with a great basilica and baths.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "sinai",
+    "modern": "St Catherine, Sinai, Egypt",
+    "lat": 28.556,
+    "lng": 33.976,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Mount Sinai",
+        "rank": 3,
+        "note": "Hermits and a church of the Burning Bush. The pilgrim Egeria climbed the mountain in 383; Justinian will fortify the monastery c. 550.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Monastery of Mount Sinai",
+        "rank": 3,
+        "note": "Justinian has built the fortified monastery at the Burning Bush, later St Catherine's.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "berytus",
+    "modern": "Beirut, Lebanon",
+    "lat": 33.896,
+    "lng": 35.5,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Berytus",
+        "rank": 3,
+        "note": "Colonia Iulia Augusta Felix Berytus, settled with veterans by Agrippa in 15/14 BC (Strabo 16.2.19).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Berytus",
+        "rank": 2,
+        "note": "Seat of the empire's leading law school.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Berytus",
+        "rank": 2,
+        "note": "Famous for its law school, the best in the East, until the earthquake of 551.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Berytus",
+        "rank": 3,
+        "note": "Ruined by the earthquake and tsunami of 551; its law school moved to Sidon.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "heliopolis_syr",
+    "modern": "Baalbek, Lebanon",
+    "lat": 34.007,
+    "lng": 36.204,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Heliopolis (Baalbek)",
+        "rank": 3,
+        "note": "Roman colony where the colossal temple of Jupiter Heliopolitanus is being built on enormous stone blocks.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Heliopolis",
+        "rank": 3,
+        "note": "The temple complex of Jupiter, Venus and Bacchus is complete and still busy with pilgrims.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Heliopolis",
+        "rank": 3,
+        "note": "The giant temples still dominate the town; a Christian basilica now stands in the sanctuary court.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Heliopolis",
+        "rank": 3,
+        "note": "Its giant temples are partly ruined.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "masada",
+    "modern": "Masada, Israel",
+    "lat": 31.316,
+    "lng": 35.354,
+    "kind": "fortress",
+    "eras": [
+      {
+        "from": -35,
+        "to": 74,
+        "name": "Masada",
+        "rank": 3,
+        "note": "Herod's fortress-palace on a desert mesa above the Dead Sea, with hanging terraces and huge cisterns (Josephus, Jewish War 7.280–303). The rebels' last stand against Rome will come in AD 73–74.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "bethlehem",
+    "modern": "Bethlehem",
+    "lat": 31.704,
+    "lng": 35.207,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Bethlehem",
+        "rank": 3,
+        "note": "Small Judaean town, the city of David and, in the Gospels, the birthplace of Jesus (Matthew 2; Luke 2).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Bethlehem",
+        "rank": 3,
+        "note": "Village where Christians already show visitors the cave of the Nativity (Origen, Against Celsus 1.51).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Bethlehem",
+        "rank": 3,
+        "note": "Pilgrims visit Constantine's Church of the Nativity; Jerome translated the Bible here (386–420).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Bethlehem",
+        "rank": 3,
+        "note": "Justinian has rebuilt the Church of the Nativity.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "qalat_siman",
+    "modern": "Qal'at Sim'an, Syria",
+    "lat": 36.334,
+    "lng": 36.844,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": 423,
+        "to": 533,
+        "name": "Shrine of St Simeon Stylites",
+        "rank": 3,
+        "note": "A huge cross-shaped church (c. 476–490) built around the pillar on which Simeon lived for decades (died 459). Pilgrims flocked here (Theodoret, Religious History 26).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Shrine of St Simeon Stylites",
+        "rank": 3,
+        "note": "Major pilgrimage centre.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "resafa",
+    "modern": "Resafa, Syria",
+    "lat": 35.63,
+    "lng": 38.755,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Rosafa",
+        "rank": 3,
+        "note": "Desert fort on the Strata Diocletiana. The soldier Sergius will be martyred here c. 303, and his shrine will make it a great pilgrimage city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Sergiopolis (Resafa)",
+        "rank": 3,
+        "note": "Desert pilgrimage city of the martyr St Sergius, revered by Romans and Arab tribes alike (Procopius, Buildings 2.9).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Sergiopolis",
+        "rank": 2,
+        "note": "Pilgrimage city of St Sergius with new walls and cisterns.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "charax",
+    "modern": "near Basra, Iraq",
+    "lat": 30.66,
+    "lng": 47.62,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -120,
+        "to": 151,
+        "name": "Charax Spasinou",
+        "rank": 2,
+        "note": "Capital of Characene at the head of the Gulf, a port for the India trade and home town of the geographer Isidore of Charax (Pliny 6.138–140).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "ecbatana",
+    "modern": "Hamadan, Iran",
+    "lat": 34.8,
+    "lng": 48.52,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Hagmatana (Ecbatana)",
+        "rank": 1,
+        "note": "Old Median capital and summer residence of the Persian kings; Herodotus describes seven circuits of walls, each a different colour (1.98).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Ecbatana",
+        "rank": 2,
+        "note": "Summer residence of the Parthian kings, who wintered at Ctesiphon (Strabo 16.1.16).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Hamadan",
+        "rank": 2,
+        "note": "Sasanian city on the Khorasan road.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Hamadan",
+        "rank": 2,
+        "note": "Sasanian city on the great Khorasan road.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Hamadan",
+        "rank": 2,
+        "note": "Sasanian city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "behistun",
+    "modern": "Bisotun, Iran",
+    "lat": 34.39,
+    "lng": 47.44,
+    "kind": "monument",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Behistun Rock",
+        "rank": 3,
+        "note": "Darius I has just carved his huge inscription and relief (c. 520 BC) high on the cliff, in Old Persian, Elamite and Babylonian. It later became the key to deciphering cuneiform.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Bagistana",
+        "rank": 3,
+        "note": "Station on the road from Mesopotamia into Iran. Greek writers credited the relief to Queen Semiramis (Diodorus 2.13; Isidore of Charax 5).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Bisotun",
+        "rank": 3,
+        "note": "Station on the royal road; Darius's relief looks down on passing caravans.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Bisotun",
+        "rank": 3,
+        "note": "Stage on the Sasanian royal road near Kermanshah, a district of Sasanian rock reliefs.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Bisotun",
+        "rank": 3,
+        "note": "Royal road station with an unfinished Sasanian building programme.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "persepolis",
+    "modern": "Marvdasht, Iran",
+    "lat": 29.935,
+    "lng": 52.891,
+    "kind": "monument",
+    "eras": [
+      {
+        "from": -518,
+        "to": -330,
+        "name": "Parsa (Persepolis)",
+        "rank": 1,
+        "note": "Darius's ceremonial capital, under construction since c. 518 BC. Thousands of clay tablets from its archive record rations for workers and travellers on the royal roads.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "utica",
+    "modern": "Utique, Tunisia",
+    "lat": 37.057,
+    "lng": 10.062,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -1100,
+        "to": -249,
+        "name": "Utica",
+        "rank": 3,
+        "note": "Phoenician colony said to be older than Carthage (Velleius 1.2; Pliny 16.216).",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Utica",
+        "rank": 3,
+        "note": "Capital of Roman Africa after 146 BC. Cato the Younger killed himself here in 46 BC rather than surrender to Caesar (Plutarch, Cato Minor 70).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Utica",
+        "rank": 3,
+        "note": "Old provincial capital, its harbour silting up.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "hippo",
+    "modern": "Annaba, Algeria",
+    "lat": 36.883,
+    "lng": 7.75,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Hippo Regius",
+        "rank": 3,
+        "note": "Port that was once a residence of the Numidian kings (hence \"Regius\").",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Hippo Regius",
+        "rank": 3,
+        "note": "Busy port of Numidia.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Hippo Regius",
+        "rank": 3,
+        "note": "Augustine was its bishop from 396 and died here in 430 while the Vandals besieged the city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Hippo Regius",
+        "rank": 3,
+        "note": "Roman again; Augustine's library survived the Vandals.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "volubilis",
+    "modern": "Moulay Idriss, Morocco",
+    "lat": 34.074,
+    "lng": -5.556,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -40,
+        "to": 151,
+        "name": "Volubilis",
+        "rank": 3,
+        "note": "Berber-Punic town in the realm of Juba II of Mauretania, rich from olive oil.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Volubilis",
+        "rank": 3,
+        "note": "Abandoned by the Roman administration c. 285 when the frontier pulled back north, but still inhabited.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Volubilis",
+        "rank": 3,
+        "note": "Outside imperial control since the late 3rd century, yet still inhabited by Latin-speaking Christians.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Volubilis",
+        "rank": 3,
+        "note": "Christian Berber town; its last Latin inscriptions date to the 650s.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "emerita",
+    "modern": "Mérida, Spain",
+    "lat": 38.916,
+    "lng": -6.344,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -25,
+        "to": 151,
+        "name": "Emerita Augusta",
+        "rank": 2,
+        "note": "Founded in 25 BC for veterans of the Cantabrian wars; capital of Lusitania, with a new theatre given by Agrippa.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Emerita Augusta",
+        "rank": 1,
+        "note": "Seat of the vicar of the new Diocese of the Spains.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Emerita",
+        "rank": 2,
+        "note": "Seat of the Diocese of the Spains and the shrine of St Eulalia (Prudentius, Peristephanon 3).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Emerita",
+        "rank": 2,
+        "note": "Rich Visigothic city with famous bishops (Lives of the Fathers of Mérida).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "olisipo",
+    "modern": "Lisbon, Portugal",
+    "lat": 38.711,
+    "lng": -9.137,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Olisipo",
+        "rank": 3,
+        "note": "Felicitas Julia Olisipo on the Tagus estuary, the Atlantic edge of the empire. Pliny repeats the tale that local mares conceived by the west wind (8.166).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Olisipo",
+        "rank": 3,
+        "note": "Atlantic port of Lusitania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Olisipo",
+        "rank": 3,
+        "note": "Contested between the Sueves and the Visigoths.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Olisipo",
+        "rank": 3,
+        "note": "Visigothic town on the Tagus.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "burdigala",
+    "modern": "Bordeaux, France",
+    "lat": 44.838,
+    "lng": -0.579,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -118,
+        "to": 151,
+        "name": "Burdigala",
+        "rank": 3,
+        "note": "Emporium of the Bituriges Vivisci on the Garonne estuary (Strabo 4.2.1).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Burdigala",
+        "rank": 2,
+        "note": "Wealthy port and wine town of Aquitania; the poet Ausonius is born here c. 310.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Burdigala",
+        "rank": 2,
+        "note": "Home of the poet Ausonius, and the starting point of the Bordeaux Pilgrim's journey to Jerusalem in 333. Now Visigothic.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Burdigala",
+        "rank": 2,
+        "note": "Frankish city of Aquitaine.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "nemausus",
+    "modern": "Nîmes, France",
+    "lat": 43.838,
+    "lng": 4.36,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -118,
+        "to": 151,
+        "name": "Nemausus",
+        "rank": 2,
+        "note": "Augustus has given it walls; the Maison Carrée temple, dedicated to his grandsons Gaius and Lucius, is brand new.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Nemausus",
+        "rank": 3,
+        "note": "City of Narbonensis with its amphitheatre and aqueduct.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Nemausus",
+        "rank": 3,
+        "note": "Visigothic city. Its aqueduct, carried over the Gardon on the Pont du Gard (mid-1st century AD), no longer supplies the city.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Nemausus",
+        "rank": 3,
+        "note": "Visigothic town of Septimania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "treverorum",
+    "modern": "Trier, Germany",
+    "lat": 49.756,
+    "lng": 6.641,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -16,
+        "to": 151,
+        "name": "Augusta Treverorum",
+        "rank": 3,
+        "note": "New town of the Treveri (founded c. 16 BC), on Agrippa's road to the Rhine.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Augusta Treverorum",
+        "rank": 1,
+        "note": "Residence of Constantius Chlorus, Caesar of the West, with a new palace, basilica and baths; it guards the Rhine frontier.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Treveri",
+        "rank": 3,
+        "note": "Former imperial residence of Constantine, with the Porta Nigra and the great basilica, now under Frankish rule.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Treveri",
+        "rank": 2,
+        "note": "City of the Austrasian Frankish kingdom of Sigibert I.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "colonia",
+    "modern": "Cologne, Germany",
+    "lat": 50.938,
+    "lng": 6.958,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -16,
+        "to": 151,
+        "name": "Oppidum Ubiorum",
+        "rank": 3,
+        "note": "Town of the Ubii on the Rhine with the Altar of Augustus (Ara Ubiorum), a base for campaigns into Germania.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Colonia Agrippina",
+        "rank": 2,
+        "note": "Fortified Rhine city facing the Franks.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Colonia Agrippina",
+        "rank": 2,
+        "note": "Seat of the Rhineland Frankish kings.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Colonia",
+        "rank": 2,
+        "note": "Austrasian Frankish city on the Rhine.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "lutetia",
+    "modern": "Paris, France",
+    "lat": 48.853,
+    "lng": 2.349,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -20,
+        "to": 151,
+        "name": "Lutetia",
+        "rank": 3,
+        "note": "Island town of the Parisii in the Seine (Caesar, Gallic War 6.3, 7.57; Strabo 4.3.5).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      },
+      {
+        "from": 152,
+        "to": 400,
+        "name": "Lutetia (Parisii)",
+        "rank": 3,
+        "note": "Walled island city on the Seine.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 300
+      },
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Parisius",
+        "rank": 3,
+        "note": "City of St Geneviève. Clovis will make it his capital c. 508.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Parisius",
+        "rank": 1,
+        "note": "Capital of King Charibert I (561–567).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "tours",
+    "modern": "Tours, France",
+    "lat": 47.394,
+    "lng": 0.684,
+    "kind": "sanctuary",
+    "eras": [
+      {
+        "from": 401,
+        "to": 533,
+        "name": "Turonum (Tours)",
+        "rank": 3,
+        "note": "Shrine of St Martin (d. 397), the most popular pilgrimage in Gaul, on the frontier between Franks and Visigoths. Clovis will come here after his victory in 507 (Gregory of Tours 2.37–38).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 500
+      },
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Turonum (Tours)",
+        "rank": 2,
+        "note": "Shrine of St Martin. Gregory, the historian of the Franks, will become bishop in 573.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "veii",
+    "modern": "Isola Farnese, Italy",
+    "lat": 42.023,
+    "lng": 12.401,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -396,
+        "name": "Veii",
+        "rank": 2,
+        "note": "Powerful Etruscan city only 15 km from Rome, its great rival; its sculptor Vulca made the terracotta Apollo of Veii. Rome will capture it in 396 BC (Livy 5.21).",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": -500
+      }
+    ]
+  },
+  {
+    "id": "poseidonia",
+    "modern": "Paestum, Italy",
+    "lat": 40.42,
+    "lng": 15.005,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -3000,
+        "to": -249,
+        "name": "Poseidonia",
+        "rank": 3,
+        "note": "Greek colony founded from Sybaris, with the Doric temples of Hera (c. 550 BC) and Athena (c. 500 BC).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": -500
+      },
+      {
+        "from": -248,
+        "to": 151,
+        "name": "Paestum",
+        "rank": 3,
+        "note": "Roman colony famous for roses that bloomed twice a year (Virgil, Georgics 4.119).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "pompeii",
+    "modern": "Pompei, Italy",
+    "lat": 40.749,
+    "lng": 14.484,
+    "kind": "city",
+    "eras": [
+      {
+        "from": -248,
+        "to": 79,
+        "name": "Pompeii",
+        "rank": 3,
+        "note": "Prosperous Roman colony on the Bay of Naples, buried by Vesuvius in AD 79 (Pliny the Younger, Letters 6.16, 6.20).",
+        "exactFrom": false,
+        "exactTo": true,
+        "noteYear": 1
+      }
+    ]
+  },
+  {
+    "id": "londinium",
+    "modern": "London, UK",
+    "lat": 51.512,
+    "lng": -0.091,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 47,
+        "to": 410,
+        "name": "Londinium",
+        "rank": 2,
+        "note": "Largest city of Britain. Constantius Chlorus recovered it from the usurper Allectus in 296, as shown on the Arras medallion.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "eboracum",
+    "modern": "York, UK",
+    "lat": 53.96,
+    "lng": -1.08,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 71,
+        "to": 410,
+        "name": "Eboracum",
+        "rank": 2,
+        "note": "Fortress of the Sixth Legion. Constantius will die here in 306 and his son Constantine will be proclaimed emperor by the troops.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "hadrians_wall",
+    "modern": "Housesteads, Northumberland, UK",
+    "lat": 55.013,
+    "lng": -2.33,
+    "kind": "fortress",
+    "eras": [
+      {
+        "from": 122,
+        "to": 410,
+        "name": "Hadrian's Wall (Vercovicium)",
+        "rank": 3,
+        "note": "The 73-mile wall built from AD 122, still garrisoned against the Picts. Constantius campaigned beyond it in 305.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "gesoriacum",
+    "modern": "Boulogne-sur-Mer, France",
+    "lat": 50.726,
+    "lng": 1.614,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 43,
+        "to": 450,
+        "name": "Gesoriacum / Bononia",
+        "rank": 3,
+        "note": "Base of the British fleet (Classis Britannica); Constantius besieged and took it from the usurper Carausius in 293.",
+        "exactFrom": true,
+        "exactTo": true,
+        "noteYear": 300
+      }
+    ]
+  },
+  {
+    "id": "toletum",
+    "modern": "Toledo, Spain",
+    "lat": 39.857,
+    "lng": -4.024,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Toletum",
+        "rank": 1,
+        "note": "Royal seat of the Visigothic king Athanagild (d. 567). It will be the kingdom's capital until 711.",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "dara",
+    "modern": "Dara, Turkey",
+    "lat": 37.18,
+    "lng": 40.94,
+    "kind": "fortress",
+    "eras": [
+      {
+        "from": 505,
+        "to": 3000,
+        "name": "Dara (Anastasiopolis)",
+        "rank": 2,
+        "note": "Frontier fortress built by Anastasius (505–507) in sight of Persian Nisibis. Belisarius won a famous battle here in 530.",
+        "exactFrom": true,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  },
+  {
+    "id": "faras",
+    "modern": "Faras (now under Lake Nubia), Sudan",
+    "lat": 22.22,
+    "lng": 31.48,
+    "kind": "city",
+    "eras": [
+      {
+        "from": 534,
+        "to": 3000,
+        "name": "Pachoras (Faras)",
+        "rank": 2,
+        "note": "Capital of Nobadia. Its king was converted by a mission sent by Empress Theodora in 543 (John of Ephesus, Ecclesiastical History 4.6–8).",
+        "exactFrom": false,
+        "exactTo": false,
+        "noteYear": 565
+      }
+    ]
+  }
+]

@@ -7,7 +7,9 @@
     "start": "npx --yes http-server -p 8080 -c-1 .",
     "test": "node tests/validate.js",
     "build:land": "node tools/build-land.js",
-    "build:territories": "node tools/build-territories.js"
+    "build:territories": "node tools/build-territories.js",
+    "build:data": "node tools/build-data.js",
+    "build": "node tools/build-data.js"
   },
   "devDependencies": {
     "@turf/turf": "^7.1.0",

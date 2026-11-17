@@ -15,13 +15,6 @@
     return 2 * EARTH_RADIUS_KM * Math.asin(Math.sqrt(h));
   }
 
-  /** Returns a period-specific view of a city, or null if it did not exist then. */
-  function cityInPeriod(city, periodId) {
-    const p = city.periods[periodId];
-    if (!p) return null;
-    return { id: city.id, lat: city.lat, lng: city.lng, modern: city.modern, kind: city.kind || 'city', name: p.name, rank: p.rank, note: p.note };
-  }
-
   /** Year-specific view of a place, or null if it does not exist in that year. */
   function cityInYear(city, year) {
     const era = (city.eras || []).find((e) => year >= e.from && year <= e.to);
@@ -29,7 +22,7 @@
     return {
       id: city.id, lat: city.lat, lng: city.lng, modern: city.modern, kind: city.kind || 'city',
       name: era.name, rank: era.rank, note: era.note,
-      era: { from: era.from, to: era.to, period: era.period },
+      era: { from: era.from, to: era.to, noteYear: era.noteYear },
       lifespan: { from: city.eras[0].from, to: city.eras[city.eras.length - 1].to },
     };
   }
@@ -39,11 +32,13 @@
   const GEOM_CACHE = new Map();
   const PROFILE_CACHE = new Map();
 
-  /** Route with per-period overrides applied. */
-  function routeInPeriod(route, periodId) {
-    const o = (route.byPeriod && route.byPeriod[periodId]) || {};
-    return Object.assign({}, route, o, { byPeriod: undefined });
+  /** Route as it was known in `year`: dated overrides (e.g. a later name) applied. */
+  function routeInYear(route, year) {
+    const o = (route.overrides || []).find((x) => year >= x.from && year <= x.to) || {};
+    const { from, to, ...fields } = o; // eslint-disable-line no-unused-vars
+    return Object.assign({}, route, fields, { overrides: undefined });
   }
+  const inSpan = (year) => (s) => year >= s.from && year <= s.to;
 
   /** Full drawn path of a route as [lat, lng] points, from `from` to `to`. */
   function routePath(route, cityById, waypoints) {
@@ -117,9 +112,9 @@
       }
       this.routes = [];
       for (const r of data.routes) {
-        if (!(r.spans || []).some(([a, b]) => this.year >= a && this.year <= b)) continue;
+        if (!(r.spans || []).some(inSpan(this.year))) continue;
         if (!this.cities[r.from] || !this.cities[r.to]) continue;
-        const route = routeInPeriod(r, periodId);
+        const route = routeInYear(r, this.year);
         let geom = GEOM_CACHE.get(r.id);
         if (!geom) {
           const path = routePath(route, this.cities, data.waypoints);
@@ -128,7 +123,7 @@
         }
         route.path = geom.path;
         route.distanceKm = geom.distanceKm;
-        route.span = r.spans.find(([a, b]) => this.year >= a && this.year <= b);
+        route.span = r.spans.find(inSpan(this.year));
         this.routes.push(route);
       }
       // borders only where a hand-drawn snapshot is valid for this year
@@ -139,10 +134,7 @@
         const t = this.territoryAt(c.lat, c.lng);
         c.owner = t ? t.id : null;
       }
-      const tags = data.routeTags || {};
-      const nile = new Set(tags.nile || []);
       for (const r of this.routes) {
-        if (nile.has(r.id)) r.nile = true;
         const key = `${r.id}|${this.snapshot || 'none'}`;
         let prof = PROFILE_CACHE.get(key);
         if (!prof) {
@@ -386,5 +378,5 @@
     }
   }
 
-  AWT.Router = { Network, haversine, cityInPeriod, cityInYear, routeInPeriod, inMultiPolygon, inRing };
+  AWT.Router = { Network, haversine, cityInYear, routeInYear, inMultiPolygon, inRing };
 })(typeof window !== 'undefined' ? window : globalThis);

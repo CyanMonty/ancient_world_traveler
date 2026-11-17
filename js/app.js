@@ -226,9 +226,7 @@
     return (
       `<div class="popup"><h3>${esc(route.name)}</h3>` +
       `<div class="modern">${esc(a)} ↔ ${esc(b)} · ${MODE_LABEL[route.mode]} · ~${route.distanceKm.toLocaleString()} km` +
-      (route.span
-        ? ` · in use ${spanText(route.span[0], route.span[1], (TL.routeDates[route.id] || {}).from === route.span[0], (TL.routeDates[route.id] || {}).to === route.span[1])}`
-        : '') +
+      (route.span ? ` · in use ${spanText(route.span.from, route.span.to, route.span.exactFrom, route.span.exactTo)}` : '') +
       '</div>' +
       `<p>${esc(route.desc)}</p>` +
       `<div class="sources"><b>Sources:</b> ${route.sources.map(esc).join('; ')}</div>` +
@@ -506,10 +504,9 @@
 
   /** Notes are written for an anchor year; say so when the slider is far from it. */
   function noteWhen(c) {
-    const p = c.era && c.era.period;
-    if (!p) return '';
-    const ay = TL.anchorYear(p);
-    return Math.abs(state.year - ay) > 25 && (c.era.from > state.year - 1000) ? `<span class="note-when">Around ${fmtYear(ay)}:</span> ` : '';
+    const ay = c.era && c.era.noteYear;
+    if (ay === undefined || ay === null) return '';
+    return Math.abs(state.year - ay) > 25 ? `<span class="note-when">Around ${fmtYear(ay)}:</span> ` : '';
   }
 
   function nameHistory(id) {

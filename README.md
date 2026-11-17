@@ -20,7 +20,7 @@ A **year slider** runs from 550 BC to 600 CE. Places and routes have validity ra
 
 Between windows the map shows no borders and says so, and the border-based weights switch off. The five snapshots are also quick-jump buttons.
 
-**Where the dates come from:** the underlying data is written as entries for those five anchor years. `js/data/timeline.js` turns each entry into an era that covers the years up to halfway to the neighbouring anchors. Real dates override those defaults: foundings, destructions, renamings and road construction, listed in `CITY_DATES` and `ROUTE_DATES`. Estimated boundaries are shown as "c." in the app. A place without a known founding date joins the graph once a route connects it to the main network. The test suite sweeps every 5 years to check that no place is ever stranded.
+**Where the dates come from:** the data was first written as entries for those five anchor years. Each entry was stretched to cover the years up to halfway to its neighbours, and then replaced with real dates wherever they are known: foundings, destructions, renamings and road construction. Known dates are flagged `exactFrom`/`exactTo` in the JSON; the rest are estimates and show as "c." in the app. The test suite sweeps every 5 years to check that no place is ever cut off from the network.
 
 ## Features
 
@@ -87,40 +87,43 @@ It also works as-is on GitHub Pages.
 
 ## Project layout
 
+The data is a graph stored as plain JSON in `data/`. That's the source of truth: edit it there, then rebuild the bundle the app loads.
+
 ```
-index.html            page shell
-css/styles.css        styling
-js/app.js             map and UI (Leaflet)
-js/router.js          graph, edge profiling and path finding (Dijkstra + penalty-based alternatives), no DOM
+data/nodes.json       places (nodes): id, modern name, lat/lng, kind, eras [{from, to, name, rank, note, exactFrom, exactTo, noteYear}]
+data/edges.json       routes (edges): id, from, to, mode, name, desc, sources, via, flags (downwind, downstream, crossing, nile),
+                      spans [{from, to, exactFrom, exactTo, roadDateFrom, roadDateTo}], overrides [{from, to, name/desc/sources}]
+data/waypoints.json   named points used to draw edges
+data/zones.json       climate & terrain zones used by the edge-weight effects
+data/narratives.json  descriptions of the five mapped periods
+data/config.json      timeline range, traveller speeds, winding factors
+
+tools/build-data.js   validates data/*.json and writes js/data/bundle.js   (npm run build:data)
+js/data/bundle.js     generated — loaded by the app, so index.html works straight from disk
+js/timeline.js        year formatting and dated events derived from eras and spans
+js/router.js          weighted graph per year, edge profiling, Dijkstra + alternatives (no DOM)
 js/weights.js         edge-weight model: base cost + effects, with explanations
-js/data/zones.js      climate & terrain zones used by the effects
-js/data/periods.js    periods, map labels, travel speed assumptions
-js/data/cities.js     cities, with a name, rank and note for each period
-js/data/routes.js     routes: mode, periods, drawing waypoints, description, sources
-js/data/waypoints.js  named points used to draw sea lanes and roads
-js/data/later-periods.js  300 CE & 565 CE city entries, new places and route rules
-js/data/timeline.js       eras for places, spans for routes, known dates, border snapshot windows, dated events
-js/data/territories.js    generated territory polygons (npm run build:territories)
+js/app.js             map and UI (Leaflet)
 js/data/land.js       generated coastline data (npm run build:land)
-tools/territories.src.js  hand-drawn territory outlines (edit these, then rebuild)
-vendor/leaflet/       Leaflet 1.9.4 (BSD-2-Clause), vendored so it works offline
-tests/validate.js     data integrity and router tests (npm test)
+vendor/leaflet/       Leaflet 1.9.4, vendored so it works offline
+tests/validate.js     data integrity, bundle freshness, router and timeline tests (npm test)
 ```
 
-### Adding a city or route
+Years are integers (negative = BC). `exactFrom`/`exactTo` mark known dates; other boundaries are estimates and show as "c." in the app. Because the data is plain nodes and edges, it can be loaded into a graph database (Neo4j), PostGIS/pgRouting or SQLite if the project ever outgrows the browser.
 
-1. Add the place in `js/data/cities.js`, with an entry for each period it existed in. For a site rather than a city, pass a `kind` as the last argument: `'sanctuary'`, `'monument'` or `'fortress'`.
-2. Add routes in `js/data/routes.js` with `R(from, to, mode, periods, { name, desc, sources, via })`.
+## Adding a place or route
+
+1. Add a node to `data/nodes.json` with one or more eras (`from`, `to`, `name`, `rank` 1–3, `note`). For a site rather than a city, set `kind` to `sanctuary`, `monument` or `fortress`.
+2. Add an edge to `data/edges.json` with `from`, `to`, `mode`, `name`, `desc`, `sources`, `via` waypoints and `spans`.
    - Use `via` waypoints so sea lanes go around land.
    - Set `downwind` (sea) or `downstream` (river) when direction matters.
-3. To change a border, edit `tools/territories.src.js` and run `npm run build:territories`. In each period, powers are listed in priority order and earlier ones keep any overlapping land, so outlines can be drawn loosely through the sea and over neighbours.
-4. Run `npm test`. It checks for unknown cities and waypoints, routes that use a city in a period when it didn't exist, cities with no routes, and networks that aren't connected.
+3. Run `npm run build:data`, then `npm test`. The tests check the data, that the bundle is up to date, and that no place is cut off from the network in any year.
 
 ## Caveats
 
 - Travel times are rough estimates. They come from distance and round-number speeds: about 30 km/day on foot, about 120 km/day for a merchant ship including waits, and faster for couriers.
 - Routes are drawn schematically.
 - The coastlines are modern. Ancient Miletus and Ephesus were on the sea, and the Nile delta and the Po delta were different.
-- Dates between the anchor years are estimates unless listed in `js/data/timeline.js`, and place notes describe their anchor year (popups say so when you are far from it).
+- Dates not flagged as exact in `data/` are estimates, and place notes describe their anchor year (popups say so when you are far from it).
 - Political labels and territory borders are approximate and drawn by hand. Ancient frontiers were often zones rather than lines, and control of deserts and mountains was loose. The open sea is treated as nobody's.
 - For serious work, see Stanford's [ORBIS](https://orbis.stanford.edu/) model and the Barrington Atlas.

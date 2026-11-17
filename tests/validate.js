@@ -5,10 +5,19 @@ const path = require('path');
 const vm = require('vm');
 const assert = require('assert');
 
+// The JSON in data/ is the source of truth; the app loads the generated bundle.
+const { execFileSync } = require('child_process');
+try {
+  execFileSync(process.execPath, [path.join(__dirname, '..', 'tools', 'build-data.js'), '--check'], { stdio: 'pipe' });
+} catch (e) {
+  console.error(String(e.stderr || e.stdout || e));
+  process.exit(1);
+}
+
 const ctx = { console };
 vm.createContext(ctx);
 vm.runInContext('var window = globalThis;', ctx);
-for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/data/later-periods.js', 'js/data/timeline.js', 'js/data/territories.js', 'js/data/zones.js', 'js/weights.js', 'js/router.js']) {
+for (const f of ['js/data/bundle.js', 'js/timeline.js', 'js/data/territories.js', 'js/weights.js', 'js/router.js']) {
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', f), 'utf8'), ctx, { filename: f });
 }
 const AWT = ctx.AWT;
@@ -23,31 +32,30 @@ function check(cond, msg) {
 }
 
 const periodIds = AWT.periods.map((p) => p.id);
+const KINDS = ['city', 'sanctuary', 'monument', 'fortress'];
 const cityIds = new Set();
 for (const c of AWT.cities) {
-  check(!cityIds.has(c.id), `duplicate city id ${c.id}`);
+  check(!cityIds.has(c.id), `duplicate node id ${c.id}`);
   cityIds.add(c.id);
-  for (const p of Object.keys(c.periods)) check(periodIds.includes(p), `city ${c.id} has unknown period ${p}`);
+  check(KINDS.includes(c.kind), `node ${c.id} bad kind ${c.kind}`);
+  check(c.eras.length > 0, `node ${c.id} has no eras`);
+  for (const e of c.eras) check(e.name && [1, 2, 3].includes(e.rank) && e.note, `node ${c.id} era ${e.from} incomplete`);
+  for (let i = 1; i < c.eras.length; i++) check(c.eras[i].from > c.eras[i - 1].to, `node ${c.id} eras overlap or are unsorted`);
 }
 
 const routeIds = new Set();
 for (const r of AWT.routes) {
-  check(!routeIds.has(r.id), `duplicate route id ${r.id}`);
+  check(!routeIds.has(r.id), `duplicate edge id ${r.id}`);
   routeIds.add(r.id);
-  check(['road', 'sea', 'river'].includes(r.mode), `route ${r.id} bad mode`);
-  check(r.name && r.desc && r.sources && r.sources.length, `route ${r.id} missing name/desc/sources`);
-  for (const w of r.via) check(AWT.waypoints[w], `route ${r.id} unknown waypoint ${w}`);
-  for (const p of r.periods) {
-    check(periodIds.includes(p), `route ${r.id} unknown period ${p}`);
-    for (const end of [r.from, r.to]) {
-      const c = AWT.cities.find((x) => x.id === end);
-      check(c, `route ${r.id} unknown city ${end}`);
-      if (c) check(c.periods[p], `route ${r.id} in ${p} but ${end} does not exist then`);
-    }
-  }
-  if (r.downwind) check([r.from, r.to].includes(r.downwind), `route ${r.id} bad downwind`);
+  check(['road', 'sea', 'river'].includes(r.mode), `edge ${r.id} bad mode`);
+  check(r.name && r.desc && r.sources && r.sources.length, `edge ${r.id} missing name/desc/sources`);
+  check(cityIds.has(r.from) && cityIds.has(r.to), `edge ${r.id} references a missing node`);
+  for (const w of r.via) check(AWT.waypoints[w], `edge ${r.id} unknown waypoint ${w}`);
+  check(r.spans.length > 0, `edge ${r.id} has no spans`);
+  for (let i = 1; i < r.spans.length; i++) check(r.spans[i].from > r.spans[i - 1].to, `edge ${r.id} spans overlap`);
+  if (r.downwind) check([r.from, r.to].includes(r.downwind), `edge ${r.id} bad downwind`);
   if (r.mode === 'river') check([r.from, r.to].includes(r.downstream), `river ${r.id} needs downstream`);
-  if (r.byPeriod) for (const p of Object.keys(r.byPeriod)) check(r.periods.includes(p), `route ${r.id} override for unused period ${p}`);
+  for (const o of r.overrides || []) check(o.from <= o.to, `edge ${r.id} bad override range`);
 }
 
 for (const pid of periodIds) {
