@@ -47,6 +47,36 @@
     return d;
   }
 
+  // ----- territories (point-in-polygon on [lng, lat] MultiPolygons)
+  function inRing(lng, lat, ring) {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      const [xi, yi] = ring[i];
+      const [xj, yj] = ring[j];
+      if (yi > lat !== yj > lat && lng < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) inside = !inside;
+    }
+    return inside;
+  }
+  function inMultiPolygon(lng, lat, geom) {
+    for (const poly of geom.coordinates) {
+      if (!inRing(lng, lat, poly[0])) continue;
+      let inHole = false;
+      for (let h = 1; h < poly.length; h++) if (inRing(lng, lat, poly[h])) inHole = true;
+      if (!inHole) return true;
+    }
+    return false;
+  }
+  /** Points every ~stepKm along a polyline of [lat, lng]. */
+  function samplePath(points, stepKm) {
+    const out = [points[0]];
+    for (let i = 1; i < points.length; i++) {
+      const [a, b] = [points[i - 1], points[i]];
+      const n = Math.max(1, Math.ceil(haversine(a, b) / stepKm));
+      for (let k = 1; k <= n; k++) out.push([a[0] + ((b[0] - a[0]) * k) / n, a[1] + ((b[1] - a[1]) * k) / n]);
+    }
+    return out;
+  }
+
   class Network {
     /**
      * @param {object} data   { cities, routes, waypoints, travelers, windingFactor }
@@ -69,6 +99,42 @@
         route.distanceKm = Math.round(pathLength(route.path) * (data.windingFactor[route.mode] || 1));
         this.routes.push(route);
       }
+      this.territories = (data.territories && data.territories[periodId]) || [];
+      this.territoryById = Object.fromEntries(this.territories.map((t) => [t.id, t]));
+      for (const c of Object.values(this.cities)) {
+        const t = this.territoryAt(c.lat, c.lng);
+        c.owner = t ? t.id : null;
+      }
+    }
+
+    /** The power controlling a point in this period, or null (independent peoples / sea). */
+    territoryAt(lat, lng) {
+      for (const t of this.territories) if (inMultiPolygon(lng, lat, t.geometry)) return t;
+      return null;
+    }
+
+    /**
+     * Ordered list of territory ids a leg passes through (null = land outside any state).
+     * Land legs are sampled every ~15 km; sea legs only report the two ports, since
+     * the open sea belonged to no one.
+     */
+    legTerritories(path, mode, fromId, toId) {
+      const seq = [];
+      const push = (id) => {
+        if (seq[seq.length - 1] !== id) seq.push(id);
+      };
+      if (mode === 'sea') {
+        push(this.cities[fromId].owner);
+        push(this.cities[toId].owner);
+        return seq;
+      }
+      push(this.cities[fromId].owner);
+      for (const [lat, lng] of samplePath(path, 15).slice(1, -1)) {
+        const t = this.territoryAt(lat, lng);
+        if (t || !this.territories.length) push(t ? t.id : null);
+      }
+      push(this.cities[toId].owner);
+      return seq;
     }
 
     /** Travel days along `route` when heading from city `fromId`. Returns Infinity if not usable. */
@@ -189,15 +255,19 @@
         // drawn points in direction of travel
         path: e.from === e.route.from ? e.route.path : e.route.path.slice().reverse(),
       }));
+      for (const l of legs) l.territories = this.legTerritories(l.path, l.mode, l.from, l.to);
+      const territories = [];
+      for (const l of legs) for (const id of l.territories) if (territories[territories.length - 1] !== id) territories.push(id);
       const modes = [...new Set(legs.map((l) => l.mode))];
       return {
         legs,
         totalKm: legs.reduce((s, l) => s + l.distanceKm, 0),
         totalDays: legs.reduce((s, l) => s + l.days, 0),
         modes,
+        territories,
       };
     }
   }
 
-  AWT.Router = { Network, haversine, cityInPeriod, routeInPeriod };
+  AWT.Router = { Network, haversine, cityInPeriod, routeInPeriod, inMultiPolygon };
 })(typeof window !== 'undefined' ? window : globalThis);

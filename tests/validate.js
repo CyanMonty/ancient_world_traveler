@@ -8,7 +8,7 @@ const assert = require('assert');
 const ctx = { console };
 vm.createContext(ctx);
 vm.runInContext('var window = globalThis;', ctx);
-for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/router.js']) {
+for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/data/later-periods.js', 'js/data/territories.js', 'js/router.js']) {
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', f), 'utf8'), ctx, { filename: f });
 }
 const AWT = ctx.AWT;
@@ -90,6 +90,36 @@ for (const pid of periodIds) {
   assert(p, 'Royal Road among alternatives');
   console.log(`Rome→Jerusalem (0 CE): ${res.map((r) => r.totalDays.toFixed(1) + 'd').join(', ')}`);
   console.log(`Puteoli→Alexandria ${out.totalDays.toFixed(1)}d, back ${back.totalDays.toFixed(1)}d; Sardis→Susa ${p.totalDays.toFixed(0)}d`);
+}
+
+// Territories
+{
+  const owner = (p, id) => new Network(data, p).cities[id].owner;
+  assert.strictEqual(owner('500bc', 'sardis'), 'persia');
+  assert.strictEqual(owner('500bc', 'athens'), 'greeks');
+  assert.strictEqual(owner('0ce', 'rome'), 'rome');
+  assert.strictEqual(owner('0ce', 'jerusalem'), 'herodian');
+  assert.strictEqual(owner('0ce', 'petra'), 'nabataea');
+  assert.strictEqual(owner('300ce', 'nisibis'), 'rome');
+  assert.strictEqual(owner('500ad', 'ravenna'), 'ostrogoths');
+  assert.strictEqual(owner('500ad', 'carthage'), 'vandals');
+  assert.strictEqual(owner('565ce', 'ravenna'), 'rome');
+  assert.strictEqual(owner('565ce', 'nisibis'), 'sasanian');
+  for (const p of periodIds) {
+    const ids = new Set();
+    for (const t of AWT.territories[p] || []) {
+      check(!ids.has(t.id), `${p}: duplicate territory ${t.id}`);
+      ids.add(t.id);
+    }
+    check(ids.size > 0, `${p}: no territories`);
+  }
+  // a land journey across a border reports both powers, in order
+  const j = new Network(data, '500ad').findRoutes('ravenna', 'byzantium', { k: 1, modes: { road: true, sea: false, river: true } })[0];
+  assert(j, 'land route Ravenna→Constantinople');
+  const seq = j.territories.filter(Boolean);
+  assert.strictEqual(seq[0], 'ostrogoths');
+  assert.strictEqual(seq[seq.length - 1], 'rome');
+  console.log('Ravenna→Constantinople by land (500 CE) crosses: ' + j.territories.map((t) => t || '(none)').join(' → '));
 }
 
 if (failures) {

@@ -265,3 +265,38 @@ select {
 .legend .pin.sanctuary { background: #d4a437; }
 .legend .pin.monument { background: #8a63b0; }
 .legend .pin.fortress { background: #6f7b86; }
+
+/* territories */
+.powers { margin: -6px 0 14px; }
+.powers h3 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin: 0 0 4px; font-weight: normal; }
+.powers ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.powers button {
+  font: inherit; font-size: 0.78rem; color: var(--ink); background: #fffaf0; border: 1px solid var(--paper-3);
+  border-radius: 999px; padding: 1px 8px 1px 4px; cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+}
+.powers button:hover { border-color: var(--land-edge); }
+.powers i, .terr-chip i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; flex: none; opacity: 0.85; }
+.terr-chip {
+  display: inline-flex; align-items: center; gap: 4px; font-size: 0.78rem; background: #fffaf0;
+  border: 1px solid var(--paper-3); border-radius: 4px; padding: 0 5px; white-space: nowrap; line-height: 1.5;
+}
+.terr-chip.none { color: var(--ink-soft); font-style: italic; }
+.terr-sep { color: var(--ink-soft); font-size: 0.75rem; margin: 0 2px; }
+.through { font-size: 0.78rem; color: var(--ink-soft); margin: 0 0 4px; line-height: 1.9; }
+.terr-summary { font-size: 0.85rem; background: var(--paper-2); border-radius: 6px; padding: 6px 8px; margin: 0 0 10px; line-height: 2; }
+.terr-summary b { font-weight: normal; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem; color: var(--ink-soft); margin-right: 4px; }
+.terr-note { font-size: 0.78rem; color: var(--ink-soft); line-height: 1.4; }
+.alt-terr { grid-column: 1 / -1; display: flex; gap: 3px; }
+.dot-terr { display: inline-block; width: 9px; height: 9px; border-radius: 50%; border: 1px solid rgba(59,42,26,0.35); }
+.popup .owner { font-size: 0.8rem; margin: 2px 0 4px; }
+.terr-tip { font-family: var(--font-display); font-size: 12px; }
+
+.legend summary { cursor: pointer; font-family: var(--font-display); font-size: 0.82rem; }
+.legend details[open] summary { margin-bottom: 2px; }
+.periods button { white-space: nowrap; }
+@media (max-width: 760px) {
+  .topbar { padding: 8px 10px; }
+  .topbar h1 { font-size: 1.1rem; }
+  .periods { width: 100%; justify-content: space-between; }
+  .periods button { padding: 5px 6px; font-size: 0.88rem; flex: 1; }
+}

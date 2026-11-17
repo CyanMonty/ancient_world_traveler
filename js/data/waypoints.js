@@ -302,4 +302,10 @@ AWT.waypoints = {
   neapolis_it: [40.85, 14.25],
   nuceria: [40.75, 14.65],
   salerno_gulf: [40.45, 14.7],
+  // --- 300 CE / 565 CE additions ---
+  rutupiae: [51.29, 1.33],
+  samarobriva: [49.89, 2.3],
+  lindum: [53.23, -0.54],
+  cataractonium: [54.38, -1.63],
+  caesaraugusta: [41.65, -0.88],
 };

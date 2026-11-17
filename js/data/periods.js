@@ -22,6 +22,17 @@ AWT.periods = [
       'from Arabia to Gaza.',
   },
   {
+    id: '300ce',
+    label: '300 CE',
+    title: 'The Tetrarchy of Diocletian',
+    summary:
+      'After the 3rd-century crisis, Diocletian has split power among four emperors, each ruling from a frontier ' +
+      'capital: Nicomedia, Mediolanum, Sirmium and Thessalonica, and Augusta Treverorum. The frontiers hold again from ' +
+      'Hadrian\'s Wall to the Euphrates, and the Peace of Nisibis (299) has pushed Rome beyond the Tigris. ' +
+      'Christianity is spreading fast; the Great Persecution will begin in 303, and Constantine will found ' +
+      'Constantinople in 330.',
+  },
+  {
     id: '500ad',
     label: '500 CE',
     title: 'Successor kingdoms & the Eastern Roman Empire',
@@ -30,6 +41,17 @@ AWT.periods = [
       'Ravenna, the Vandals hold Carthage, the Visigoths Toulouse and Spain. Emperor Anastasius I governs ' +
       'the East from Constantinople, fed by the Egyptian grain fleet, while the Sasanian Persians rule from ' +
       'Ctesiphon. Pilgrims travel the roads to Jerusalem.',
+  },
+  {
+    id: '565ce',
+    label: '565 CE',
+    title: 'The age of Justinian — only the Eastern Romans remain',
+    summary:
+      'The western empire is long gone, but Justinian (died 14 November 565) has won back Africa from the Vandals ' +
+      '(533–534), Italy from the Ostrogoths (535–554) and a strip of southern Spain, making the Mediterranean ' +
+      'briefly a Roman lake again. Hagia Sophia (537) crowns Constantinople, though plague (541) has ravaged the ' +
+      'empire. Frankish kings rule Gaul, the Visigoths rule Spain from Toledo, and Khosrow I rules Persia. The ' +
+      'Lombards wait in Pannonia; they will invade Italy in 568.',
   },
 ];
 
@@ -67,6 +89,16 @@ AWT.regionLabels = {
     { text: 'Pannonia (being conquered)', lat: 46.4, lng: 17.6 },
     { text: 'Dacians', lat: 46.0, lng: 24.5 },
   ],
+  '300ce': [
+    { text: 'Caledonians & Picts', lat: 56.8, lng: -4.0 },
+    { text: 'Franks', lat: 52.3, lng: 7.5 },
+    { text: 'Alamanni', lat: 48.9, lng: 9.6 },
+    { text: 'Goths', lat: 47.3, lng: 30.0 },
+    { text: 'Sarmatians', lat: 46.6, lng: 20.6 },
+    { text: 'Moors', lat: 33.5, lng: -2.0 },
+    { text: 'Blemmyes & Nobatae', lat: 22.7, lng: 33.3 },
+    { text: 'Arab tribes', lat: 29.0, lng: 40.0 },
+  ],
   '500ad': [
     { text: 'Eastern Roman Empire', lat: 39.2, lng: 33.0, size: 'lg' },
     { text: 'Sasanian Empire', lat: 34.6, lng: 46.5, size: 'lg' },
@@ -82,6 +114,15 @@ AWT.regionLabels = {
     { text: 'Persarmenia', lat: 39.6, lng: 45.4 },
     { text: 'Lazica', lat: 42.6, lng: 42.6 },
     { text: 'Nubian kingdoms', lat: 20.0, lng: 32.0 },
+  ],
+  '565ce': [
+    { text: 'Anglo-Saxons & Britons', lat: 52.6, lng: -1.5 },
+    { text: 'Bretons', lat: 48.1, lng: -3.0 },
+    { text: 'Avars', lat: 46.3, lng: 29.0 },
+    { text: 'Slavs', lat: 47.0, lng: 26.5 },
+    { text: 'Basques & Cantabrians', lat: 43.1, lng: -3.6 },
+    { text: 'Arab tribes', lat: 28.5, lng: 40.0 },
+    { text: 'Saxons', lat: 53.0, lng: 10.0 },
   ],
 };
 

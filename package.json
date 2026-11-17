@@ -6,9 +6,11 @@
   "scripts": {
     "start": "npx --yes http-server -p 8080 -c-1 .",
     "test": "node tests/validate.js",
-    "build:land": "node tools/build-land.js"
+    "build:land": "node tools/build-land.js",
+    "build:territories": "node tools/build-territories.js"
   },
   "devDependencies": {
+    "@turf/turf": "^7.1.0",
     "topojson-client": "3.1.0",
     "world-atlas": "2.0.2"
   },

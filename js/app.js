@@ -40,6 +40,11 @@
   ]);
 
   AWT.map = map; // handy for debugging from the console
+  map.createPane('territoryPane');
+  map.getPane('territoryPane').style.zIndex = 402;
+  map.createPane('seaMaskPane');
+  map.getPane('seaMaskPane').style.zIndex = 404;
+  map.getPane('seaMaskPane').style.pointerEvents = 'none';
   map.createPane('regions');
   map.getPane('regions').style.zIndex = 410;
   map.createPane('networkPane');
@@ -57,9 +62,20 @@
     { maxNativeZoom: 8, maxZoom: 9, attribution: 'Terrain: Esri, US National Park Service' }
   );
   parchment.addTo(map);
+
+  // Sea mask: an ocean-coloured rectangle with every land ring cut out (even-odd fill).
+  // Territory outlines can then run loosely through the sea and are only seen on land.
+  (function addSeaMask() {
+    const rings = [[[5, -35], [65, -35], [65, 80], [5, 80]]];
+    for (const poly of AWT.land.geometry.coordinates) for (const ring of poly) rings.push(ring.map(([x, y]) => [y, x]));
+    L.polygon(rings, { pane: 'seaMaskPane', interactive: false, stroke: true, color: '#8fa9ad', weight: 0.8, fillColor: '#b9d0d3', fillOpacity: 1 }).addTo(map);
+  })();
   L.control.layers({ Parchment: parchment, 'Terrain (online)': terrain }, null, { position: 'topright' }).addTo(map);
   L.control.scale({ imperial: false, position: 'bottomright' }).addTo(map);
 
+  const territoryLayer = L.layerGroup().addTo(map);
+  let territoryShapes = {};
+  let showTerritories = true;
   const regionLayer = L.layerGroup().addTo(map);
   const networkLayer = L.layerGroup().addTo(map);
   const journeyLayer = L.layerGroup().addTo(map);
@@ -70,16 +86,23 @@
   const legend = L.control({ position: 'bottomleft' });
   legend.onAdd = function () {
     const div = L.DomUtil.create('div', 'legend');
+    const compact = window.matchMedia('(max-width: 760px)').matches;
     div.innerHTML =
+      `<details${compact ? '' : ' open'}><summary>Map key</summary>` +
       '<div><i class="road"></i>Road</div>' +
       '<div><i class="sea"></i>Sea lane</div>' +
       '<div><i class="river"></i>River</div>' +
       '<div class="kinds"><span class="pin city"></span>City <span class="pin site sanctuary"></span>Sanctuary <span class="pin site monument"></span>Monument <span class="pin site fortress"></span>Fort</div>' +
-      '<label><input type="checkbox" id="toggle-network" checked> Show all known routes</label>';
+      '<label><input type="checkbox" id="toggle-network" checked> Show all known routes</label>' +
+      '<label><input type="checkbox" id="toggle-territories" checked> Show territories</label></details>';
     L.DomEvent.disableClickPropagation(div);
-    div.querySelector('input').addEventListener('change', (e) => {
+    div.querySelector('#toggle-network').addEventListener('change', (e) => {
       showNetwork = e.target.checked;
       drawNetwork();
+    });
+    div.querySelector('#toggle-territories').addEventListener('change', (e) => {
+      showTerritories = e.target.checked;
+      drawTerritories();
     });
     return div;
   };
@@ -218,7 +241,8 @@
     const div = document.createElement('div');
     div.className = 'popup';
     div.innerHTML =
-      `<h3>${esc(c.name)}</h3><div class="modern">${c.kind === 'city' ? '' : esc(KIND_LABEL[c.kind]) + ' · '}Today: ${esc(c.modern)}</div><p>${esc(c.note)}</p>` +
+      `<h3>${esc(c.name)}</h3><div class="modern">${c.kind === 'city' ? '' : esc(KIND_LABEL[c.kind]) + ' · '}Today: ${esc(c.modern)}</div>` +
+      `<div class="owner">Controlled by ${territoryChip(c.owner)}</div><p>${esc(c.note)}</p>` +
       '<div class="actions"><button data-act="from">Start here</button><button data-act="to">Go here</button></div>';
     div.querySelector('[data-act=from]').addEventListener('click', () => {
       map.closePopup();
@@ -242,6 +266,89 @@
         .bindPopup(routePopup(leg.route), { maxWidth: 320 })
         .addTo(journeyLayer);
     }
+  }
+
+  // ------------------------------------------------------------------ territories
+  function territory(id) {
+    return id ? state.network.territoryById[id] : null;
+  }
+  function territoryChip(id) {
+    const t = territory(id);
+    if (!t) return '<span class="terr-chip none" title="Not part of any organised state">independent lands</span>';
+    return `<span class="terr-chip" title="${esc(t.note || '')}"><i style="background:${t.color}"></i>${esc(t.name)}</span>`;
+  }
+  function territoryChain(ids, sep) {
+    return ids.map(territoryChip).join(`<span class="terr-sep">${sep}</span>`);
+  }
+  function territoryDots(ids) {
+    const uniq = [...new Set(ids)];
+    return uniq
+      .map((id) => {
+        const t = territory(id);
+        return `<i class="dot-terr" style="background:${t ? t.color : '#ccc'}" title="${esc(t ? t.name : 'independent lands')}"></i>`;
+      })
+      .join('');
+  }
+  function territorySummary(r) {
+    const uniq = [...new Set(r.territories)];
+    if (!state.network.territories.length) return '';
+    const borders = r.territories.length - 1;
+    return (
+      `<div class="terr-summary"><b>Whose lands?</b> ${territoryChain(r.territories, ' → ')}` +
+      (uniq.length === 1
+        ? `<div class="terr-note">The whole journey stays within one realm.</div>`
+        : `<div class="terr-note">${borders} border crossing${borders === 1 ? '' : 's'} between ${uniq.length} realms.</div>`) +
+      '</div>'
+    );
+  }
+
+  function drawTerritories() {
+    territoryLayer.clearLayers();
+    territoryShapes = {};
+    if (!showTerritories) return;
+    const res = state.results[state.selected];
+    const crossed = new Set(res ? res.territories : []);
+    for (const t of state.network.territories) {
+      const hot = crossed.has(t.id);
+      const dim = res && !hot;
+      const shape = L.geoJSON(
+        { type: 'Feature', geometry: t.geometry },
+        {
+          pane: 'territoryPane',
+          style: {
+            color: t.color,
+            weight: hot ? 2 : 1,
+            opacity: dim ? 0.35 : 0.8,
+            fillColor: t.color,
+            fillOpacity: hot ? 0.45 : dim ? 0.12 : 0.32,
+          },
+        }
+      );
+      shape.bindTooltip(esc(t.name), { sticky: true, className: 'terr-tip' });
+      shape.addTo(territoryLayer);
+      territoryShapes[t.id] = shape;
+    }
+  }
+
+  function renderPowers() {
+    const box = $('#powers');
+    const list = state.network.territories;
+    if (!list.length) {
+      box.innerHTML = '';
+      return;
+    }
+    box.innerHTML =
+      '<h3>Powers of the age</h3><ul>' +
+      list
+        .map((t) => `<li><button type="button" data-terr="${t.id}" title="${esc(t.note || '')}"><i style="background:${t.color}"></i>${esc(t.name)}</button></li>`)
+        .join('') +
+      '</ul>';
+    box.querySelectorAll('[data-terr]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const shape = territoryShapes[b.dataset.terr];
+        if (shape) map.fitBounds(shape.getBounds(), { padding: [30, 30], maxZoom: 6 });
+      })
+    );
   }
 
   // ------------------------------------------------------------------ results panel
@@ -284,7 +391,8 @@
           `<button type="button" class="alt" data-i="${i}" aria-pressed="${i === state.selected}">` +
           `<span class="days">${fmtDays(r.totalDays)}${badges(r.modes)}</span>` +
           `<span class="km">${r.totalKm.toLocaleString()} km</span>` +
-          `<span class="via">${via.length ? 'via ' + via.map(esc).join(', ') : 'direct'}</span></button>`
+          `<span class="via">${via.length ? 'via ' + via.map(esc).join(', ') : 'direct'}</span>` +
+          `<span class="alt-terr">${territoryDots(r.territories)}</span></button>`
         );
       })
       .join('');
@@ -307,6 +415,7 @@
           `<li class="leg ${l.mode}"><span class="dot"></span>` +
           `<h3 data-leg="${i}">${esc(from.name)} → ${esc(to.name)}</h3>` +
           `<div class="meta">${badges([l.mode])} <span class="route-name">${esc(l.route.name)}</span> · ${l.distanceKm.toLocaleString()} km · ${fmtDays(l.days)}</div>` +
+          `<div class="through">${l.mode === 'sea' ? 'From' : 'Through'} ${territoryChain(l.territories, l.mode === 'sea' ? ' ⟶ by sea ⟶ ' : ' → ')}</div>` +
           `<p>${esc(l.route.desc)}</p>` +
           `<div class="sources"><b>Sources</b> ${l.route.sources.map(esc).join('; ')}</div></li>`
         );
@@ -317,6 +426,7 @@
       `<h2>${esc(net.cities[state.from].name)} to ${esc(net.cities[state.to].name)}</h2>` +
       `<div class="alt-list" role="group" aria-label="Alternative routes">${alts}</div>` +
       `<p class="summary"><strong>About ${fmtDays(r.totalDays)}</strong> over roughly ${r.totalKm.toLocaleString()} km, ${r.legs.length} stage${r.legs.length > 1 ? 's' : ''}.</p>` +
+      territorySummary(r) +
       notes.map((n) => `<p class="note-box">${esc(n)}</p>`).join('') +
       `<ol class="itinerary">${legs}<li class="arrive"><span class="dot"></span>${esc(net.cities[state.to].name)}</li></ol>`;
 
@@ -348,6 +458,7 @@
     state.results = state.from && state.to && state.from !== state.to ? state.network.findRoutes(state.from, state.to, options()) : [];
     state.selected = 0;
     renderResults();
+    drawTerritories();
     drawNetwork();
     drawJourney();
     drawCities();
@@ -374,6 +485,7 @@
     document.querySelectorAll('#period-tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.period === id)));
     fillSelects();
     drawRegions();
+    renderPowers();
     compute(false);
   }
 
