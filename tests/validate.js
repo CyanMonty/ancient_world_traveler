@@ -8,7 +8,7 @@ const assert = require('assert');
 const ctx = { console };
 vm.createContext(ctx);
 vm.runInContext('var window = globalThis;', ctx);
-for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/data/later-periods.js', 'js/data/territories.js', 'js/router.js']) {
+for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/data/later-periods.js', 'js/data/territories.js', 'js/data/zones.js', 'js/weights.js', 'js/router.js']) {
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', f), 'utf8'), ctx, { filename: f });
 }
 const AWT = ctx.AWT;
@@ -120,6 +120,46 @@ for (const pid of periodIds) {
   assert.strictEqual(seq[0], 'ostrogoths');
   assert.strictEqual(seq[seq.length - 1], 'rome');
   console.log('Ravenna→Constantinople by land (500 CE) crosses: ' + j.territories.map((t) => t || '(none)').join(' → '));
+}
+
+// Weighted edges & effects
+{
+  const net = new Network(data, '0ce');
+  const edge = (id) => net.routes.find((r) => r.id === id);
+  const alps = edge('mediolanum-lugdunum-road');
+  assert(alps.profile.km['mountain-high'] / alps.profile.total > 0.3, 'Alpine road profiled as high mountain');
+  const coast = edge('rome-arelate-road');
+  assert(!coast.profile.km['mountain-high'], 'coast road not high mountain');
+  const jan = net.weigh(alps, 'mediolanum', { month: 1 });
+  const jul = net.weigh(alps, 'mediolanum', { month: 7 });
+  assert(jan.days > jul.days * 2, 'Alpine pass much heavier in January');
+  // the coastal road is penalised far less by winter than the Alpine pass
+  const cJan = net.weigh(coast, 'rome', { month: 1 }).days / net.weigh(coast, 'rome', { month: 7 }).days;
+  assert(cJan < jan.days / jul.days, 'coast milder than mountains in winter');
+  // effects can be switched off
+  const noSnow = net.weigh(alps, 'mediolanum', { month: 1, effects: { snow: false, mud: false } });
+  assert(Math.abs(noSnow.days - jul.days) < 1e-9, 'disabling effects restores base weight');
+  // mare clausum closes the open sea; strict passes closes the Alps
+  assert(net.weigh(edge('alexandria-puteoli-sea'), 'alexandria', { month: 1 }).closed);
+  assert(!net.weigh(edge('brundisium-dyrrachium-sea'), 'brundisium', { month: 1 }).closed, 'crossings stay open');
+  assert(net.weigh(alps, 'mediolanum', { month: 1, effects: { passes: true } }).closed, 'strict passes rule closes the Alps');
+  // Nile: upstream helped by the north wind, much cheaper than a normal river
+  const nile = net.weigh(edge('memphis-thebes-river'), 'memphis', { month: 1 });
+  const rhone = net.weigh(edge('lugdunum-arelate-river'), 'arelate', { month: 1 });
+  assert(nile.steps.find((s) => s.id === 'current').factor < rhone.steps.find((s) => s.id === 'current').factor);
+  // every weight explains itself: product of steps equals the result
+  for (const r of net.routes.slice(0, 40)) {
+    const w = net.weigh(r, r.from, { month: 3 });
+    if (w.closed) continue;
+    let d = w.steps[0].days;
+    for (const s of w.steps.slice(1)) d = d * (s.factor || 1) + (s.add || 0);
+    assert(Math.abs(d - w.days) < 1e-6, 'breakdown adds up for ' + r.id);
+  }
+  // search trace
+  const res = net.findRoutes('rome', 'athens', { month: 7 });
+  assert(res.search.settled.length > 1 && res.search.settled[0].node === 'rome', 'search trace recorded');
+  for (let i = 1; i < res.search.settled.length; i++) assert(res.search.settled[i].dist >= res.search.settled[i - 1].dist - 1e-9, 'Dijkstra settles in order');
+  console.log(`Alps (Mediolanum→Lugdunum) July ${jul.days.toFixed(1)}d, January ${jan.days.toFixed(1)}d; Rome→Athens search settled ${res.search.settled.length} of ${res.search.nodes} nodes`);
 }
 
 if (failures) {

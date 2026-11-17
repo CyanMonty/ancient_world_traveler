@@ -8,6 +8,16 @@
     river: { color: '#2d7d5a', dashArray: null },
   };
   const MODE_LABEL = { road: 'Road', sea: 'Sea', river: 'River' };
+  // Slowdown factor = current weight / base weight (distance at normal speed)
+  const COST_BANDS = [
+    { max: 0.95, color: '#1d7f9e', label: 'faster' },
+    { max: 1.15, color: '#5f8f3a', label: 'normal' },
+    { max: 1.6, color: '#d9a227', label: '×1.2–1.6' },
+    { max: 2.5, color: '#d9622b', label: '×1.6–2.5' },
+    { max: Infinity, color: '#b3261e', label: '×2.5+' },
+    { closed: true, color: '#8a8a8a', label: 'closed' },
+  ];
+  const costColor = (f, closed) => (closed ? '#8a8a8a' : COST_BANDS.find((b) => f <= b.max).color);
   const KIND_LABEL = { city: 'City', sanctuary: 'Sanctuary / pilgrimage site', monument: 'Monument', fortress: 'Fortress' };
 
   const state = {
@@ -17,6 +27,8 @@
     results: [],
     selected: 0,
     network: null,
+    month: 7,
+    effects: AWT.Weights.defaultEffects(),
   };
 
   const $ = (sel) => document.querySelector(sel);
@@ -51,6 +63,10 @@
   map.getPane('networkPane').style.zIndex = 420;
   map.createPane('journeyPane');
   map.getPane('journeyPane').style.zIndex = 450;
+  map.createPane('zonePane');
+  map.getPane('zonePane').style.zIndex = 406;
+  map.createPane('labelPane');
+  map.getPane('labelPane').style.zIndex = 460;
 
   const parchment = L.geoJSON(AWT.land, {
     style: { color: '#9c8661', weight: 0.8, fillColor: '#efe2c2', fillOpacity: 1 },
@@ -79,6 +95,13 @@
   const regionLayer = L.layerGroup().addTo(map);
   const networkLayer = L.layerGroup().addTo(map);
   const journeyLayer = L.layerGroup().addTo(map);
+  const searchLayer = L.layerGroup().addTo(map);
+  const weightLabelLayer = L.layerGroup().addTo(map);
+  const zoneLayer = L.layerGroup().addTo(map);
+  let colorByWeight = true;
+  let showWeights = false;
+  let showZones = false;
+  let searchTimer = null;
   const cityLayer = L.layerGroup().addTo(map);
   let showNetwork = true;
 
@@ -94,7 +117,12 @@
       '<div><i class="river"></i>River</div>' +
       '<div class="kinds"><span class="pin city"></span>City <span class="pin site sanctuary"></span>Sanctuary <span class="pin site monument"></span>Monument <span class="pin site fortress"></span>Fort</div>' +
       '<label><input type="checkbox" id="toggle-network" checked> Show all known routes</label>' +
-      '<label><input type="checkbox" id="toggle-territories" checked> Show territories</label></details>';
+      '<label><input type="checkbox" id="toggle-territories" checked> Show territories</label>' +
+      '<div class="graph-key"><b>Graph view</b>' +
+      '<label><input type="checkbox" id="toggle-cost" checked> Colour edges by weight</label>' +
+      '<div class="cost-scale" id="cost-scale"></div>' +
+      '<label><input type="checkbox" id="toggle-weights"> Show edge weights (days)</label>' +
+      '<label><input type="checkbox" id="toggle-zones"> Show climate zones</label></div></details>';
     L.DomEvent.disableClickPropagation(div);
     div.querySelector('#toggle-network').addEventListener('change', (e) => {
       showNetwork = e.target.checked;
@@ -104,6 +132,19 @@
       showTerritories = e.target.checked;
       drawTerritories();
     });
+    div.querySelector('#toggle-cost').addEventListener('change', (e) => {
+      colorByWeight = e.target.checked;
+      drawNetwork();
+    });
+    div.querySelector('#toggle-weights').addEventListener('change', (e) => {
+      showWeights = e.target.checked;
+      drawNetwork();
+    });
+    div.querySelector('#toggle-zones').addEventListener('change', (e) => {
+      showZones = e.target.checked;
+      drawZones();
+    });
+    div.querySelector('#cost-scale').innerHTML = COST_BANDS.map((b) => `<span><i style="background:${b.color}"></i>${b.label}</span>`).join('');
     return div;
   };
   legend.addTo(map);
@@ -152,7 +193,7 @@
     const modes = {};
     document.querySelectorAll('input[name=mode]').forEach((i) => (modes[i.value] = i.checked));
     const radio = (name) => document.querySelector(`input[name=${name}]:checked`).value;
-    return { modes, traveler: radio('traveler'), season: radio('season'), optimize: radio('optimize'), k: 3 };
+    return { modes, traveler: radio('traveler'), month: state.month, effects: Object.assign({}, state.effects), optimize: radio('optimize'), k: 3 };
   }
 
   // ------------------------------------------------------------------ drawing
@@ -176,26 +217,105 @@
       `<div class="popup"><h3>${esc(route.name)}</h3>` +
       `<div class="modern">${esc(a)} ↔ ${esc(b)} · ${MODE_LABEL[route.mode]} · ~${route.distanceKm.toLocaleString()} km</div>` +
       `<p>${esc(route.desc)}</p>` +
-      `<div class="sources"><b>Sources:</b> ${route.sources.map(esc).join('; ')}</div></div>`
+      `<div class="sources"><b>Sources:</b> ${route.sources.map(esc).join('; ')}</div>` +
+      edgeWeightsHtml(route) +
+      '</div>'
+    );
+  }
+
+  /** Both directed weights of an edge under the current conditions, with explanations. */
+  function edgeWeightsHtml(route) {
+    const net = state.network;
+    const ctx = net.context(options(), state.from);
+    const dirs = [
+      [route.from, route.to],
+      [route.to, route.from],
+    ];
+    return (
+      `<div class="edge-weights"><b>Edge weight in ${AWT.Weights.MONTHS[state.month - 1]}</b>` +
+      dirs
+        .map(([a, b]) => {
+          const w = AWT.Weights.evaluate(route, a, b, ctx);
+          return `<div class="ew"><div class="ew-head">${esc(net.cities[a].name)} → ${esc(net.cities[b].name)}: <strong>${w.closed ? 'closed' : fmtDays(w.days)}</strong></div>${stepsHtml(w)}</div>`;
+        })
+        .join('') +
+      '</div>'
+    );
+  }
+
+  function stepsHtml(w) {
+    return (
+      '<ol class="steps">' +
+      w.steps
+        .map((st, i) => {
+          const op = i === 0 ? '' : st.closed ? '✕' : st.factor ? `×${st.factor.toFixed(2)}` : `+${st.add}d`;
+          const val = st.closed ? 'closed' : `${st.days.toFixed(1)} d`;
+          return `<li class="${st.closed ? 'closed' : ''}"><span class="op">${op}</span><span class="what"><b>${esc(st.label)}</b> ${esc(st.detail)}</span><span class="val">${val}</span></li>`;
+        })
+        .join('') +
+      '</ol>'
     );
   }
 
   function drawNetwork() {
     networkLayer.clearLayers();
+    weightLabelLayer.clearLayers();
     if (!showNetwork) return;
     const dim = state.results.length > 0;
-    for (const r of state.network.routes) {
+    const net = state.network;
+    const ctx = net.context(options(), state.from);
+    for (const r of net.routes) {
       const s = MODE_STYLE[r.mode];
+      const wa = AWT.Weights.evaluate(r, r.from, r.to, ctx);
+      const wb = AWT.Weights.evaluate(r, r.to, r.from, ctx);
+      const base = wa.steps[0].days;
+      const closed = wa.closed && wb.closed;
+      const open = [wa, wb].filter((w) => !w.closed);
+      const factor = open.length ? open.reduce((x, w) => x + w.days, 0) / open.length / base : Infinity;
+      const color = colorByWeight ? costColor(factor, closed) : s.color;
       L.polyline(r.path, {
         pane: 'networkPane',
-        color: s.color,
-        dashArray: s.dashArray,
-        weight: 2.5,
-        opacity: dim ? 0.25 : 0.6,
+        color,
+        dashArray: closed ? '2 6' : s.dashArray,
+        weight: colorByWeight ? 3 : 2.5,
+        opacity: dim ? 0.3 : colorByWeight ? 0.8 : 0.6,
         smoothFactor: 1,
       })
-        .bindPopup(routePopup(r), { maxWidth: 320 })
+        .bindPopup(() => routePopup(r), { maxWidth: 360 })
         .addTo(networkLayer);
+      if (showWeights) {
+        const mid = r.path[Math.floor(r.path.length / 2)];
+        const midPt = r.path.length % 2 === 0 && r.path.length > 1 ? [(r.path[r.path.length / 2 - 1][0] + mid[0]) / 2, (r.path[r.path.length / 2 - 1][1] + mid[1]) / 2] : mid;
+        const fmt = (w) => (w.closed ? '✕' : w.days < 10 ? w.days.toFixed(1) : Math.round(w.days));
+        const same = !wa.closed && !wb.closed && Math.abs(wa.days - wb.days) < 0.05;
+        const text = closed ? 'closed' : same ? `${fmt(wa)}d` : `${fmt(wa)}⇄${fmt(wb)}d`;
+        L.marker(midPt, {
+          pane: 'labelPane',
+          interactive: false,
+          keyboard: false,
+          icon: L.divIcon({ className: 'w-label', html: `<span style="border-color:${color}">${text}</span>`, iconSize: [0, 0] }),
+        }).addTo(weightLabelLayer);
+      }
+    }
+  }
+
+  function drawZones() {
+    zoneLayer.clearLayers();
+    if (!showZones) return;
+    const winter = [11, 12, 1, 2, 3].includes(state.month);
+    const style = {
+      'mountain-high': { color: '#5d7fa3', fillColor: winter ? '#ffffff' : '#9fb3c8', fillOpacity: winter ? 0.75 : 0.35, dashArray: '4 3' },
+      mountain: { color: '#7d8fa3', fillColor: winter ? '#e8eef5' : '#b8c4cf', fillOpacity: winter ? 0.55 : 0.3, dashArray: '4 3' },
+      desert: { color: '#c79a3c', fillColor: '#f2c96b', fillOpacity: [5, 6, 7, 8, 9].includes(state.month) ? 0.5 : 0.25, dashArray: '2 4' },
+      floodplain: { color: '#3c7fb5', fillColor: '#7fb8e6', fillOpacity: [8, 9, 10].includes(state.month) ? 0.6 : 0.2, dashArray: '2 4' },
+    };
+    for (const z of AWT.zones) {
+      L.polygon(
+        z.ring.map(([x, y]) => [y, x]),
+        Object.assign({ pane: 'zonePane', weight: 1 }, style[z.kind])
+      )
+        .bindTooltip(`<b>${esc(z.name)}</b><br>${esc(z.note)}`, { sticky: true, className: 'zone-tip', maxWidth: 260 })
+        .addTo(zoneLayer);
     }
   }
 
@@ -266,6 +386,71 @@
         .bindPopup(routePopup(leg.route), { maxWidth: 320 })
         .addTo(journeyLayer);
     }
+  }
+
+  // ------------------------------------------------------------------ weights & search
+  /** Days added (or saved) by each effect over the whole itinerary. */
+  function weightSummary(r) {
+    const by = {};
+    let base = 0;
+    for (const l of r.legs) {
+      const st = l.weight.steps;
+      base += st[0].days;
+      for (let i = 1; i < st.length; i++) {
+        const d = st[i].days - st[i - 1].days;
+        by[st[i].label] = (by[st[i].label] || 0) + d;
+      }
+    }
+    const items = Object.entries(by)
+      .filter(([, d]) => Math.abs(d) >= 0.05)
+      .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+    if (!items.length) return `<div class="weight-summary">No effects change this route in ${AWT.Weights.MONTHS[state.month - 1]}: every edge is at its base weight (${fmtDays(base)}).</div>`;
+    return (
+      `<div class="weight-summary"><b>What sets the weight</b> Base ${fmtDays(base)}` +
+      items.map(([label, d]) => `<span class="eff ${d > 0 ? 'up' : 'down'}">${esc(label)} ${d > 0 ? '+' : '−'}${Math.abs(d).toFixed(1)}d</span>`).join('') +
+      '</div>'
+    );
+  }
+
+  function searchSummary() {
+    const s = state.results.search;
+    if (!s || !s.settled) return '';
+    return (
+      `<div class="search-summary">Dijkstra settled <b>${s.settled.length}</b> of ${s.nodes} places and relaxed ${s.relaxations} of ${s.edges} directed edges, minimising ${s.metric}. ` +
+      '<button type="button" id="watch-search" class="small-btn">▶ Watch the search</button></div>'
+    );
+  }
+
+  /** Replays the first Dijkstra run: places light up in the order they were settled. */
+  function animateSearch() {
+    const s = state.results.search;
+    if (!s || !s.settled) return;
+    clearTimeout(searchTimer);
+    searchLayer.clearLayers();
+    journeyLayer.clearLayers();
+    const net = state.network;
+    const maxDist = s.settled[s.settled.length - 1].dist || 1;
+    const step = Math.max(35, Math.min(160, 4500 / s.settled.length));
+    let i = 0;
+    const tick = () => {
+      if (i >= s.settled.length) {
+        searchTimer = setTimeout(() => drawJourney(), 600);
+        return;
+      }
+      const st = s.settled[i++];
+      const c = net.cities[st.node];
+      const heat = st.dist / maxDist;
+      const color = `hsl(${30 - heat * 30}, 85%, ${55 - heat * 15}%)`;
+      if (st.route) {
+        const path = st.via === st.route.from ? st.route.path : st.route.path.slice().reverse();
+        L.polyline(path, { pane: 'journeyPane', color, weight: 3, opacity: 0.9, dashArray: st.route.mode === 'sea' ? '6 5' : null, interactive: false }).addTo(searchLayer);
+      }
+      L.circleMarker([c.lat, c.lng], { pane: 'labelPane', radius: 6, color: '#3b2a1a', weight: 1.5, fillColor: color, fillOpacity: 1, interactive: false })
+        .bindTooltip(`${esc(c.name)}: ${s.metric === 'km' ? Math.round(st.dist) + ' km' : st.dist.toFixed(1) + ' d'}`, { permanent: true, direction: 'top', offset: [0, -6], className: 'search-tip' })
+        .addTo(searchLayer);
+      searchTimer = setTimeout(tick, step);
+    };
+    tick();
   }
 
   // ------------------------------------------------------------------ territories
@@ -378,7 +563,7 @@
       const opts = options();
       box.innerHTML =
         '<p class="empty">No known route connects these cities with the current options.' +
-        (opts.season === 'winter' ? ' In winter the open sea was closed — try the sailing season.' : '') +
+        ([11, 12, 1, 2, 3].includes(opts.month) ? ' Winter conditions may have closed the sea or the passes — try another month, or turn off an effect.' : '') +
         (!opts.modes.sea ? ' Try allowing sea travel.' : '') +
         '</p>';
       return;
@@ -400,13 +585,8 @@
     const r = state.results[state.selected];
     const opts = options();
     const notes = [];
-    if (r.legs.some((l) => l.route.downwind && l.route.downwind !== l.to))
-      notes.push('Part of this voyage sails against the prevailing summer winds (the Etesians), so it is much slower than the reverse direction.');
-    if (opts.season === 'winter')
-      notes.push('Winter: Vegetius says the seas were "closed" from 11 November to 10 March; only short crossings are used, and roads are slower.');
-    if (r.legs.some((l) => l.mode === 'sea') && opts.season !== 'winter')
-      notes.push('Sea times assume a fair wind in the sailing season; ships could wait days or weeks in port for the right weather.');
-
+    if (r.legs.some((l) => l.mode === 'sea'))
+      notes.push('Sea times assume normal sailing for the month; ships could still wait days or weeks in port for the right wind.');
     const legs = r.legs
       .map((l, i) => {
         const from = net.cities[l.from];
@@ -416,6 +596,7 @@
           `<h3 data-leg="${i}">${esc(from.name)} → ${esc(to.name)}</h3>` +
           `<div class="meta">${badges([l.mode])} <span class="route-name">${esc(l.route.name)}</span> · ${l.distanceKm.toLocaleString()} km · ${fmtDays(l.days)}</div>` +
           `<div class="through">${l.mode === 'sea' ? 'From' : 'Through'} ${territoryChain(l.territories, l.mode === 'sea' ? ' ⟶ by sea ⟶ ' : ' → ')}</div>` +
+          `<details class="leg-weight"><summary>Edge weight: ${fmtDays(l.days)}${l.weight.steps.length > 1 ? ` (base ${fmtDays(l.weight.steps[0].days)})` : ''}</summary>${stepsHtml(l.weight)}</details>` +
           `<p>${esc(l.route.desc)}</p>` +
           `<div class="sources"><b>Sources</b> ${l.route.sources.map(esc).join('; ')}</div></li>`
         );
@@ -426,10 +607,14 @@
       `<h2>${esc(net.cities[state.from].name)} to ${esc(net.cities[state.to].name)}</h2>` +
       `<div class="alt-list" role="group" aria-label="Alternative routes">${alts}</div>` +
       `<p class="summary"><strong>About ${fmtDays(r.totalDays)}</strong> over roughly ${r.totalKm.toLocaleString()} km, ${r.legs.length} stage${r.legs.length > 1 ? 's' : ''}.</p>` +
+      weightSummary(r) +
+      searchSummary() +
       territorySummary(r) +
       notes.map((n) => `<p class="note-box">${esc(n)}</p>`).join('') +
       `<ol class="itinerary">${legs}<li class="arrive"><span class="dot"></span>${esc(net.cities[state.to].name)}</li></ol>`;
 
+    const watch = box.querySelector('#watch-search');
+    if (watch) watch.addEventListener('click', animateSearch);
     box.querySelectorAll('.alt').forEach((b) =>
       b.addEventListener('click', () => {
         state.selected = Number(b.dataset.i);
@@ -455,6 +640,8 @@
 
   // ------------------------------------------------------------------ state changes
   function compute(fit) {
+    clearTimeout(searchTimer);
+    searchLayer.clearLayers();
     state.results = state.from && state.to && state.from !== state.to ? state.network.findRoutes(state.from, state.to, options()) : [];
     state.selected = 0;
     renderResults();
@@ -490,7 +677,7 @@
   }
 
   function writeHash() {
-    const params = new URLSearchParams({ period: state.period });
+    const params = new URLSearchParams({ period: state.period, month: state.month });
     if (state.from) params.set('from', state.from);
     if (state.to) params.set('to', state.to);
     history.replaceState(null, '', '#' + params.toString());
@@ -500,6 +687,8 @@
     const params = new URLSearchParams(location.hash.slice(1));
     const p = params.get('period');
     if (p && AWT.periods.some((x) => x.id === p)) state.period = p;
+    const m = Number(params.get('month'));
+    if (m >= 1 && m <= 12) state.month = m;
     state.from = params.get('from');
     state.to = params.get('to');
   }
@@ -517,7 +706,35 @@
     lastLabelRank = r;
   });
 
+  function buildConditions() {
+    const W = AWT.Weights;
+    $('#effects').innerHTML = W.EFFECTS.map(
+      (e) =>
+        `<label class="effect" title="${esc(e.about)}"><input type="checkbox" data-effect="${e.id}"${state.effects[e.id] ? ' checked' : ''}> ${esc(e.label)}<span class="about">${esc(e.about)}</span></label>`
+    ).join('');
+    $('#effects').querySelectorAll('[data-effect]').forEach((i) =>
+      i.addEventListener('change', () => {
+        state.effects[i.dataset.effect] = i.checked;
+        compute(false);
+      })
+    );
+    const slider = $('#month');
+    const sync = () => {
+      $('#month-name').textContent = W.MONTHS[state.month - 1];
+      $('#month-summary').textContent = W.monthSummary(state.month);
+      slider.value = state.month;
+    };
+    slider.addEventListener('input', () => {
+      state.month = Number(slider.value);
+      sync();
+      compute(false);
+      drawZones();
+    });
+    sync();
+  }
+
   readHash();
+  buildConditions();
   buildTabs();
   setPeriod(state.period);
   if (state.from && state.to) fitJourney();

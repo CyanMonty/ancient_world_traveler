@@ -45,14 +45,23 @@
               <label><input type="radio" name="traveler" value="courier" /> Official courier</label>
             </fieldset>
             <fieldset>
-              <legend>Season</legend>
-              <label><input type="radio" name="season" value="summer" checked /> Sailing season</label>
-              <label title="Vegetius (4.39): the seas are closed from 11 November to 10 March"><input type="radio" name="season" value="winter" /> Winter (mare clausum)</label>
-            </fieldset>
-            <fieldset>
               <legend>Prefer</legend>
               <label><input type="radio" name="optimize" value="time" checked /> Fastest</label>
               <label><input type="radio" name="optimize" value="distance" /> Shortest</label>
+            </fieldset>
+          </details>
+
+          <details class="options conditions" open>
+            <summary>Conditions &amp; edge weights</summary>
+            <div class="month-row">
+              <label for="month">Month</label>
+              <input type="range" id="month" min="1" max="12" step="1" value="7" />
+              <output id="month-name" for="month">July</output>
+            </div>
+            <p class="month-summary" id="month-summary"></p>
+            <fieldset class="effects">
+              <legend>Effects on edge weights</legend>
+              <div id="effects"></div>
             </fieldset>
           </details>
         </section>
@@ -81,6 +90,8 @@
     <script src="js/data/routes.js"></script>
     <script src="js/data/later-periods.js"></script>
     <script src="js/data/territories.js"></script>
+    <script src="js/data/zones.js"></script>
+    <script src="js/weights.js"></script>
     <script src="js/router.js"></script>
     <script src="js/app.js"></script>
   </body>

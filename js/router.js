@@ -105,12 +105,63 @@
         const t = this.territoryAt(c.lat, c.lng);
         c.owner = t ? t.id : null;
       }
+      const tags = data.routeTags || {};
+      const nile = new Set(tags.nile || []);
+      for (const r of this.routes) {
+        if (nile.has(r.id)) r.nile = true;
+        this.profileEdge(r);
+      }
     }
 
     /** The power controlling a point in this period, or null (independent peoples / sea). */
     territoryAt(lat, lng) {
       for (const t of this.territories) if (inMultiPolygon(lng, lat, t.geometry)) return t;
       return null;
+    }
+
+    /**
+     * Measures an edge against the climate zones and realms, so effects can weight it:
+     *   profile.km[kind]   km through each zone kind (mountain-high, mountain, desert, floodplain)
+     *   profile.names[kind] names of the zones crossed, for explanations
+     *   realmKm[id]        km through each realm
+     *   realmChanges       number of borders crossed along the edge
+     * Sea edges cross no land zones; their realm share is split between the two ports.
+     */
+    profileEdge(r) {
+      const STEP = 10;
+      const zones = this.data.zones || [];
+      const km = {};
+      const names = { 'mountain-high': [], mountain: [], desert: [], floodplain: [] };
+      const realmKm = {};
+      let total = 0;
+      if (r.mode === 'sea') {
+        total = r.distanceKm;
+        for (const id of [this.cities[r.from].owner, this.cities[r.to].owner]) {
+          const k = id || '_none';
+          realmKm[k] = (realmKm[k] || 0) + r.distanceKm / 2;
+        }
+      } else {
+        const pts = samplePath(r.path, STEP);
+        const segKm = r.distanceKm / Math.max(1, pts.length);
+        for (const [lat, lng] of pts) {
+          total += segKm;
+          const t = this.territoryAt(lat, lng);
+          const k = t ? t.id : '_none';
+          realmKm[k] = (realmKm[k] || 0) + segKm;
+          const seen = new Set();
+          for (const z of zones) {
+            if (seen.has(z.kind) || !inRing(lng, lat, z.ring)) continue;
+            seen.add(z.kind);
+            km[z.kind] = (km[z.kind] || 0) + segKm;
+            if (!names[z.kind].includes(z.name)) names[z.kind].push(z.name);
+          }
+        }
+        // a stretch in high mountains is not also counted as ordinary hill country
+        if (km['mountain-high'] && km.mountain) km.mountain = Math.max(0, km.mountain - km['mountain-high']);
+      }
+      r.profile = { km, names, total };
+      r.realmKm = realmKm;
+      r.realmChanges = this.territories.length ? this.legTerritories(r.path, r.mode, r.from, r.to).length - 1 : 0;
     }
 
     /**
@@ -137,29 +188,34 @@
       return seq;
     }
 
-    /** Travel days along `route` when heading from city `fromId`. Returns Infinity if not usable. */
-    legDays(route, fromId, opts) {
-      const speeds = this.data.travelers[opts.traveler || 'ordinary'].speeds;
-      const winter = opts.season === 'winter';
-      const toId = fromId === route.from ? route.to : route.from;
-      let speed;
-      if (route.mode === 'sea') {
-        if (winter && !route.crossing) return Infinity; // mare clausum
-        speed = speeds.sea;
-        if (route.downwind) speed *= route.downwind === toId ? 1.25 : 0.5;
-        if (winter) speed *= 0.5;
-      } else if (route.mode === 'river') {
-        speed = route.downstream === toId ? speeds.riverDown : speeds.riverUp;
-      } else {
-        speed = speeds.road;
-        if (winter) speed *= 0.8;
-      }
-      return route.distanceKm / speed;
+    /** Conditions object for the weight model, from UI/test options. */
+    context(opts = {}, src = null) {
+      const W = AWT.Weights;
+      // backwards compatible: season 'winter' / 'summer' maps to a month
+      const month = opts.month || (opts.season === 'winter' ? 1 : 7);
+      return {
+        month,
+        traveler: opts.traveler || 'ordinary',
+        speeds: this.data.travelers[opts.traveler || 'ordinary'].speeds,
+        effects: Object.assign(W.defaultEffects(), opts.effects || {}),
+        homeRealm: src && this.cities[src] ? this.cities[src].owner : null,
+      };
     }
 
-    /** Adjacency list honouring the chosen options. */
-    adjacency(opts) {
+    /** Weight of one directed edge, with its full explanation. */
+    weigh(route, fromId, opts = {}, src = null) {
+      const toId = fromId === route.from ? route.to : route.from;
+      return AWT.Weights.evaluate(route, fromId, toId, opts.ctx || this.context(opts, src));
+    }
+
+    /**
+     * The weighted directed graph under the chosen conditions:
+     *   adj[node] = [{ key, route, from, to, days, cost, weight }]
+     * cost is what Dijkstra minimises: days (fastest) or km (shortest; closed edges still excluded).
+     */
+    adjacency(opts = {}, src = null) {
       const modes = opts.modes || { road: true, sea: true, river: true };
+      const ctx = this.context(opts, src);
       const adj = {};
       for (const id of Object.keys(this.cities)) adj[id] = [];
       for (const r of this.routes) {
@@ -168,31 +224,39 @@
           [r.from, r.to],
           [r.to, r.from],
         ]) {
-          const days = this.legDays(r, a, opts);
-          if (!isFinite(days)) continue;
-          const cost = opts.optimize === 'distance' ? r.distanceKm : days;
-          adj[a].push({ key: `${r.id}>${b}`, route: r, from: a, to: b, days, cost });
+          const weight = AWT.Weights.evaluate(r, a, b, ctx);
+          if (weight.closed) continue;
+          const cost = opts.optimize === 'distance' ? r.distanceKm : weight.days;
+          adj[a].push({ key: `${r.id}>${b}`, route: r, from: a, to: b, days: weight.days, cost, weight });
         }
       }
       return adj;
     }
 
-    /** Dijkstra; returns array of adjacency edges or null. */
-    static shortest(adj, src, dst, bannedEdges, bannedNodes) {
+    /**
+     * Dijkstra from src to dst. Returns the list of edges on the cheapest path, or null.
+     * If `trace` is given, it is filled with the search as it happened:
+     *   trace.settled = [{ node, dist, via }]   nodes in the order they were finalised
+     *   trace.relaxations = number of edge relaxations
+     */
+    static shortest(adj, src, dst, bannedEdges, bannedNodes, trace) {
       const dist = { [src]: 0 };
       const prev = {};
       const done = new Set();
       const queue = [[0, src]];
+      if (trace) Object.assign(trace, { settled: [], relaxations: 0 });
       while (queue.length) {
         // small graphs: a sorted array is plenty fast
         queue.sort((x, y) => x[0] - y[0]);
         const [d, u] = queue.shift();
         if (done.has(u)) continue;
         done.add(u);
+        if (trace) trace.settled.push({ node: u, dist: d, via: prev[u] ? prev[u].from : null, edge: prev[u] || null });
         if (u === dst) break;
         for (const e of adj[u] || []) {
           if (bannedEdges.has(e.key) || bannedNodes.has(e.to)) continue;
           const nd = d + e.cost;
+          if (trace) trace.relaxations++;
           if (dist[e.to] === undefined || nd < dist[e.to] - 1e-9) {
             dist[e.to] = nd;
             prev[e.to] = e;
@@ -210,12 +274,14 @@
      * Up to `k` distinct itineraries. The best route is found with Dijkstra; alternatives
      * are found by repeatedly penalising the legs already used, which yields genuinely
      * different routes (e.g. by sea vs. overland) rather than trivial detours.
-     * opts: { traveler, season, modes, optimize, k }
+     * opts: { traveler, month, effects, modes, optimize, k }
+     * The returned array has a `search` property describing the first Dijkstra run.
      */
     findRoutes(src, dst, opts = {}) {
-      if (!this.cities[src] || !this.cities[dst] || src === dst) return [];
+      const out = [];
+      if (!this.cities[src] || !this.cities[dst] || src === dst) return out;
       const k = opts.k || 3;
-      const adj = this.adjacency(opts);
+      const adj = this.adjacency(opts, src);
       const realCost = (p) => p.reduce((s, e) => s + e.cost, 0);
       const penalty = {};
       const penalised = {};
@@ -225,10 +291,11 @@
       const found = [];
       const seen = new Set();
       let best = Infinity;
+      const search = {};
       for (let iter = 0; iter < k * 4 && found.length < k; iter++) {
         for (const edges of Object.values(penalised))
           for (const e of edges) e.cost = e.base.cost * (penalty[e.route.id] || 1);
-        const raw = Network.shortest(penalised, src, dst, new Set(), new Set());
+        const raw = Network.shortest(penalised, src, dst, new Set(), new Set(), iter === 0 ? search : null);
         if (!raw) break;
         const path = raw.map((e) => e.base);
         const sig = path.map((e) => e.key).join('|');
@@ -241,7 +308,15 @@
         for (const e of path) penalty[e.route.id] = (penalty[e.route.id] || 1) * 1.6;
       }
       found.sort((a, b) => realCost(a) - realCost(b));
-      return found.map((p) => this.describe(p));
+      for (const p of found) out.push(this.describe(p));
+      if (search.settled) {
+        search.settled = search.settled.map((s) => ({ node: s.node, dist: s.dist, via: s.via, route: s.edge ? s.edge.route : null }));
+        search.nodes = Object.keys(adj).length;
+        search.edges = Object.values(adj).reduce((n, l) => n + l.length, 0);
+        search.metric = opts.optimize === 'distance' ? 'km' : 'days';
+      }
+      out.search = search;
+      return out;
     }
 
     describe(path) {
@@ -252,6 +327,7 @@
         mode: e.route.mode,
         distanceKm: e.route.distanceKm,
         days: e.days,
+        weight: e.weight,
         // drawn points in direction of travel
         path: e.from === e.route.from ? e.route.path : e.route.path.slice().reverse(),
       }));
@@ -269,5 +345,5 @@
     }
   }
 
-  AWT.Router = { Network, haversine, cityInPeriod, routeInPeriod, inMultiPolygon };
+  AWT.Router = { Network, haversine, cityInPeriod, routeInPeriod, inMultiPolygon, inRing };
 })(typeof window !== 'undefined' ? window : globalThis);
