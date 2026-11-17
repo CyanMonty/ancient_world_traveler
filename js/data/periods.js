@@ -47,6 +47,8 @@ AWT.regionLabels = {
     { text: 'Celts', lat: 46.8, lng: 3.0 },
     { text: 'Thrace', lat: 42.2, lng: 25.2 },
     { text: 'Libyan peoples', lat: 29.5, lng: 18.0 },
+    { text: 'Kush', lat: 19.5, lng: 32.0 },
+    { text: 'Illyrians', lat: 43.6, lng: 18.4 },
   ],
   '0ce': [
     { text: 'Roman Empire', lat: 44.3, lng: 19.5, size: 'lg' },
@@ -59,7 +61,11 @@ AWT.regionLabels = {
     { text: 'Gallia', lat: 46.6, lng: 2.5 },
     { text: 'Hispania', lat: 40.0, lng: -4.0 },
     { text: 'Germania', lat: 50.5, lng: 10.0 },
-    { text: 'Garamantes', lat: 27.0, lng: 13.0 },
+    { text: 'Garamantes', lat: 27.6, lng: 14.5 },
+    { text: 'Kingdom of Kush', lat: 19.5, lng: 32.0 },
+    { text: 'Armenia', lat: 40.6, lng: 42.6 },
+    { text: 'Pannonia (being conquered)', lat: 46.4, lng: 17.6 },
+    { text: 'Dacians', lat: 46.0, lng: 24.5 },
   ],
   '500ad': [
     { text: 'Eastern Roman Empire', lat: 39.2, lng: 33.0, size: 'lg' },
@@ -72,7 +78,10 @@ AWT.regionLabels = {
     { text: 'Moorish kingdoms', lat: 33.8, lng: -3.5 },
     { text: 'Ghassanids', lat: 32.3, lng: 37.5 },
     { text: 'Lakhmids', lat: 31.3, lng: 43.6 },
-    { text: 'Gepids & Huns', lat: 46.8, lng: 21.5 },
+    { text: 'Gepids', lat: 46.6, lng: 21.0 },
+    { text: 'Persarmenia', lat: 39.6, lng: 45.4 },
+    { text: 'Lazica', lat: 42.6, lng: 42.6 },
+    { text: 'Nubian kingdoms', lat: 20.0, lng: 32.0 },
   ],
 };
 

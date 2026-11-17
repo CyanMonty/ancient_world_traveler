@@ -8,6 +8,7 @@
     river: { color: '#2d7d5a', dashArray: null },
   };
   const MODE_LABEL = { road: 'Road', sea: 'Sea', river: 'River' };
+  const KIND_LABEL = { city: 'City', sanctuary: 'Sanctuary / pilgrimage site', monument: 'Monument', fortress: 'Fortress' };
 
   const state = {
     period: '0ce',
@@ -73,6 +74,7 @@
       '<div><i class="road"></i>Road</div>' +
       '<div><i class="sea"></i>Sea lane</div>' +
       '<div><i class="river"></i>River</div>' +
+      '<div class="kinds"><span class="pin city"></span>City <span class="pin site sanctuary"></span>Sanctuary <span class="pin site monument"></span>Monument <span class="pin site fortress"></span>Fort</div>' +
       '<label><input type="checkbox" id="toggle-network" checked> Show all known routes</label>';
     L.DomEvent.disableClickPropagation(div);
     div.querySelector('input').addEventListener('change', (e) => {
@@ -100,13 +102,25 @@
   }
 
   function fillSelects() {
-    const cities = Object.values(state.network.cities).sort((a, b) => a.name.localeCompare(b.name));
+    const all = Object.values(state.network.cities).sort((a, b) => a.name.localeCompare(b.name));
+    const groups = [
+      ['Cities', all.filter((c) => c.kind === 'city')],
+      ['Sites, sanctuaries & fortresses', all.filter((c) => c.kind !== 'city')],
+    ];
     for (const sel of [$('#from'), $('#to')]) {
       const current = sel.id === 'from' ? state.from : state.to;
       sel.innerHTML =
-        '<option value="">— choose a city —</option>' +
-        cities
-          .map((c) => `<option value="${c.id}"${c.id === current ? ' selected' : ''}>${esc(c.name)} (${esc(c.modern.split(',')[0])})</option>`)
+        '<option value="">— choose a place —</option>' +
+        groups
+          .filter(([, list]) => list.length)
+          .map(
+            ([label, list]) =>
+              `<optgroup label="${label}">` +
+              list
+                .map((c) => `<option value="${c.id}"${c.id === current ? ' selected' : ''}>${esc(c.name)} (${esc(c.modern.split(',')[0])})</option>`)
+                .join('') +
+              '</optgroup>'
+          )
           .join('');
     }
   }
@@ -169,14 +183,25 @@
     for (const c of Object.values(state.network.cities)) {
       const isEnd = c.id === state.from || c.id === state.to;
       const radius = isEnd ? 8 : { 1: 6.5, 2: 5, 3: 3.5 }[c.rank];
-      const m = L.circleMarker([c.lat, c.lng], {
-        radius,
-        color: '#3b2a1a',
-        weight: isEnd ? 2.5 : 1.5,
-        fillColor: c.id === state.from ? '#ffffff' : c.id === state.to ? '#8b2e16' : c.rank === 1 ? '#8b2e16' : '#f4ead5',
-        fillOpacity: 1,
-        pane: 'markerPane',
-      });
+      let m;
+      if (c.kind === 'city') {
+        m = L.circleMarker([c.lat, c.lng], {
+          radius,
+          color: '#3b2a1a',
+          weight: isEnd ? 2.5 : 1.5,
+          fillColor: c.id === state.from ? '#ffffff' : c.id === state.to ? '#8b2e16' : c.rank === 1 ? '#8b2e16' : '#f4ead5',
+          fillOpacity: 1,
+          pane: 'markerPane',
+        });
+      } else {
+        // sites are drawn as diamonds, coloured by kind
+        const size = isEnd ? 16 : 11;
+        const endCls = c.id === state.from ? ' is-from' : c.id === state.to ? ' is-to' : '';
+        m = L.marker([c.lat, c.lng], {
+          icon: L.divIcon({ className: `site-marker ${c.kind}${endCls}`, iconSize: [size, size], html: '<span></span>' }),
+          title: `${c.name} (${KIND_LABEL[c.kind]})`,
+        });
+      }
       const label = L.tooltip({
         permanent: isEnd || c.rank <= labelRank,
         direction: 'right',
@@ -193,7 +218,7 @@
     const div = document.createElement('div');
     div.className = 'popup';
     div.innerHTML =
-      `<h3>${esc(c.name)}</h3><div class="modern">Today: ${esc(c.modern)}</div><p>${esc(c.note)}</p>` +
+      `<h3>${esc(c.name)}</h3><div class="modern">${c.kind === 'city' ? '' : esc(KIND_LABEL[c.kind]) + ' · '}Today: ${esc(c.modern)}</div><p>${esc(c.note)}</p>` +
       '<div class="actions"><button data-act="from">Start here</button><button data-act="to">Go here</button></div>';
     div.querySelector('[data-act=from]').addEventListener('click', () => {
       map.closePopup();

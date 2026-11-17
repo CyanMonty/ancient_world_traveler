@@ -19,7 +19,7 @@
   function cityInPeriod(city, periodId) {
     const p = city.periods[periodId];
     if (!p) return null;
-    return { id: city.id, lat: city.lat, lng: city.lng, modern: city.modern, name: p.name, rank: p.rank, note: p.note };
+    return { id: city.id, lat: city.lat, lng: city.lng, modern: city.modern, kind: city.kind || 'city', name: p.name, rank: p.rank, note: p.note };
   }
 
   /** Route with per-period overrides applied. */

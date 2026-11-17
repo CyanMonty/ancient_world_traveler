@@ -87,7 +87,7 @@ h2 { font-family: var(--font-display); font-weight: normal; margin: 0 0 6px; fon
 
 /* ---------------------------------------------------------------- planner */
 .planner { background: var(--paper-2); border-radius: 10px; padding: 12px; box-shadow: var(--shadow); }
-.od { display: grid; grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 6px 8px; align-items: end; }
+.od { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto; gap: 6px 8px; align-items: end; }
 .od label { display: flex; flex-direction: column; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); grid-column: 1; }
 .od #swap { grid-column: 2; grid-row: 1 / span 2; align-self: center; }
 select {
@@ -101,6 +101,8 @@ select {
   border-radius: 6px;
   background: #fffaf0;
   margin-top: 2px;
+  width: 100%;
+  min-width: 0;
 }
 .icon-btn {
   font-size: 1.2rem;
@@ -239,3 +241,27 @@ select {
 .legend .sea { border-top-style: dashed; border-color: var(--sea-route); }
 .legend .river { border-color: var(--river); }
 .legend label { cursor: pointer; display: block; margin-top: 2px; border-top: 1px solid var(--paper-3); padding-top: 2px; }
+
+/* sites (sanctuaries, monuments, fortresses): the inner span is rotated so Leaflet's own positioning transform is untouched */
+.site-marker span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 1.5px solid #3b2a1a;
+  border-radius: 2px;
+  transform: rotate(45deg) scale(0.85);
+}
+.site-marker.sanctuary span { background: #d4a437; }
+.site-marker.monument span { background: #8a63b0; }
+.site-marker.fortress span { background: #6f7b86; }
+.site-marker.is-from span { background: #ffffff; border-width: 2.5px; }
+.site-marker.is-to span { background: #8b2e16; border-width: 2.5px; }
+.legend .kinds { margin-top: 2px; }
+.legend .pin { display: inline-block; width: 9px; height: 9px; border: 1.5px solid #3b2a1a; margin: 0 3px 0 6px; vertical-align: middle; }
+.legend .pin:first-child { margin-left: 0; }
+.legend .pin.city { border-radius: 50%; background: #f4ead5; }
+.legend .pin.site { transform: rotate(45deg); border-radius: 1px; }
+.legend .pin.sanctuary { background: #d4a437; }
+.legend .pin.monument { background: #8a63b0; }
+.legend .pin.fortress { background: #6f7b86; }

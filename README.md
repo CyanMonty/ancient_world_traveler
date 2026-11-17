@@ -4,15 +4,17 @@ A crude "Google Maps for the ancient Mediterranean". Pick a time period, choose 
 
 ## Periods
 
-| Period | Setting | Cities | Routes |
+| Period | Setting | Places | Routes |
 | --- | --- | --- | --- |
-| **500 BC** | Achaemenid Persia, the Greek and Phoenician cities, early Rome, Carthage | 43 | 55 |
-| **0 CE** | The Roman Empire under Augustus, Parthia, Nabataea | 66 | 98 |
-| **500 CE** | Ostrogothic Italy, Vandal Africa, the Visigoths, the Eastern Roman Empire, Sasanian Persia | 59 | 85 |
+| **500 BC** | Achaemenid Persia, the Greek and Phoenician cities, early Rome, Carthage | 65 | 78 |
+| **0 CE** | The Roman Empire under Augustus, Parthia, Nabataea, Kush | 114 | 151 |
+| **500 CE** | Ostrogothic Italy, Vandal Africa, the Visigoths and Franks, the Eastern Roman Empire, Sasanian Persia | 101 | 134 |
 
 Cities show up only in the periods when they existed or mattered (Alexandria isn't there in 500 BC, Susa is gone by 0 CE), and their names change with the period: Byzantion, then Byzantium, then Constantinopolis.
 
 ## Features
+
+- **Places of interest.** Cities appear as circles. Other places are drawn as diamonds: sanctuaries and pilgrimage sites (Delphi, Olympia, Siwa, Bethlehem, St Simeon Stylites), monuments (the Pyramids, Diocletian's Palace at Split, the Behistun inscription, Persepolis) and fortresses (Masada, Carnuntum). All of them can be travelled to.
 
 - **Route planner.** Gives up to three different itineraries, with distance and estimated days. The alternatives are kept distinct, e.g. by sea versus overland.
 - **Every route has a source.** Each leg has a name, a short historical note and the ancient sources behind it: Herodotus on the Royal Road, Acts 27 on Paul's voyage, Horace's trip to Brundisium, the Bordeaux Pilgrim, Pliny's record sailing times, and others.
@@ -57,7 +59,7 @@ tests/validate.js     data integrity and router tests (npm test)
 
 ### Adding a city or route
 
-1. Add the city in `js/data/cities.js`, with an entry for each period it existed in.
+1. Add the place in `js/data/cities.js`, with an entry for each period it existed in. For a site rather than a city, pass a `kind` as the last argument: `'sanctuary'`, `'monument'` or `'fortress'`.
 2. Add routes in `js/data/routes.js` with `R(from, to, mode, periods, { name, desc, sources, via })`.
    - Use `via` waypoints so sea lanes go around land.
    - Set `downwind` (sea) or `downstream` (river) when direction matters.

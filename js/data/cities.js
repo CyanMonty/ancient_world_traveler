@@ -7,10 +7,11 @@ window.AWT = window.AWT || {};
  */
 (function () {
   const cities = [];
-  function C(id, lat, lng, modern, periods) {
+  // kind: 'city' | 'sanctuary' (temples, oracles, pilgrimage shrines) | 'monument' (wonders, palaces, tombs) | 'fortress'
+  function C(id, lat, lng, modern, periods, kind = 'city') {
     const p = {};
     for (const [key, v] of Object.entries(periods)) p[key] = { name: v[0], rank: v[1], note: v[2] };
-    cities.push({ id, lat, lng, modern, periods: p });
+    cities.push({ id, lat, lng, modern, kind, periods: p });
   }
 
   // ---------------------------------------------------------------- Italy & islands
@@ -56,6 +57,7 @@ window.AWT = window.AWT || {};
   });
   C('aquileia', 45.7689, 13.3667, 'Aquileia, Italy', {
     '0ce': ['Aquileia', 2, 'Great trading city at the head of the Adriatic, gateway to the Danube lands and the amber trade.'],
+    '500ad': ['Aquileia', 3, 'Sacked by Attila in 452 and much reduced, but still the seat of a powerful bishop (later patriarch) and the start of the road into the Balkans.'],
   });
   C('mediolanum', 45.4642, 9.19, 'Milan, Italy', {
     '0ce': ['Mediolanum', 3, 'Prosperous city of Cisalpine Gaul.'],
@@ -223,6 +225,7 @@ window.AWT = window.AWT || {};
     '0ce': ['Zeugma', 3, 'Its name means "bridge": the main Euphrates crossing between Roman Syria and Parthia.'],
   });
   C('edessa', 37.159, 38.7917, 'Şanlıurfa, Turkey', {
+    '0ce': ['Edessa (Urhay)', 3, 'Capital of the small kingdom of Osrhoene under its Abgar kings, between Rome and Parthia. The Roman disaster at Carrhae (53 BC) happened nearby.'],
     '500ad': ['Edessa', 2, 'Frontier stronghold and centre of Syriac Christian learning; besieged by the Persians in 503.'],
   });
   C('nisibis', 37.0667, 41.2167, 'Nusaybin, Turkey', {
@@ -347,6 +350,254 @@ window.AWT = window.AWT || {};
     '500bc': ['Gortyn', 3, 'Leading Cretan city; its great law code was inscribed in the 5th century BC.'],
     '0ce': ['Gortyna', 2, 'Capital of the Roman province of Crete and Cyrene, near the harbour of Fair Havens.'],
     '500ad': ['Gortyna', 3, 'Metropolis of Crete.'],
+  });
+
+
+  // ================================================================ EXPANDED SWEEP
+  // ---------------------------------------------------------------- Danube & Illyricum
+  C('aquincum', 47.55, 19.05, 'Budapest (Óbuda), Hungary', {
+    '0ce': ['Ak-Ink (Eravisci)', 3, 'Oppidum of the Celtic Eravisci on Gellért Hill above the Danube. Pannonia was conquered by Tiberius (12–9 BC) and rose in revolt in AD 6–9. The Roman fort, the legionary fortress (c. AD 89) and the provincial capital came later.'],
+    '500ad': ['Aquincum (ruins)', 3, 'Capital of Pannonia Inferior in the 2nd–4th centuries (the future emperor Hadrian was governor here c. 107), with amphitheatres, baths and an aqueduct. Pannonia was given up to the Huns in the 430s, and by 500 the half-deserted city lies outside the empire, in the lands of Germanic peoples such as the Gepids.'],
+  });
+  C('carnuntum', 48.114, 16.86, 'Petronell-Carnuntum, Austria', {
+    '0ce': ['Carnuntum', 3, 'Celtic settlement on the Danube where the Amber Road from the Baltic crossed the river. Tiberius made it his base against King Maroboduus in AD 6 (Velleius 2.109). Pliny puts it about 600 miles from the amber coast.'],
+  }, 'fortress');
+  C('siscia', 45.484, 16.372, 'Sisak, Croatia', {
+    '0ce': ['Siscia (Segestica)', 3, 'Taken by Octavian after a siege in 35 BC (Appian, Illyrica 22–24) and a base for the conquest of Pannonia; a river port on the Sava.'],
+    '500ad': ['Siscia', 3, 'Bishop\'s seat and river town of Ostrogothic Pannonia Savia.'],
+  });
+  C('sirmium', 44.97, 19.61, 'Sremska Mitrovica, Serbia', {
+    '0ce': ['Sirmium', 3, 'Roman outpost on the Sava; it was besieged by the rebel Breuci in AD 6 (Cassius Dio 55.29).'],
+    '500ad': ['Sirmium', 2, 'A Tetrarchic capital and birthplace of several emperors. In 500 it is held by the Gepids; Theoderic\'s Goths will take it in 504.'],
+  });
+  C('singidunum', 44.82, 20.46, 'Belgrade, Serbia', {
+    '500ad': ['Singidunum', 3, 'Danube fortress city of the Eastern Empire, founded as a Celtic (Scordiscan) settlement.'],
+  });
+  C('naissus', 43.32, 21.9, 'Niš, Serbia', {
+    '500ad': ['Naissus', 3, 'Birthplace of Constantine the Great. Sacked by Attila in 441: in 448 the envoy Priscus found it deserted, with the riverbank full of bones.'],
+  });
+  C('serdica', 42.7, 23.32, 'Sofia, Bulgaria', {
+    '500ad': ['Serdica', 2, 'Constantine is said to have called it "my Rome". It hosted the church council of 343 and is a major stop on the Via Militaris.'],
+  });
+  C('salona', 43.539, 16.484, 'Solin, Croatia', {
+    '0ce': ['Salona', 2, 'Colonia Martia Iulia Salona, capital of Illyricum (later Dalmatia), a port and the base for the conquest of the interior.'],
+    '500ad': ['Salona', 2, 'Great Christian metropolis of Dalmatia, ruled by Theoderic since 493. Diocletian was born nearby.'],
+  });
+  C('spalatum', 43.508, 16.44, 'Split, Croatia', {
+    '500ad': ['Diocletian\'s Palace (Spalatum)', 3, 'The vast fortified retirement palace that Diocletian built c. 295–305 and lived in after his abdication in 305. Asked to return to power, he said he would rather show off the cabbages he grew at Salona (Epitome de Caesaribus 39.6). The last western emperor, Julius Nepos, was murdered at his villa near Salona in 480.'],
+  }, 'monument');
+
+  // ---------------------------------------------------------------- Greece & islands
+  C('delphi', 38.482, 22.501, 'Delphi, Greece', {
+    '500bc': ['Delphoi', 2, 'The oracle of Apollo, the "navel of the world". Kings like Croesus consulted it (Herodotus 1.46–55), and the Athenian Alcmaeonid family has just rebuilt its temple after the fire of 548 BC.'],
+    '0ce': ['Delphi', 3, 'The oracle is still consulted but in decline. Its treasuries are full of statues, many carried off by Roman generals.'],
+    '500ad': ['Delphi', 3, 'The oracle fell silent in the late 4th century; Delphi is now a small Christian town with a basilica among the ruined treasuries.'],
+  }, 'sanctuary');
+  C('olympia', 37.638, 21.63, 'Olympia, Greece', {
+    '500bc': ['Olympia', 3, 'Sanctuary of Zeus where the Olympic Games have been held every four years since, by tradition, 776 BC.'],
+    '0ce': ['Olympia', 3, 'Home of Phidias\'s gold-and-ivory statue of Zeus, one of the Seven Wonders. The games continue; Nero will compete in AD 67.'],
+  }, 'sanctuary');
+  C('delos', 37.396, 25.27, 'Delos, Greece', {
+    '500bc': ['Delos', 3, 'Sacred island where Apollo and Artemis were born. Peisistratus purified it (Herodotus 1.64) and Polycrates of Samos dedicated neighbouring Rheneia to Apollo (Thucydides 3.104).'],
+  }, 'sanctuary');
+  C('nicopolis', 39.01, 20.73, 'Preveza, Greece', {
+    '0ce': ['Nicopolis', 2, '"Victory City", founded by Octavian beside the battlefield of Actium (31 BC), where he defeated Antony and Cleopatra (Strabo 7.7.6).'],
+    '500ad': ['Nicopolis', 3, 'Capital of the province of Epirus Vetus.'],
+  });
+  C('samos', 37.69, 26.94, 'Pythagoreio, Samos', {
+    '500bc': ['Samos', 2, 'Polycrates\' island city (he died c. 522). Herodotus (3.60) singles out its three greatest works of engineering: the tunnel of Eupalinos, the harbour mole and the temple of Hera.'],
+  });
+  C('paphos', 34.757, 32.41, 'Paphos, Cyprus', {
+    '500bc': ['Paphos', 3, 'Kingdom famous for its sanctuary of Aphrodite, who came ashore here after her birth from the sea (Odyssey 8.362–363; Herodotus 1.105).'],
+    '0ce': ['Paphos', 2, 'Seat of the Roman governor of Cyprus. Paul met the proconsul Sergius Paulus here (Acts 13:6–12).'],
+  });
+
+  // ---------------------------------------------------------------- Anatolia & Black Sea
+  C('halicarnassus', 37.038, 27.424, 'Bodrum, Turkey', {
+    '500bc': ['Halikarnassos', 3, 'Dorian city ruled by a Carian dynasty under Persia. Its queen Artemisia will command ships at Salamis in 480 (Herodotus 7.99), and Herodotus himself is born here c. 484 BC.'],
+    '0ce': ['Halicarnassus', 3, 'Home of the Mausoleum (c. 350 BC), the tomb of Mausolus and one of the Seven Wonders.'],
+    '500ad': ['Halicarnassus', 3, 'The Mausoleum still stands. It is thought to have fallen in medieval earthquakes, and the Knights of St John later quarried it.'],
+  });
+  C('didyma', 37.385, 27.256, 'Didim, Turkey', {
+    '500bc': ['Didyma (Branchidai)', 3, 'Oracle of Apollo run by the Branchidae, enriched by Croesus (Herodotus 1.46, 1.92). The Persians will sack it after the Ionian Revolt (Herodotus 6.19).'],
+    '0ce': ['Didyma', 3, 'The colossal Hellenistic temple of Apollo is still under construction; it was never finished.'],
+  }, 'sanctuary');
+  C('troy', 39.957, 26.239, 'Hisarlık, Turkey', {
+    '500bc': ['Ilion', 3, 'Small Aeolian town on the site of Homer\'s Troy. Xerxes will sacrifice a thousand oxen to Athena of Ilion in 480 (Herodotus 7.43).'],
+    '0ce': ['Ilium', 3, 'Favoured by Caesar and Augustus as the ancestral home of the Julii, descendants of Aeneas (Strabo 13.1.27).'],
+  }, 'monument');
+  C('hierapolis', 37.925, 29.126, 'Pamukkale, Turkey', {
+    '0ce': ['Hierapolis', 3, 'Spa town on the white travertine terraces. Strabo (13.4.14) tested its deadly "Plutonium" cave by releasing sparrows into it.'],
+    '500ad': ['Hierapolis', 3, 'Pilgrimage centre with the martyrium of the apostle Philip (early 5th century).'],
+  });
+  C('caesarea_capp', 38.72, 35.49, 'Kayseri, Turkey', {
+    '0ce': ['Mazaca / Caesarea', 2, 'Capital of King Archelaus of Cappadocia, renamed Caesarea in honour of Augustus, below Mount Argaeus (Strabo 12.2.7–9).'],
+    '500ad': ['Caesarea', 2, 'Metropolis of Cappadocia, see of St Basil the Great (d. 379).'],
+  });
+  C('tomis', 44.173, 28.65, 'Constanța, Romania', {
+    '500bc': ['Tomis', 3, 'Greek trading colony on the western Black Sea coast.'],
+    '0ce': ['Tomis', 3, 'Augustus exiled the poet Ovid here in AD 8; his Tristia and Letters from Pontus complain of the cold, the Getae and the frozen sea.'],
+    '500ad': ['Tomis', 3, 'Capital of the frontier province of Scythia Minor.'],
+  });
+  C('phasis', 42.15, 41.67, 'Poti, Georgia', {
+    '500bc': ['Phasis', 3, 'Milesian colony in Colchis, the land of the Golden Fleece sought by the Argonauts.'],
+    '0ce': ['Phasis', 3, 'Port at the eastern end of the Black Sea (Strabo 11.2.17).'],
+    '500ad': ['Phasis', 3, 'Port of Lazica, a Roman ally; Rome and Persia will fight over it in the Lazic War (541–562).'],
+  });
+  C('tanais', 47.27, 39.33, 'Nedvigovka, Russia', {
+    '0ce': ['Tanais', 3, 'Bosporan emporium at the mouth of the Don, where steppe nomads traded slaves and hides for wine and cloth (Strabo 11.2.3).'],
+  });
+  C('chersonesos', 44.611, 33.493, 'Sevastopol, Crimea', {
+    '0ce': ['Chersonesus', 3, 'Dorian Greek city (founded 422/1 BC) in the south-west of Crimea, under Bosporan and Roman protection.'],
+    '500ad': ['Cherson', 3, 'The Eastern Empire\'s outpost in Crimea and a place of exile.'],
+  });
+  C('artaxata', 39.96, 44.55, 'Artashat, Armenia', {
+    '0ce': ['Artaxata', 2, 'Capital of Armenia, said to have been laid out on Hannibal\'s advice (Strabo 11.14.6; Plutarch, Lucullus 31). Rome and Parthia compete for control of Armenia.'],
+    '500ad': ['Artaxata / Dvin', 3, 'In Persian Armenia; one of only three places where Roman–Persian trade was legally allowed (Codex Justinianus 4.63.4).'],
+  });
+  C('nemrut', 37.981, 38.741, 'Mount Nemrut, Turkey', {
+    '0ce': ['Hierothesion of Antiochus I (Nemrud Dağ)', 3, 'Mountain-top tomb sanctuary of King Antiochus I of Commagene (r. c. 70–38 BC), with colossal statues of the king beside Greek and Persian gods. Commagene stays a client kingdom until AD 17 (Tacitus, Annals 2.42).'],
+  }, 'monument');
+
+  // ---------------------------------------------------------------- Egypt, Nubia & Sahara
+  C('giza', 29.979, 31.134, 'Giza, Egypt', {
+    '500bc': ['Pyramids of Khufu', 3, 'Already over 2,000 years old. Herodotus heard that 100,000 men worked for twenty years to build the Great Pyramid (2.124–127).'],
+    '0ce': ['The Pyramids', 3, 'A must-see for Roman tourists. Strabo (17.1.33) and Pliny (36.75–82) describe them.'],
+    '500ad': ['The Pyramids', 3, 'Still clad in their white limestone casing; Christian travellers sometimes call them "Joseph\'s granaries".'],
+  }, 'monument');
+  C('babylon_egypt', 30.006, 31.231, 'Old Cairo, Egypt', {
+    '0ce': ['Babylon (Egypt)', 3, 'Fortress at the head of the Delta, garrisoned by one of Egypt\'s three Roman legions (Strabo 17.1.30).'],
+    '500ad': ['Babylon (Egypt)', 2, 'Roman fortress city at the apex of the Delta, the site of later Cairo.'],
+  }, 'fortress');
+  C('thebes', 25.7, 32.64, 'Luxor, Egypt', {
+    '500bc': ['Waset (Thebes)', 2, 'Homer\'s "hundred-gated Thebes", with the vast temples of Karnak and Luxor.'],
+    '0ce': ['Thebes (Diospolis)', 3, 'Tourists visit the Valley of the Kings and the "singing" Colossus of Memnon. Strabo heard its sound at dawn but suspected a trick (17.1.46).'],
+    '500ad': ['Thebes', 3, 'Monks and hermits live among the old tombs and temples.'],
+  });
+  C('syene', 24.088, 32.899, 'Aswan, Egypt', {
+    '500bc': ['Swenet / Elephantine', 3, 'Frontier at the First Cataract. Persian-era papyri record a Jewish military colony on Elephantine island.'],
+    '0ce': ['Syene', 3, 'Frontier garrison. Eratosthenes measured the Earth\'s circumference from the fact that the sun shines straight down a well here at midsummer (Strabo 17.1.48; Cleomedes 1.7).'],
+    '500ad': ['Syene', 3, 'Southern frontier. Nearby Philae is the last working temple of Isis; Justinian will close it c. 535 (Procopius, Wars 1.19).'],
+  });
+  C('meroe', 16.938, 33.749, 'Bagrawiya, Sudan', {
+    '500bc': ['Meroë', 2, 'Herodotus heard of Meroë as "the mother-city of the Ethiopians" (2.29). Cambyses\' expedition against the Ethiopians failed (3.25).'],
+    '0ce': ['Meroë', 1, 'Royal city of the Kingdom of Kush, with its pyramids. Its queen (the "Kandake") fought Rome in 24–22 BC (Strabo 17.1.54); a bronze head of Augustus looted then was buried here.'],
+  });
+  C('myos_hormos', 26.155, 34.24, 'Quseir al-Qadim, Egypt', {
+    '0ce': ['Myos Hormos', 3, 'Red Sea port for the India trade. Strabo saw up to 120 ships a year sailing from here to India (2.5.12; Periplus Maris Erythraei 1).'],
+  });
+  C('siwa', 29.2, 25.52, 'Siwa Oasis, Egypt', {
+    '500bc': ['Oracle of Ammon', 3, 'Desert oracle consulted even by Croesus (Herodotus 1.46). An army Cambyses sent against it vanished in a sandstorm (3.26).'],
+    '0ce': ['Ammonium', 3, 'Alexander was greeted here as son of Zeus-Ammon in 331 BC, but Strabo says the oracle is now almost abandoned (17.1.43).'],
+  }, 'sanctuary');
+  C('garama', 26.56, 13.07, 'Germa, Libya', {
+    '500bc': ['Garama (Garamantes)', 3, 'Capital of the Garamantes, who according to Herodotus hunted "cave-dwelling Ethiopians" in four-horse chariots (4.183).'],
+    '0ce': ['Garama', 3, 'Saharan kingdom controlling caravan routes; Cornelius Balbus celebrated a triumph over the Garamantes in 19 BC (Pliny 5.35–38).'],
+    '500ad': ['Garama', 3, 'The Garamantian kingdom survives; it will make peace with Constantinople and accept Christianity c. 569.'],
+  });
+  C('abu_mena', 30.84, 29.66, 'Abu Mena, Egypt', {
+    '500ad': ['Shrine of St Menas', 3, 'Great pilgrimage centre in the desert west of Alexandria, enlarged by Emperor Zeno. Pilgrims took home clay flasks ("Menas ampullae") of holy water, which have been found as far away as Britain.'],
+  }, 'sanctuary');
+  C('sinai', 28.556, 33.976, 'St Catherine, Sinai, Egypt', {
+    '500ad': ['Mount Sinai', 3, 'Hermits and a church of the Burning Bush. The pilgrim Egeria climbed the mountain in 383; Justinian will fortify the monastery c. 550.'],
+  }, 'sanctuary');
+
+  // ---------------------------------------------------------------- Levant, Mesopotamia & Persia
+  C('berytus', 33.896, 35.5, 'Beirut, Lebanon', {
+    '0ce': ['Berytus', 3, 'Colonia Iulia Augusta Felix Berytus, settled with veterans by Agrippa in 15/14 BC (Strabo 16.2.19).'],
+    '500ad': ['Berytus', 2, 'Famous for its law school, the best in the East, until the earthquake of 551.'],
+  });
+  C('heliopolis_syr', 34.007, 36.204, 'Baalbek, Lebanon', {
+    '0ce': ['Heliopolis (Baalbek)', 3, 'Roman colony where the colossal temple of Jupiter Heliopolitanus is being built on enormous stone blocks.'],
+    '500ad': ['Heliopolis', 3, 'The giant temples still dominate the town; a Christian basilica now stands in the sanctuary court.'],
+  }, 'sanctuary');
+  C('masada', 31.316, 35.354, 'Masada, Israel', {
+    '0ce': ['Masada', 3, 'Herod\'s fortress-palace on a desert mesa above the Dead Sea, with hanging terraces and huge cisterns (Josephus, Jewish War 7.280–303). The rebels\' last stand against Rome will come in AD 73–74.'],
+  }, 'fortress');
+  C('bethlehem', 31.704, 35.207, 'Bethlehem', {
+    '0ce': ['Bethlehem', 3, 'Small Judaean town, the city of David and, in the Gospels, the birthplace of Jesus (Matthew 2; Luke 2).'],
+    '500ad': ['Bethlehem', 3, 'Pilgrims visit Constantine\'s Church of the Nativity; Jerome translated the Bible here (386–420).'],
+  }, 'sanctuary');
+  C('qalat_siman', 36.334, 36.844, 'Qal\'at Sim\'an, Syria', {
+    '500ad': ['Shrine of St Simeon Stylites', 3, 'A huge cross-shaped church (c. 476–490) built around the pillar on which Simeon lived for decades (died 459). Pilgrims flocked here (Theodoret, Religious History 26).'],
+  }, 'sanctuary');
+  C('resafa', 35.63, 38.755, 'Resafa, Syria', {
+    '500ad': ['Sergiopolis (Resafa)', 3, 'Desert pilgrimage city of the martyr St Sergius, revered by Romans and Arab tribes alike (Procopius, Buildings 2.9).'],
+  }, 'sanctuary');
+  C('charax', 30.66, 47.62, 'near Basra, Iraq', {
+    '0ce': ['Charax Spasinou', 2, 'Capital of Characene at the head of the Gulf, a port for the India trade and home town of the geographer Isidore of Charax (Pliny 6.138–140).'],
+  });
+  C('ecbatana', 34.8, 48.52, 'Hamadan, Iran', {
+    '500bc': ['Hagmatana (Ecbatana)', 1, 'Old Median capital and summer residence of the Persian kings; Herodotus describes seven circuits of walls, each a different colour (1.98).'],
+    '0ce': ['Ecbatana', 2, 'Summer residence of the Parthian kings, who wintered at Ctesiphon (Strabo 16.1.16).'],
+    '500ad': ['Hamadan', 2, 'Sasanian city on the great Khorasan road.'],
+  });
+  C('behistun', 34.39, 47.44, 'Bisotun, Iran', {
+    '500bc': ['Behistun Rock', 3, 'Darius I has just carved his huge inscription and relief (c. 520 BC) high on the cliff, in Old Persian, Elamite and Babylonian. It later became the key to deciphering cuneiform.'],
+    '0ce': ['Bagistana', 3, 'Station on the road from Mesopotamia into Iran. Greek writers credited the relief to Queen Semiramis (Diodorus 2.13; Isidore of Charax 5).'],
+    '500ad': ['Bisotun', 3, 'Stage on the Sasanian royal road near Kermanshah, a district of Sasanian rock reliefs.'],
+  }, 'monument');
+  C('persepolis', 29.935, 52.891, 'Marvdasht, Iran', {
+    '500bc': ['Parsa (Persepolis)', 1, 'Darius\'s ceremonial capital, under construction since c. 518 BC. Thousands of clay tablets from its archive record rations for workers and travellers on the royal roads.'],
+  }, 'monument');
+
+  // ---------------------------------------------------------------- Africa
+  C('utica', 37.057, 10.062, 'Utique, Tunisia', {
+    '500bc': ['Utica', 3, 'Phoenician colony said to be older than Carthage (Velleius 1.2; Pliny 16.216).'],
+    '0ce': ['Utica', 3, 'Capital of Roman Africa after 146 BC. Cato the Younger killed himself here in 46 BC rather than surrender to Caesar (Plutarch, Cato Minor 70).'],
+  });
+  C('hippo', 36.883, 7.75, 'Annaba, Algeria', {
+    '0ce': ['Hippo Regius', 3, 'Port that was once a residence of the Numidian kings (hence "Regius").'],
+    '500ad': ['Hippo Regius', 3, 'Augustine was its bishop from 396 and died here in 430 while the Vandals besieged the city.'],
+  });
+  C('volubilis', 34.074, -5.556, 'Moulay Idriss, Morocco', {
+    '0ce': ['Volubilis', 3, 'Berber-Punic town in the realm of Juba II of Mauretania, rich from olive oil.'],
+    '500ad': ['Volubilis', 3, 'Outside imperial control since the late 3rd century, yet still inhabited by Latin-speaking Christians.'],
+  });
+
+  // ---------------------------------------------------------------- Iberia, Gaul & the Rhine
+  C('emerita', 38.916, -6.344, 'Mérida, Spain', {
+    '0ce': ['Emerita Augusta', 2, 'Founded in 25 BC for veterans of the Cantabrian wars; capital of Lusitania, with a new theatre given by Agrippa.'],
+    '500ad': ['Emerita', 2, 'Seat of the Diocese of the Spains and the shrine of St Eulalia (Prudentius, Peristephanon 3).'],
+  });
+  C('olisipo', 38.711, -9.137, 'Lisbon, Portugal', {
+    '0ce': ['Olisipo', 3, 'Felicitas Julia Olisipo on the Tagus estuary, the Atlantic edge of the empire. Pliny repeats the tale that local mares conceived by the west wind (8.166).'],
+    '500ad': ['Olisipo', 3, 'Contested between the Sueves and the Visigoths.'],
+  });
+  C('burdigala', 44.838, -0.579, 'Bordeaux, France', {
+    '0ce': ['Burdigala', 3, 'Emporium of the Bituriges Vivisci on the Garonne estuary (Strabo 4.2.1).'],
+    '500ad': ['Burdigala', 2, 'Home of the poet Ausonius, and the starting point of the Bordeaux Pilgrim\'s journey to Jerusalem in 333. Now Visigothic.'],
+  });
+  C('nemausus', 43.838, 4.36, 'Nîmes, France', {
+    '0ce': ['Nemausus', 2, 'Augustus has given it walls; the Maison Carrée temple, dedicated to his grandsons Gaius and Lucius, is brand new.'],
+    '500ad': ['Nemausus', 3, 'Visigothic city. Its aqueduct, carried over the Gardon on the Pont du Gard (mid-1st century AD), no longer supplies the city.'],
+  });
+  C('treverorum', 49.756, 6.641, 'Trier, Germany', {
+    '0ce': ['Augusta Treverorum', 3, 'New town of the Treveri (founded c. 16 BC), on Agrippa\'s road to the Rhine.'],
+    '500ad': ['Treveri', 3, 'Former imperial residence of Constantine, with the Porta Nigra and the great basilica, now under Frankish rule.'],
+  });
+  C('colonia', 50.938, 6.958, 'Cologne, Germany', {
+    '0ce': ['Oppidum Ubiorum', 3, 'Town of the Ubii on the Rhine with the Altar of Augustus (Ara Ubiorum), a base for campaigns into Germania.'],
+    '500ad': ['Colonia Agrippina', 2, 'Seat of the Rhineland Frankish kings.'],
+  });
+  C('lutetia', 48.853, 2.349, 'Paris, France', {
+    '0ce': ['Lutetia', 3, 'Island town of the Parisii in the Seine (Caesar, Gallic War 6.3, 7.57; Strabo 4.3.5).'],
+    '500ad': ['Parisius', 3, 'City of St Geneviève. Clovis will make it his capital c. 508.'],
+  });
+  C('tours', 47.394, 0.684, 'Tours, France', {
+    '500ad': ['Turonum (Tours)', 3, 'Shrine of St Martin (d. 397), the most popular pilgrimage in Gaul, on the frontier between Franks and Visigoths. Clovis will come here after his victory in 507 (Gregory of Tours 2.37–38).'],
+  }, 'sanctuary');
+
+  // ---------------------------------------------------------------- Italy
+  C('veii', 42.023, 12.401, 'Isola Farnese, Italy', {
+    '500bc': ['Veii', 2, 'Powerful Etruscan city only 15 km from Rome, its great rival; its sculptor Vulca made the terracotta Apollo of Veii. Rome will capture it in 396 BC (Livy 5.21).'],
+  });
+  C('poseidonia', 40.42, 15.005, 'Paestum, Italy', {
+    '500bc': ['Poseidonia', 3, 'Greek colony founded from Sybaris, with the Doric temples of Hera (c. 550 BC) and Athena (c. 500 BC).'],
+    '0ce': ['Paestum', 3, 'Roman colony famous for roses that bloomed twice a year (Virgil, Georgics 4.119).'],
+  });
+  C('pompeii', 40.749, 14.484, 'Pompei, Italy', {
+    '0ce': ['Pompeii', 3, 'Prosperous Roman colony on the Bay of Naples, buried by Vesuvius in AD 79 (Pliny the Younger, Letters 6.16, 6.20).'],
   });
 
   AWT.cities = cities;
