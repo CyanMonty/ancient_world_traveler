@@ -1,0 +1,16 @@
+{
+  "name": "ancient-world-traveler",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plan journeys between cities of the ancient Mediterranean using historically attested routes.",
+  "scripts": {
+    "start": "npx --yes http-server -p 8080 -c-1 .",
+    "test": "node tests/validate.js",
+    "build:land": "node tools/build-land.js"
+  },
+  "devDependencies": {
+    "topojson-client": "3.1.0",
+    "world-atlas": "2.0.2"
+  },
+  "license": "MIT"
+}

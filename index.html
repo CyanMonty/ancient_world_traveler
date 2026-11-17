@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ancient World Traveler</title>
+    <meta name="description" content="Plan a journey between cities of the ancient Mediterranean in 500 BC, 0 CE and 500 CE using routes attested in historical sources." />
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <h1><span class="logo" aria-hidden="true">⛵</span> Ancient World Traveler</h1>
+      <nav class="periods" id="period-tabs" role="tablist" aria-label="Time period"></nav>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar" id="sidebar">
+        <section class="period-intro">
+          <h2 id="period-title"></h2>
+          <p id="period-summary"></p>
+        </section>
+
+        <section class="planner" aria-labelledby="planner-heading">
+          <h2 id="planner-heading">Plan a journey</h2>
+          <div class="od">
+            <label>From <select id="from"></select></label>
+            <button type="button" id="swap" class="icon-btn" title="Swap origin and destination" aria-label="Swap origin and destination">⇅</button>
+            <label>To <select id="to"></select></label>
+          </div>
+          <p class="hint">Tip: click a city on the map to start or end your journey there.</p>
+
+          <details class="options" open>
+            <summary>Travel options</summary>
+            <fieldset>
+              <legend>Travel by</legend>
+              <label class="chip mode-road"><input type="checkbox" name="mode" value="road" checked /> Road</label>
+              <label class="chip mode-sea"><input type="checkbox" name="mode" value="sea" checked /> Sea</label>
+              <label class="chip mode-river"><input type="checkbox" name="mode" value="river" checked /> River</label>
+            </fieldset>
+            <fieldset>
+              <legend>Traveller</legend>
+              <label><input type="radio" name="traveler" value="ordinary" checked /> Ordinary traveller</label>
+              <label><input type="radio" name="traveler" value="courier" /> Official courier</label>
+            </fieldset>
+            <fieldset>
+              <legend>Season</legend>
+              <label><input type="radio" name="season" value="summer" checked /> Sailing season</label>
+              <label title="Vegetius (4.39): the seas are closed from 11 November to 10 March"><input type="radio" name="season" value="winter" /> Winter (mare clausum)</label>
+            </fieldset>
+            <fieldset>
+              <legend>Prefer</legend>
+              <label><input type="radio" name="optimize" value="time" checked /> Fastest</label>
+              <label><input type="radio" name="optimize" value="distance" /> Shortest</label>
+            </fieldset>
+          </details>
+        </section>
+
+        <section class="results" id="results" aria-live="polite"></section>
+
+        <footer class="about">
+          <p>
+            Travel times are rough estimates from distance and typical ancient speeds; real journeys depended on weather,
+            ships, money and luck. Routes are drawn schematically. Each route lists the ancient sources it is based on.
+          </p>
+          <p>Coastlines are modern (Natural Earth). Ancient shorelines differed — e.g. Miletus and Ephesus were then on the sea.</p>
+        </footer>
+      </aside>
+
+      <div class="map-wrap">
+        <div id="map" aria-label="Map of the ancient Mediterranean"></div>
+      </div>
+    </main>
+
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="js/data/land.js"></script>
+    <script src="js/data/periods.js"></script>
+    <script src="js/data/waypoints.js"></script>
+    <script src="js/data/cities.js"></script>
+    <script src="js/data/routes.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
