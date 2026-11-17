@@ -11,14 +11,24 @@
   <body>
     <header class="topbar">
       <h1><span class="logo" aria-hidden="true">⛵</span> Ancient World Traveler</h1>
-      <nav class="periods" id="period-tabs" role="tablist" aria-label="Time period"></nav>
+      <div class="timeline">
+        <div class="year-row">
+          <button type="button" class="year-step" id="year-prev" title="10 years earlier" aria-label="10 years earlier">‹</button>
+          <input type="range" id="year" min="-550" max="600" step="1" value="1" aria-label="Year" />
+          <button type="button" class="year-step" id="year-next" title="10 years later" aria-label="10 years later">›</button>
+          <output id="year-label" for="year">1 CE</output>
+        </div>
+        <nav class="periods" id="period-tabs" aria-label="Jump to a mapped period"></nav>
+      </div>
     </header>
 
     <main class="layout">
       <aside class="sidebar" id="sidebar">
         <section class="period-intro">
           <h2 id="period-title"></h2>
+          <p class="snapshot-note" id="snapshot-note"></p>
           <p id="period-summary"></p>
+          <div class="year-events" id="year-events"></div>
           <div id="powers" class="powers"></div>
         </section>
 
@@ -89,6 +99,7 @@
     <script src="js/data/cities.js"></script>
     <script src="js/data/routes.js"></script>
     <script src="js/data/later-periods.js"></script>
+    <script src="js/data/timeline.js"></script>
     <script src="js/data/territories.js"></script>
     <script src="js/data/zones.js"></script>
     <script src="js/weights.js"></script>

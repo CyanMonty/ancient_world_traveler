@@ -385,6 +385,25 @@ window.AWT = window.AWT || {};
     desc: 'Only about 28 km separated the rival fortresses. Merchants had to trade at the official crossing points.',
     sources: ['Procopius, Wars 1.10', 'Menander Protector fr. 6.1 (treaty of 562)'],
   });
+  // Links that keep the graph connected between the anchor periods
+  R('athens', 'delphi', 'road', ['500bc', '0ce', '300ce', '500ad'], {
+    name: 'Sacred Way to Delphi (the Pythaïs)',
+    via: ['eleusis', 'thebes_gr'],
+    desc: 'The road of the Athenian sacred embassy (Pythaïs) to Apollo\'s oracle, through Eleusis and Thebes and up past Parnassus.',
+    sources: ['Strabo 9.2.11', 'Pausanias 10.5', 'Athenian Treasury inscriptions at Delphi'],
+  });
+  R('carthago_nova', 'carthage', 'sea', ['0ce', '300ce', '500ad', '565ce'], {
+    name: 'New Carthage – Africa crossing',
+    via: ['palos_off', 'algiers_off', 'bougaroun_off', 'bizerte_off'],
+    desc: 'Hasdrubal founded New Carthage in 227 BC as Carthage\'s base in Spain, facing Africa across the sea. Scipio captured it in a famous assault in 209 BC.',
+    sources: ['Polybius 10.8–20', 'Livy 26.42–51'],
+  });
+  R('capua', 'poseidonia', 'road', ['0ce'], {
+    name: 'Via Popilia',
+    via: ['nuceria', 'salerno_gulf'],
+    desc: 'The road from Capua south through Nuceria toward Rhegium, built by the consul Popillius in 132 BC (Polla inscription).',
+    sources: ['Polla inscription (CIL I² 638)', 'Strabo 5.4.13'],
+  });
   R('syene', 'faras', 'river', ['565ce'], {
     name: 'Nile into Nobadia',
     via: ['abu_simbel'],

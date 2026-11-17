@@ -21,7 +21,8 @@
   const KIND_LABEL = { city: 'City', sanctuary: 'Sanctuary / pilgrimage site', monument: 'Monument', fortress: 'Fortress' };
 
   const state = {
-    period: '0ce',
+    year: 1,
+    period: '0ce', // the territory snapshot in use for the current year
     from: null,
     to: null,
     results: [],
@@ -150,17 +151,26 @@
   legend.addTo(map);
 
   // ------------------------------------------------------------------ UI setup
+  const TL = AWT.timeline;
+  const fmtYear = TL.fmtYear;
+  /** "331 BC – 79 CE", "from 331 BC", "until 79 CE" or "throughout". */
+  // exactA / exactB false → the year is only the default estimate, shown as "c."
+  const spanText = (a, b, exactA = true, exactB = true) => {
+    const fa = (exactA ? '' : 'c. ') + fmtYear(a);
+    const fb = (exactB ? '' : 'c. ') + fmtYear(b);
+    return a <= -3000 && b >= 3000 ? 'throughout' : a <= -3000 ? `until ${fb}` : b >= 3000 ? `from ${fa}` : `${fa} – ${fb}`;
+  };
+
   function buildTabs() {
     const nav = $('#period-tabs');
     nav.innerHTML = '';
     for (const p of AWT.periods) {
       const b = document.createElement('button');
       b.type = 'button';
-      b.role = 'tab';
       b.textContent = p.label;
       b.dataset.period = p.id;
-      b.setAttribute('aria-selected', String(p.id === state.period));
-      b.addEventListener('click', () => setPeriod(p.id));
+      b.title = `Jump to ${fmtYear(TL.anchorYear(p.id))} — ${p.title}`;
+      b.addEventListener('click', () => setYear(TL.anchorYear(p.id)));
       nav.appendChild(b);
     }
   }
@@ -199,7 +209,7 @@
   // ------------------------------------------------------------------ drawing
   function drawRegions() {
     regionLayer.clearLayers();
-    for (const r of AWT.regionLabels[state.period] || []) {
+    for (const r of (state.snapshot && AWT.regionLabels[state.snapshot]) || []) {
       L.marker([r.lat, r.lng], {
         pane: 'regions',
         interactive: false,
@@ -215,7 +225,11 @@
     const b = net.cities[route.to].name;
     return (
       `<div class="popup"><h3>${esc(route.name)}</h3>` +
-      `<div class="modern">${esc(a)} ↔ ${esc(b)} · ${MODE_LABEL[route.mode]} · ~${route.distanceKm.toLocaleString()} km</div>` +
+      `<div class="modern">${esc(a)} ↔ ${esc(b)} · ${MODE_LABEL[route.mode]} · ~${route.distanceKm.toLocaleString()} km` +
+      (route.span
+        ? ` · in use ${spanText(route.span[0], route.span[1], (TL.routeDates[route.id] || {}).from === route.span[0], (TL.routeDates[route.id] || {}).to === route.span[1])}`
+        : '') +
+      '</div>' +
       `<p>${esc(route.desc)}</p>` +
       `<div class="sources"><b>Sources:</b> ${route.sources.map(esc).join('; ')}</div>` +
       edgeWeightsHtml(route) +
@@ -335,11 +349,12 @@
           fillColor: c.id === state.from ? '#ffffff' : c.id === state.to ? '#8b2e16' : c.rank === 1 ? '#8b2e16' : '#f4ead5',
           fillOpacity: 1,
           pane: 'markerPane',
+          className: state.appeared && state.appeared.has(c.id) ? 'appear' : '',
         });
       } else {
         // sites are drawn as diamonds, coloured by kind
         const size = isEnd ? 16 : 11;
-        const endCls = c.id === state.from ? ' is-from' : c.id === state.to ? ' is-to' : '';
+        const endCls = (c.id === state.from ? ' is-from' : c.id === state.to ? ' is-to' : '') + (state.appeared && state.appeared.has(c.id) ? ' appear' : '');
         m = L.marker([c.lat, c.lng], {
           icon: L.divIcon({ className: `site-marker ${c.kind}${endCls}`, iconSize: [size, size], html: '<span></span>' }),
           title: `${c.name} (${KIND_LABEL[c.kind]})`,
@@ -362,7 +377,9 @@
     div.className = 'popup';
     div.innerHTML =
       `<h3>${esc(c.name)}</h3><div class="modern">${c.kind === 'city' ? '' : esc(KIND_LABEL[c.kind]) + ' · '}Today: ${esc(c.modern)}</div>` +
-      `<div class="owner">Controlled by ${territoryChip(c.owner)}</div><p>${esc(c.note)}</p>` +
+      (state.network.territories.length ? `<div class="owner">Controlled by ${territoryChip(c.owner)}</div>` : '<div class="owner"><i>No border map for this year</i></div>') +
+      `<p>${noteWhen(c)}${esc(c.note)}</p>` +
+      nameHistory(c.id) +
       '<div class="actions"><button data-act="from">Start here</button><button data-act="to">Go here</button></div>';
     div.querySelector('[data-act=from]').addEventListener('click', () => {
       map.closePopup();
@@ -487,6 +504,30 @@
     );
   }
 
+  /** Notes are written for an anchor year; say so when the slider is far from it. */
+  function noteWhen(c) {
+    const p = c.era && c.era.period;
+    if (!p) return '';
+    const ay = TL.anchorYear(p);
+    return Math.abs(state.year - ay) > 25 && (c.era.from > state.year - 1000) ? `<span class="note-when">Around ${fmtYear(ay)}:</span> ` : '';
+  }
+
+  function nameHistory(id) {
+    const c = AWT.cities.find((x) => x.id === id);
+    if (!c || !c.eras.length) return '';
+    const rows = [];
+    for (const e of c.eras) {
+      const last = rows[rows.length - 1];
+      if (last && last.name === e.name && last.to + 1 >= e.from) Object.assign(last, { to: e.to, exactTo: e.exactTo });
+      else rows.push({ name: e.name, from: e.from, to: e.to, exactFrom: e.exactFrom, exactTo: e.exactTo });
+    }
+    return (
+      '<div class="name-history"><b>On the map</b><ul>' +
+      rows.map((r) => `<li${state.year >= r.from && state.year <= r.to ? ' class="now"' : ''}><span>${spanText(r.from, r.to, r.exactFrom, r.exactTo)}</span> ${esc(r.name)}</li>`).join('') +
+      '</ul></div>'
+    );
+  }
+
   function drawTerritories() {
     territoryLayer.clearLayers();
     territoryShapes = {};
@@ -549,10 +590,25 @@
   function renderResults() {
     const box = $('#results');
     const net = state.network;
+    const missing = [state.from, state.to].filter((id) => id && !net.cities[id]);
+    if (missing.length) {
+      box.innerHTML = missing
+        .map((id) => {
+          const c = AWT.cities.find((x) => x.id === id);
+          const spans = [];
+          for (const e of c.eras) {
+            const last = spans[spans.length - 1];
+            if (last && last[1] + 1 >= e.from) last[1] = e.to;
+            else spans.push([e.from, e.to]);
+          }
+          const life = spans.length ? ` It is on the map ${spans.map(([a, b]) => spanText(a, b)).join(' and ')}.` : '';
+          return `<p class="empty"><b>${esc(c.eras[0] ? c.eras[0].name : id)}</b> is not on the map in ${fmtYear(state.year)}.${life} Move the year slider, or pick another place.</p>`;
+        })
+        .join('');
+      return;
+    }
     if (!state.from || !state.to) {
-      box.innerHTML = `<p class="empty">Choose a starting city and a destination to see the routes a traveller of ${esc(
-        AWT.periods.find((p) => p.id === state.period).label
-      )} could take.</p>`;
+      box.innerHTML = `<p class="empty">Choose a starting place and a destination to see the routes a traveller of ${esc(fmtYear(state.year))} could take.</p>`;
       return;
     }
     if (state.from === state.to) {
@@ -577,7 +633,7 @@
           `<span class="days">${fmtDays(r.totalDays)}${badges(r.modes)}</span>` +
           `<span class="km">${r.totalKm.toLocaleString()} km</span>` +
           `<span class="via">${via.length ? 'via ' + via.map(esc).join(', ') : 'direct'}</span>` +
-          `<span class="alt-terr">${territoryDots(r.territories)}</span></button>`
+          (net.territories.length ? `<span class="alt-terr">${territoryDots(r.territories)}</span>` : '') + '</button>'
         );
       })
       .join('');
@@ -595,7 +651,7 @@
           `<li class="leg ${l.mode}"><span class="dot"></span>` +
           `<h3 data-leg="${i}">${esc(from.name)} → ${esc(to.name)}</h3>` +
           `<div class="meta">${badges([l.mode])} <span class="route-name">${esc(l.route.name)}</span> · ${l.distanceKm.toLocaleString()} km · ${fmtDays(l.days)}</div>` +
-          `<div class="through">${l.mode === 'sea' ? 'From' : 'Through'} ${territoryChain(l.territories, l.mode === 'sea' ? ' ⟶ by sea ⟶ ' : ' → ')}</div>` +
+          (net.territories.length ? `<div class="through">${l.mode === 'sea' ? 'From' : 'Through'} ${territoryChain(l.territories, l.mode === 'sea' ? ' ⟶ by sea ⟶ ' : ' → ')}</div>` : '') +
           `<details class="leg-weight"><summary>Edge weight: ${fmtDays(l.days)}${l.weight.steps.length > 1 ? ` (base ${fmtDays(l.weight.steps[0].days)})` : ''}</summary>${stepsHtml(l.weight)}</details>` +
           `<p>${esc(l.route.desc)}</p>` +
           `<div class="sources"><b>Sources</b> ${l.route.sources.map(esc).join('; ')}</div></li>`
@@ -661,23 +717,71 @@
     compute(true);
   }
 
-  function setPeriod(id) {
-    state.period = id;
-    state.network = new AWT.Router.Network(AWT, id);
-    if (state.from && !state.network.cities[state.from]) state.from = null;
-    if (state.to && !state.network.cities[state.to]) state.to = null;
-    const p = AWT.periods.find((x) => x.id === id);
-    $('#period-title').textContent = `${p.label} — ${p.title}`;
-    $('#period-summary').textContent = p.summary;
-    document.querySelectorAll('#period-tabs button').forEach((b) => b.setAttribute('aria-selected', String(b.dataset.period === id)));
+  let prevCities = null;
+
+  /** Moves the whole app to a year: rebuilds the graph, then redraws everything that depends on it. */
+  function setYear(y, { fit = false } = {}) {
+    y = Math.max(TL.min, Math.min(TL.max, Math.round(y)));
+    if (y === 0) y = state.year < 0 ? 1 : -1; // there is no year 0
+    state.year = y;
+    state.network = new AWT.Router.Network(AWT, y);
+    const snapshotChanged = state.network.snapshot !== state.snapshot || state.network.periodId !== state.period;
+    state.period = state.network.periodId;
+    state.snapshot = state.network.snapshot;
+    const now = new Set(Object.keys(state.network.cities));
+    state.appeared = prevCities ? new Set([...now].filter((id) => !prevCities.has(id))) : new Set();
+    prevCities = now;
+
+    $('#year').value = y;
+    $('#year-label').textContent = fmtYear(y);
+    if (state.snapshot) {
+      const p = AWT.periods.find((x) => x.id === state.snapshot);
+      const [wa, wb] = TL.snapshotWindows[p.id];
+      $('#period-title').textContent = `${fmtYear(y)} — ${p.title}`;
+      $('#snapshot-note').textContent = `Borders mapped for ${fmtYear(wa)} – ${fmtYear(wb)}.`;
+      $('#period-summary').textContent = p.summary;
+    } else {
+      const wins = Object.entries(TL.snapshotWindows);
+      const before = wins.filter(([, [, b]]) => b < y).pop();
+      const after = wins.find(([, [a]]) => a > y);
+      const near = [before, after].filter(Boolean).map(([id, [a, b]]) => `${fmtYear(a)}–${fmtYear(b)} (${AWT.periods.find((x) => x.id === id).title})`);
+      $('#period-title').textContent = fmtYear(y);
+      $('#snapshot-note').textContent = `No border map for this year, so territories and border-crossing weights are switched off. Borders are mapped for ${near.join(' and ')}.`;
+      $('#period-summary').textContent = 'Places and routes are shown as they stood in this year; drag the slider to watch them appear and disappear.';
+    }
+    document.querySelectorAll('#period-tabs button').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.period === state.snapshot)));
+    renderEvents();
     fillSelects();
-    drawRegions();
-    renderPowers();
-    compute(false);
+    if (snapshotChanged) {
+      drawRegions();
+      renderPowers();
+    }
+    compute(fit);
+  }
+
+  /** Dated changes within a few decades of the current year. */
+  function renderEvents() {
+    const y = state.year;
+    const W = 40;
+    const near = TL.events.filter((e) => e.year >= y - W && e.year <= y + W);
+    if (!near.length) {
+      $('#year-events').innerHTML = '';
+      return;
+    }
+    const icon = { appear: '+', vanish: '−', rename: '↻', 'route-open': '⟶', 'route-close': '⤫' };
+    $('#year-events').innerHTML =
+      `<h3>Changes within ${W} years</h3><ul>` +
+      near
+        .map(
+          (e) =>
+            `<li class="ev ${e.kind} ${e.year <= y ? 'past' : 'future'}"><span class="ev-year">${fmtYear(e.year)}</span><span class="ev-icon">${icon[e.kind]}</span>${esc(e.text)}</li>`
+        )
+        .join('') +
+      '</ul>';
   }
 
   function writeHash() {
-    const params = new URLSearchParams({ period: state.period, month: state.month });
+    const params = new URLSearchParams({ year: state.year, month: state.month });
     if (state.from) params.set('from', state.from);
     if (state.to) params.set('to', state.to);
     history.replaceState(null, '', '#' + params.toString());
@@ -685,8 +789,10 @@
 
   function readHash() {
     const params = new URLSearchParams(location.hash.slice(1));
-    const p = params.get('period');
-    if (p && AWT.periods.some((x) => x.id === p)) state.period = p;
+    const p = params.get('period'); // links from before the year slider
+    if (p && AWT.periods.some((x) => x.id === p)) state.year = TL.anchorYear(p);
+    const yr = Number(params.get('year'));
+    if (params.has('year') && Number.isFinite(yr)) state.year = yr;
     const m = Number(params.get('month'));
     if (m >= 1 && m <= 12) state.month = m;
     state.from = params.get('from');
@@ -736,6 +842,20 @@
   readHash();
   buildConditions();
   buildTabs();
-  setPeriod(state.period);
+  // year slider: redraw at most once per animation frame while dragging
+  let pendingYear = null;
+  $('#year').addEventListener('input', (e) => {
+    const first = pendingYear === null;
+    pendingYear = Number(e.target.value);
+    if (first)
+      requestAnimationFrame(() => {
+        const y = pendingYear;
+        pendingYear = null;
+        setYear(y);
+      });
+  });
+  $('#year-prev').addEventListener('click', () => setYear(state.year - 10));
+  $('#year-next').addEventListener('click', () => setYear(state.year + 10));
+  setYear(state.year);
   if (state.from && state.to) fitJourney();
 })();

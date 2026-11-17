@@ -343,3 +343,40 @@ select {
 .legend .cost-scale i { display: inline-block; width: 14px; height: 4px; border: 0; border-radius: 2px; vertical-align: middle; margin-right: 3px; }
 .effects legend { float: none; }
 #effects { clear: both; width: 100%; }
+
+/* year slider */
+.timeline { display: flex; flex-direction: column; gap: 4px; min-width: min(560px, 100%); flex: 1; max-width: 720px; }
+.year-row { display: grid; grid-template-columns: auto 1fr auto 6.2em; gap: 6px; align-items: center; }
+.year-row input[type=range] { width: 100%; accent-color: #e9c46a; }
+.year-row output { font-family: var(--font-display); font-size: 1.25rem; color: #f4ead5; text-align: right; white-space: nowrap; }
+.year-step { font: inherit; font-size: 1.1rem; line-height: 1; width: 28px; height: 28px; border-radius: 50%; border: 1px solid rgba(244, 234, 213, 0.4); background: transparent; color: var(--paper); cursor: pointer; }
+.year-step:hover { background: rgba(255, 255, 255, 0.12); }
+.periods button[aria-pressed='true'] { background: var(--paper); color: var(--ink); }
+.snapshot-note { margin: -2px 0 6px; font-size: 0.78rem; color: var(--ink-soft); font-style: italic; }
+.snapshot-note:empty { display: none; }
+.year-events { margin: -6px 0 12px; }
+.year-events h3 { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--ink-soft); margin: 0 0 3px; font-weight: normal; }
+.year-events ul { list-style: none; margin: 0; padding: 0; font-size: 0.8rem; max-height: 9.5em; overflow-y: auto; }
+.year-events li { display: grid; grid-template-columns: 4.8em 1.2em 1fr; gap: 4px; line-height: 1.5; }
+.year-events li.future { opacity: 0.55; }
+.ev-year { color: var(--ink-soft); font-variant-numeric: tabular-nums; }
+.ev-icon { text-align: center; font-weight: bold; }
+.ev.appear .ev-icon, .ev.route-open .ev-icon { color: #2d7d5a; }
+.ev.vanish .ev-icon, .ev.route-close .ev-icon { color: #b3261e; }
+.ev.rename .ev-icon { color: var(--accent); }
+.name-history { margin-top: 6px; font-size: 0.78rem; }
+.name-history b { font-weight: normal; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.68rem; color: var(--ink-soft); }
+.name-history ul { list-style: none; margin: 2px 0 0; padding: 0; }
+.name-history li span { color: var(--ink-soft); display: inline-block; min-width: 9.5em; }
+.name-history li.now { font-weight: bold; }
+/* places that just appeared on the map pulse briefly */
+path.appear { animation: appear-pulse 1.4s ease-out 2; }
+.site-marker.appear span { animation: appear-pulse-box 1.4s ease-out 2; }
+@keyframes appear-pulse { 0% { stroke: #2d9d6a; stroke-width: 9px; } 100% { stroke-width: 1.5px; } }
+@keyframes appear-pulse-box { 0% { box-shadow: 0 0 0 7px rgba(45, 157, 106, 0.7); } 100% { box-shadow: 0 0 0 0 rgba(45, 157, 106, 0); } }
+@media (max-width: 760px) {
+  .timeline { min-width: 100%; }
+  .year-row output { font-size: 1.05rem; }
+}
+
+.note-when { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent); }

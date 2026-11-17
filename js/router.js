@@ -22,6 +22,23 @@
     return { id: city.id, lat: city.lat, lng: city.lng, modern: city.modern, kind: city.kind || 'city', name: p.name, rank: p.rank, note: p.note };
   }
 
+  /** Year-specific view of a place, or null if it does not exist in that year. */
+  function cityInYear(city, year) {
+    const era = (city.eras || []).find((e) => year >= e.from && year <= e.to);
+    if (!era) return null;
+    return {
+      id: city.id, lat: city.lat, lng: city.lng, modern: city.modern, kind: city.kind || 'city',
+      name: era.name, rank: era.rank, note: era.note,
+      era: { from: era.from, to: era.to, period: era.period },
+      lifespan: { from: city.eras[0].from, to: city.eras[city.eras.length - 1].to },
+    };
+  }
+
+  // Edge geometry never changes, and edge profiles only change with the territory snapshot,
+  // so both are cached across Network instances (the year slider rebuilds the network often).
+  const GEOM_CACHE = new Map();
+  const PROFILE_CACHE = new Map();
+
   /** Route with per-period overrides applied. */
   function routeInPeriod(route, periodId) {
     const o = (route.byPeriod && route.byPeriod[periodId]) || {};
@@ -82,24 +99,41 @@
      * @param {object} data   { cities, routes, waypoints, travelers, windingFactor }
      * @param {string} periodId
      */
-    constructor(data, periodId) {
-      this.periodId = periodId;
+    /**
+     * @param {object} data   { cities, routes, waypoints, travelers, windingFactor, territories, zones, timeline }
+     * @param {number|string} when  a year (negative = BC), or an anchor period id such as '300ce'
+     */
+    constructor(data, when) {
+      const tl = data.timeline;
+      this.year = typeof when === 'number' ? when : tl.anchorYear(when);
+      // borders, labels and route renamings come from the nearest hand-drawn snapshot
+      this.periodId = tl.periodForYear(this.year);
+      const periodId = this.periodId;
       this.data = data;
       this.cities = {};
       for (const c of data.cities) {
-        const v = cityInPeriod(c, periodId);
+        const v = cityInYear(c, this.year);
         if (v) this.cities[c.id] = v;
       }
       this.routes = [];
       for (const r of data.routes) {
-        if (!r.periods.includes(periodId)) continue;
+        if (!(r.spans || []).some(([a, b]) => this.year >= a && this.year <= b)) continue;
         if (!this.cities[r.from] || !this.cities[r.to]) continue;
         const route = routeInPeriod(r, periodId);
-        route.path = routePath(route, this.cities, data.waypoints);
-        route.distanceKm = Math.round(pathLength(route.path) * (data.windingFactor[route.mode] || 1));
+        let geom = GEOM_CACHE.get(r.id);
+        if (!geom) {
+          const path = routePath(route, this.cities, data.waypoints);
+          geom = { path, distanceKm: Math.round(pathLength(path) * (data.windingFactor[route.mode] || 1)) };
+          GEOM_CACHE.set(r.id, geom);
+        }
+        route.path = geom.path;
+        route.distanceKm = geom.distanceKm;
+        route.span = r.spans.find(([a, b]) => this.year >= a && this.year <= b);
         this.routes.push(route);
       }
-      this.territories = (data.territories && data.territories[periodId]) || [];
+      // borders only where a hand-drawn snapshot is valid for this year
+      this.snapshot = tl.snapshotForYear(this.year);
+      this.territories = (this.snapshot && data.territories && data.territories[this.snapshot]) || [];
       this.territoryById = Object.fromEntries(this.territories.map((t) => [t.id, t]));
       for (const c of Object.values(this.cities)) {
         const t = this.territoryAt(c.lat, c.lng);
@@ -109,7 +143,14 @@
       const nile = new Set(tags.nile || []);
       for (const r of this.routes) {
         if (nile.has(r.id)) r.nile = true;
-        this.profileEdge(r);
+        const key = `${r.id}|${this.snapshot || 'none'}`;
+        let prof = PROFILE_CACHE.get(key);
+        if (!prof) {
+          this.profileEdge(r);
+          prof = { profile: r.profile, realmKm: r.realmKm, realmChanges: r.realmChanges };
+          PROFILE_CACHE.set(key, prof);
+        }
+        Object.assign(r, prof);
       }
     }
 
@@ -345,5 +386,5 @@
     }
   }
 
-  AWT.Router = { Network, haversine, cityInPeriod, routeInPeriod, inMultiPolygon, inRing };
+  AWT.Router = { Network, haversine, cityInPeriod, cityInYear, routeInPeriod, inMultiPolygon, inRing };
 })(typeof window !== 'undefined' ? window : globalThis);

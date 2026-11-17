@@ -2,17 +2,25 @@
 
 A crude "Google Maps for the ancient Mediterranean". Pick a time period, choose two cities, and see how a traveller of that age could get between them, using roads, sea lanes and rivers that appear in the historical sources.
 
-## Periods
+## A sliding timeline
 
-| Period | Setting | Places | Routes |
-| --- | --- | --- | --- |
-| **500 BC** | Achaemenid Persia, the Greek and Phoenician cities, early Rome, Carthage | 65 | 78 |
-| **0 CE** | The Roman Empire under Augustus, Parthia, Nabataea, Kush | 114 | 151 |
-| **300 CE** | Diocletian's Tetrarchy, from Hadrian's Wall to beyond the Tigris; Sasanian Persia | 111 | 155 |
-| **500 CE** | Ostrogothic Italy, Vandal Africa, the Visigoths and Franks, the Eastern Roman Empire, Sasanian Persia | 101 | 134 |
-| **565 CE** | Justinian's reconquests: only the Eastern Romans remain, holding Italy and Africa again; Frankish Gaul, Visigothic Spain | 102 | 136 |
+A **year slider** runs from 550 BC to 600 CE. Places and routes have validity ranges, so they drop in and out as you drag: Alexandria appears in 331 BC, Persepolis burns in 330 BC, the Via Appia opens in 312 BC, Carthage and Corinth lie in ruins from 146 BC to 44 BC, Pompeii is buried in 79 CE, and Byzantium becomes Constantinopolis in 330. A side panel lists the dated changes within 40 years of the current year, and places that have just appeared pulse on the map.
 
-Cities show up only in the periods when they existed or mattered (Alexandria isn't there in 500 BC, Susa is gone by 0 CE), and their names change with the period: Byzantion, then Byzantium, then Constantinopolis.
+- **Places** have *eras*: from-year, to-year, name, importance and note (`city.eras`). Gaps and renamings are allowed. Popups show a place's name history.
+- **Routes** have *spans* (`route.spans`) and are usable while a span covers the year and both of their places exist.
+- **Borders** are hand-drawn snapshots, each shown only within the window it is roughly right for:
+
+| Snapshot | Shown for | Setting |
+| --- | --- | --- |
+| 500 BC | 550–335 BC | Achaemenid Persia, the Greek and Phoenician cities, early Rome, Carthage |
+| 1 CE | 30 BC – 40 CE | The Roman Empire under Augustus, Parthia, Nabataea, Kush |
+| 300 CE | 285–330 CE | Diocletian's Tetrarchy, from Hadrian's Wall to beyond the Tigris; Sasanian Persia |
+| 500 CE | 476–507 CE | Ostrogothic Italy, Vandal Africa, Visigoths and Franks, the Eastern Roman Empire |
+| 565 CE | 554–568 CE | Justinian's reconquests: only the Eastern Romans remain |
+
+Between windows the map shows no borders and says so, and the border-based weights switch off. The five snapshots are also quick-jump buttons.
+
+**Where the dates come from:** the underlying data is written as entries for those five anchor years. `js/data/timeline.js` turns each entry into an era that covers the years up to halfway to the neighbouring anchors. Real dates override those defaults: foundings, destructions, renamings and road construction, listed in `CITY_DATES` and `ROUTE_DATES`. Estimated boundaries are shown as "c." in the app. A place without a known founding date joins the graph once a route connects it to the main network. The test suite sweeps every 5 years to check that no place is ever stranded.
 
 ## Features
 
@@ -91,6 +99,7 @@ js/data/cities.js     cities, with a name, rank and note for each period
 js/data/routes.js     routes: mode, periods, drawing waypoints, description, sources
 js/data/waypoints.js  named points used to draw sea lanes and roads
 js/data/later-periods.js  300 CE & 565 CE city entries, new places and route rules
+js/data/timeline.js       eras for places, spans for routes, known dates, border snapshot windows, dated events
 js/data/territories.js    generated territory polygons (npm run build:territories)
 js/data/land.js       generated coastline data (npm run build:land)
 tools/territories.src.js  hand-drawn territory outlines (edit these, then rebuild)
@@ -112,5 +121,6 @@ tests/validate.js     data integrity and router tests (npm test)
 - Travel times are rough estimates. They come from distance and round-number speeds: about 30 km/day on foot, about 120 km/day for a merchant ship including waits, and faster for couriers.
 - Routes are drawn schematically.
 - The coastlines are modern. Ancient Miletus and Ephesus were on the sea, and the Nile delta and the Po delta were different.
+- Dates between the anchor years are estimates unless listed in `js/data/timeline.js`, and place notes describe their anchor year (popups say so when you are far from it).
 - Political labels and territory borders are approximate and drawn by hand. Ancient frontiers were often zones rather than lines, and control of deserts and mountains was loose. The open sea is treated as nobody's.
 - For serious work, see Stanford's [ORBIS](https://orbis.stanford.edu/) model and the Barrington Atlas.

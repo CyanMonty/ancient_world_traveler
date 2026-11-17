@@ -8,7 +8,7 @@ const assert = require('assert');
 const ctx = { console };
 vm.createContext(ctx);
 vm.runInContext('var window = globalThis;', ctx);
-for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/data/later-periods.js', 'js/data/territories.js', 'js/data/zones.js', 'js/weights.js', 'js/router.js']) {
+for (const f of ['js/data/periods.js', 'js/data/waypoints.js', 'js/data/cities.js', 'js/data/routes.js', 'js/data/later-periods.js', 'js/data/timeline.js', 'js/data/territories.js', 'js/data/zones.js', 'js/weights.js', 'js/router.js']) {
   vm.runInContext(fs.readFileSync(path.join(__dirname, '..', f), 'utf8'), ctx, { filename: f });
 }
 const AWT = ctx.AWT;
@@ -160,6 +160,42 @@ for (const pid of periodIds) {
   assert(res.search.settled.length > 1 && res.search.settled[0].node === 'rome', 'search trace recorded');
   for (let i = 1; i < res.search.settled.length; i++) assert(res.search.settled[i].dist >= res.search.settled[i - 1].dist - 1e-9, 'Dijkstra settles in order');
   console.log(`Alps (Mediolanum→Lugdunum) July ${jul.days.toFixed(1)}d, January ${jan.days.toFixed(1)}d; Rome→Athens search settled ${res.search.settled.length} of ${res.search.nodes} nodes`);
+}
+
+// Sliding year: every place present in a year must be reachable from the main network
+{
+  const fy = AWT.timeline.fmtYear;
+  const stranded = {};
+  for (let y = AWT.timeline.min; y <= AWT.timeline.max; y += 5) {
+    if (y === 0) continue;
+    const net = new Network(data, y);
+    const adj = net.adjacency({ effects: { sailing: false, passes: false } });
+    const ids = Object.keys(net.cities);
+    let main = new Set();
+    const seen = new Set();
+    for (const s0 of ids) {
+      if (seen.has(s0)) continue;
+      const comp = new Set([s0]);
+      const st = [s0];
+      seen.add(s0);
+      while (st.length) for (const e of adj[st.pop()]) if (!seen.has(e.to)) seen.add(e.to), comp.add(e.to), st.push(e.to);
+      if (comp.size > main.size) main = comp;
+    }
+    for (const id of ids) if (!main.has(id)) (stranded[id] = stranded[id] || []).push(y);
+  }
+  for (const [id, ys] of Object.entries(stranded)) check(false, `${id} is cut off from the network in ${ys.map(fy).join(', ')}`);
+  // places drop in and out
+  const ids = (y) => Object.keys(new Network(data, y).cities);
+  assert(!ids(-400).includes('alexandria') && ids(-300).includes('alexandria'), 'Alexandria founded 331 BC');
+  assert(ids(-100).includes('carthage') && new Network(data, -100).cities.carthage.name === 'Ruins of Carthage');
+  assert(ids(70).includes('pompeii') && !ids(80).includes('pompeii'), 'Pompeii buried AD 79');
+  assert(new Network(data, 320).cities.byzantium.name === 'Byzantium' && new Network(data, 340).cities.byzantium.name === 'Constantinopolis');
+  assert(ids(-340).includes('persepolis') && !ids(-320).includes('persepolis'), 'Persepolis burned 330 BC');
+  const n200 = new Network(data, 200);
+  assert.strictEqual(n200.snapshot, null, 'no border map in 200 CE');
+  assert.strictEqual(new Network(data, -320).territories.length, 0, 'no Persian borders after Alexander');
+  assert.strictEqual(new Network(data, 300).snapshot, '300ce');
+  console.log(`200 CE: ${Object.keys(n200.cities).length} places, ${n200.routes.length} routes, no border map (between snapshots)`);
 }
 
 if (failures) {
